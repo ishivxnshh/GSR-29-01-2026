@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8MNQVMJ392');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Space - Home Loan Calculator</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/web-images/favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#2165e4',
+                        'dark-overlay': 'rgba(0, 0, 0, 0.4)',
+                        'light-border': '#e0e0e0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-link:hover {
+            color: #1a4e9b;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Custom styles for range input track */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #e0e0e0;
+            border-radius: 5px;
+            height: 8px;
+            outline: none;
+        }
+
+        /* Custom styles for range input thumb */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #2165e4;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(33, 101, 228, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #2165e4;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(33, 101, 228, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.is-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal.is-active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #1f2937;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation Menu -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-7xl px-4 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/assets/images/web-images/favicon.png" alt="Global Space Logo"
+                    class="w-30 h-10">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-gray-700 font-bold">Home</a>
+                <a href="/about" class="nav-link text-gray-700 font-bold">About</a>
+                <a href="/city/" class="nav-link text-gray-700 font-bold">Cities</a>
+                <a href="/blog/" class="nav-link text-gray-700 font-bold">Blogs</a>
+                <a href="/contact" class="nav-link text-gray-700 font-bold">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="/" class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="/about"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">About</a>
+                <a href="/city/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Cities</a>
+                <a href="/blog/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Blogs</a>
+                <a href="/contact"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="bg-main-blue py-12">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Home Loan EMI Calculator</h1>
+            <p class="text-white opacity-90">Plan your finances with our easy-to-use EMI calculator.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div id="full-calculator" class="max-w-3xl mx-auto mt-4">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-2xl border border-light-border">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">EMI Breakdown Analyzer</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Calculator Form -->
+                        <div>
+                            <form id="loan-calculator-form" class="space-y-6">
+                                <div>
+                                    <label for="principal" class="block text-gray-700 font-semibold mb-2">Loan Principal
+                                        (₹)</label>
+                                    <input type="range" id="principal-range" min="100000" max="100000000" step="100000"
+                                        value="5000000"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                    <input type="number" id="principal" value="5000000" min="10000" max="100000000"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue mt-2"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="interestRate" class="block text-gray-700 font-semibold mb-2">Annual
+                                        Interest Rate (%)</label>
+                                    <input type="range" id="interestRate-range" min="1" max="15" step="0.1" value="8.5"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                    <input type="number" id="interestRate" value="8.5" step="0.01" min="0.1" max="50"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue mt-2"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="loanTerm" class="block text-gray-700 font-semibold mb-2">Loan Term
+                                        (Years)</label>
+                                    <input type="range" id="loanTerm-range" min="1" max="30" step="1" value="20"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                    <input type="number" id="loanTerm" value="20" min="1" max="50"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue mt-2"
+                                        required>
+                                </div>
+                                <button type="submit" id="calculate-emi-btn-full"
+                                    class="w-full p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300">
+                                    Calculate Monthly EMI
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Results and Chart -->
+                        <div>
+                            <div id="results" class="space-y-4">
+                                <div
+                                    class="flex justify-between items-center p-3 bg-white rounded-lg shadow-md border border-main-blue/20">
+                                    <span class="text-gray-600 font-medium">Monthly EMI:</span>
+                                    <span id="monthly-emi" class="text-2xl font-extrabold text-main-blue">₹51,000</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
+                                    <span class="text-gray-600 font-medium">Total Interest Payable:</span>
+                                    <span id="total-interest" class="text-lg font-bold text-gray-900">₹72,40,000</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
+                                    <span class="text-gray-600 font-medium">Total Payment (P + I):</span>
+                                    <span id="total-payment" class="text-lg font-bold text-gray-900">₹1,22,40,000</span>
+                                </div>
+                                <!-- Chart Area -->
+                                <div class="mt-6 bg-white p-4 rounded-lg shadow-inner border border-gray-200">
+                                    <h4 class="text-center font-bold text-gray-700 mb-4">Principal vs. Total Cost</h4>
+                                    <div class="w-full h-64 flex justify-center items-center">
+                                        <canvas id="emi-pie-chart" class="max-w-xs"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-main-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <li><a href="/calculator/" class="hover:underline">Loan Calculator</a></li>
+                        <li><a href="/sitemap/" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 , Near Station CBD Belapur Opp to BP Marine Academy Above
+                            Federal Bank Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook"
+                                class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn"
+                                class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube"
+                                class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest"
+                                class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram"
+                                class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter"
+                                class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400">© 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+
+    <!-- Lead Capture Modal (Hidden by default) -->
+    <div id="lead-capture-modal" class="modal">
+        <div class="modal-content relative">
+            <button class="modal-close" id="lead-capture-close-btn">
+                &times;
+            </button>
+            <h3 class="text-2xl font-bold text-main-blue mb-4 text-center">Get Expert Advice</h3>
+            <p class="text-gray-600 mb-6 text-center">Need help planning your loan? Connect with our financial experts
+                today.</p>
+            <form id="lead-capture-form" class="space-y-4">
+                <div>
+                    <label for="lead-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="lead-name" name="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="lead-phone" class="block text-gray-700 font-semibold mb-2">Phone No.</label>
+                    <input type="tel" id="lead-phone" name="phone"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="lead-email" class="block text-gray-700 font-semibold mb-2">Email ID</label>
+                    <input type="email" id="lead-email" name="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300 shadow-md">
+                    Request Call Back
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Loan Calculator Logic ---
+        let emiPieChartInstance = null;
+        let calculationCount = 0; // Track number of times calculate is clicked
+
+        // Helper function for currency formatting (Indian Rupee)
+        const formatter = new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        });
+
+        function calculateEMI(P, R, N) {
+            // P = Principal (loan amount)
+            // R = Monthly Interest Rate (annual rate / 12 / 100)
+            // N = Total number of months (loan term in years * 12)
+            if (R === 0) {
+                return P / N;
+            }
+            const powerFactor = Math.pow(1 + R, N);
+            return P * R * powerFactor / (powerFactor - 1);
+        }
+
+        function updatePieChart(principal, totalInterest) {
+            const chartData = {
+                labels: ['Principal Loan Amount', 'Total Interest Paid'],
+                datasets: [{
+                    data: [principal, totalInterest],
+                    backgroundColor: [
+                        '#2165e4', // Main Blue for Principal
+                        '#ff9900'  // Orange/Gold for Interest
+                    ],
+                    hoverOffset: 10,
+                }]
+            };
+
+            const config = {
+                type: 'pie',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: false,
+                        }
+                    }
+                }
+            };
+
+            const ctx = document.getElementById('emi-pie-chart').getContext('2d');
+
+            // Destroy existing chart instance if it exists
+            if (emiPieChartInstance) {
+                emiPieChartInstance.destroy();
+            }
+
+            // Create new chart instance
+            emiPieChartInstance = new Chart(ctx, config);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Loan Calculator Elements
+            const loanForm = document.getElementById('loan-calculator-form');
+            const monthlyEmiEl = document.getElementById('monthly-emi');
+            const totalInterestEl = document.getElementById('total-interest');
+            const totalPaymentEl = document.getElementById('total-payment');
+
+            // Lead Capture Modal Elements
+            const leadCaptureModal = document.getElementById('lead-capture-modal');
+            const leadCaptureCloseBtn = document.getElementById('lead-capture-close-btn');
+            const leadCaptureForm = document.getElementById('lead-capture-form');
+
+            // Range input synchronization
+            const syncInputs = (rangeId, numberId) => {
+                const range = document.getElementById(rangeId);
+                const number = document.getElementById(numberId);
+                range.addEventListener('input', () => {
+                    number.value = range.value;
+                });
+                number.addEventListener('input', () => {
+                    range.value = number.value;
+                });
+                number.addEventListener('change', () => {
+                    // Ensure number input respects range min/max constraints on change/blur
+                    if (parseFloat(number.value) < parseFloat(range.min)) number.value = range.min;
+                    if (parseFloat(number.value) > parseFloat(range.max)) number.value = range.max;
+                    range.value = number.value;
+                });
+            };
+
+            syncInputs('principal-range', 'principal');
+            syncInputs('interestRate-range', 'interestRate');
+            syncInputs('loanTerm-range', 'loanTerm');
+
+            // Initial calculation display for a good first impression
+            const initialPrincipal = parseFloat(document.getElementById('principal').value);
+            const initialAnnualRate = parseFloat(document.getElementById('interestRate').value);
+            const initialTermYears = parseInt(document.getElementById('loanTerm').value);
+
+            const initialR = initialAnnualRate / (12 * 100);
+            const initialN = initialTermYears * 12;
+            const initialEmi = calculateEMI(initialPrincipal, initialR, initialN);
+            const initialTotalPayment = initialEmi * initialN;
+            const initialTotalInterest = initialTotalPayment - initialPrincipal;
+
+            monthlyEmiEl.textContent = formatter.format(initialEmi);
+            totalInterestEl.textContent = formatter.format(initialTotalInterest);
+            totalPaymentEl.textContent = formatter.format(initialTotalPayment);
+            updatePieChart(initialPrincipal, initialTotalInterest);
+
+            // Loan Calculator Form Submission
+            loanForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Increment click count and check if modal should be shown
+                calculationCount++;
+                if (calculationCount === 2) {
+                    leadCaptureModal.classList.add('is-active');
+                }
+
+                const showMessage = (msg, type = 'error') => {
+                    const messageBox = document.createElement('div');
+                    const bgColor = type === 'error' ? 'bg-red-500' : 'bg-green-500';
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-50 transition-opacity duration-300 opacity-0`;
+                    messageBox.innerText = msg;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => { messageBox.classList.add('opacity-100'); }, 10);
+                    setTimeout(() => { messageBox.classList.remove('opacity-100'); }, 3000);
+                    setTimeout(() => messageBox.remove(), 3500);
+                };
+
+                const principal = parseFloat(document.getElementById('principal').value);
+                const annualRate = parseFloat(document.getElementById('interestRate').value);
+                const termYears = parseInt(document.getElementById('loanTerm').value);
+
+                if (isNaN(principal) || isNaN(annualRate) || isNaN(termYears) || principal <= 0 || annualRate < 0 || termYears <= 0) {
+                    showMessage('Please enter valid positive values for all fields.', 'error');
+                    return;
+                }
+
+                const R = annualRate / (12 * 100); // Monthly rate
+                const N = termYears * 12; // Total months
+                const emi = calculateEMI(principal, R, N);
+
+                const totalPayment = emi * N;
+                const totalInterest = totalPayment - principal;
+
+                // Display results
+                monthlyEmiEl.textContent = formatter.format(emi);
+                totalInterestEl.textContent = formatter.format(totalInterest);
+                totalPaymentEl.textContent = formatter.format(totalPayment);
+
+                // Update the visual chart
+                updatePieChart(principal, totalInterest);
+            });
+
+            // Modal Logic
+            if (leadCaptureCloseBtn) {
+                leadCaptureCloseBtn.addEventListener('click', () => {
+                    leadCaptureModal.classList.remove('is-active');
+                });
+            }
+
+            leadCaptureModal.addEventListener('click', (e) => {
+                if (e.target === leadCaptureModal) {
+                    leadCaptureModal.classList.remove('is-active');
+                }
+            });
+
+            // CRM Form Submission Logic for the Lead Capture Modal
+            leadCaptureForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const crmData = {
+                    name: document.getElementById('lead-name').value,
+                    phone: document.getElementById('lead-phone').value,
+                    email: document.getElementById('lead-email').value,
+                    source: 'Loan Calculator - Engagement Popup'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                let message = '', bgColor = '';
+
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    message = 'Thank you! Our expert will call you shortly.';
+                    bgColor = 'bg-green-500';
+                } catch (error) {
+                    console.error('Error submitting Lead Capture Form to CRM:', error);
+                    message = 'There was an error, but we received your details.';
+                    bgColor = 'bg-red-500';
+                } finally {
+                    const messageBox = document.createElement('div');
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-[200]`;
+                    messageBox.innerText = message;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => messageBox.remove(), 4000);
+
+                    leadCaptureModal.classList.remove('is-active');
+                    leadCaptureForm.reset();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

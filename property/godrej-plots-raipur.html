@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- INTELLIGENCE: Updated Title for Raipur Project -->
+    <title>Godrej Plots Raipur | Upcoming Premium Plotted Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            /* Add padding bottom for mobile nav */
+            padding-bottom: 70px;
+        }
+
+        /* Define the custom primary green color for Nature/Plots theme */
+        .bg-global-green {
+            background-color: #059669;
+            /* Emerald 600 */
+        }
+
+        .text-global-green {
+            color: #059669;
+        }
+
+        .border-global-green {
+            border-color: #059669;
+        }
+
+        /* NEW: Animation for the Welcome Popup */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Custom Float Animation for the Brochure Button */
+        @keyframes float-y {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float-y 3s ease-in-out infinite;
+        }
+
+        /* Subtle Float for Sticky Button */
+        @keyframes float-y-sm {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .animate-float-sm {
+            animation: float-y-sm 3s ease-in-out infinite;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* For phones, the contact form background will be a solid color */
+        @media (max-width: 639px) {
+            #contact {
+                background-image: none;
+                background-color: #064e3b;
+                /* Dark Green */
+            }
+        }
+
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.is-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 0;
+            border-radius: 4px;
+            /* Sharper border radius */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 90%;
+            width: 420px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden;
+            /* Green Outline for Modals - Increased thickness */
+            border: 2px solid #059669;
+        }
+
+        .modal.is-active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            color: #6b7280;
+            background-color: #f3f4f6;
+            border-radius: 9999px;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #111827;
+            background-color: #e5e7eb;
+            transform: rotate(90deg);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <!-- Success Message Box -->
+    <div id="success-message" class="message-box">
+        Form submitted successfully!
+    </div>
+
+    <!-- Mobile Top Sticky Button (Hidden initially, shown on scroll) -->
+    <div id="mobile-sticky-top"
+        class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md p-3 flex justify-between items-center transform -translate-y-full transition-transform duration-300 md:hidden">
+        <span class="font-bold text-gray-800 text-sm">Godrej Raipur</span>
+        <button id="mobile-top-brochure-btn"
+            class="bg-green-600 text-white px-4 py-2 rounded-full font-bold text-xs flex items-center shadow-lg active:scale-95 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Brochure
+        </button>
+    </div>
+
+    <!-- Mobile Bottom Sticky Nav -->
+    <div
+        class="fixed bottom-0 left-0 right-0 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] z-50 flex justify-between items-center px-6 py-3 sm:hidden border-t border-gray-100">
+        <a href="tel:+917400400373" class="flex flex-col items-center text-gray-600 hover:text-green-600 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="text-[10px] font-medium uppercase tracking-wide">Call</span>
+        </a>
+
+        <!-- UPDATED WHATSAPP MESSAGE FOR RAIPUR -->
+        <a id="whatsapp-mobile-btn"
+            href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20Godrej%20Plots%20Raipur"
+            class="flex flex-col items-center text-gray-600 hover:text-green-600 transition" target="_blank"
+            rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span class="text-[10px] font-medium uppercase tracking-wide">WhatsApp</span>
+        </a>
+
+        <button id="mobile-brochure-btn"
+            class="bg-green-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg hover:bg-green-700 transition transform active:scale-95">
+            Enquire
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <main class="flex-grow">
+        <div class="relative w-full h-96 md:h-[600px] overflow-hidden">
+            <!-- Hero Slideshow Container -->
+            <div id="hero-carousel" class="absolute inset-0 w-full h-full">
+                <!-- Slide 1: Forest/Plot Theme -->
+                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/hero01.webp"
+                    width="1920" height="1080" fetchpriority="high"
+                    class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100"
+                    alt="Godrej Plots Raipur Entrance">
+
+                <!-- Slide 2: Nature -->
+                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/hero02.webp"
+                    width="1920" height="1080" fetchpriority="high"
+                    class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
+                    alt="Resort Living">
+
+                <!-- Slide 3: Plots -->
+                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/hero03.webp"
+                    width="1920" height="1080" fetchpriority="high"
+                    class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
+                    alt="Residential Plots">
+            </div>
+
+            <!-- Dark Overlay & Text -->
+            <div
+                class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 md:p-16 z-10 pointer-events-none">
+                <!-- UPDATED: Flex container to align Text (left) and Button (right) -->
+                <div class="w-full flex flex-col md:flex-row justify-between items-end gap-4">
+                    <div class="text-white">
+                        <h1 class="text-2xl sm:text-3xl md:text-6xl font-extrabold mb-2 leading-tight">Godrej Plots
+                            Raipur
+                        </h1>
+                        <p class="text-sm sm:text-xl md:text-3xl font-light opacity-90">Upcoming Premium Plotted
+                            Development
+                        </p>
+                    </div>
+
+                    <!-- NEW: Animated Download Brochure Button (Triggers Popup) -->
+                    <button id="hero-brochure-btn"
+                        class="pointer-events-auto bg-white text-green-700 hover:bg-green-50 font-bold py-3 px-6 rounded-full shadow-lg transform transition hover:scale-105 flex items-center animate-float group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 group-hover:animate-bounce"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download Brochure
+                    </button>
+                </div>
+            </div>
+
+            <a href="/" aria-label="Back to Home" title="Back to Home"
+                class="md:hidden absolute top-4 left-4 z-30 bg-white text-gray-800 p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"
+                    aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Sticky Navigation -->
+        <nav class="sticky top-0 z-20 bg-white shadow-lg py-4 hidden md:block">
+            <!-- Changed flex container to relative + justify-center for centering text links, with absolute button -->
+            <div class="container mx-auto px-4 relative flex justify-center items-center">
+
+                <!-- Navigation Links (Centered) -->
+                <div class="flex items-center overflow-x-auto whitespace-nowrap scrollbar-hide">
+                    <a href="#overview"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Overview</a>
+                    <a href="#costing"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Costing</a>
+                    <a href="#floor-map"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Master
+                        Plan</a>
+                    <a href="#amenities"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Amenities</a>
+                    <a href="#location"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Location</a>
+                    <a href="#virtual-visit"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Video
+                        Tour</a>
+                    <a href="#contact"
+                        class="text-gray-700 hover:text-green-600 font-medium px-4 py-2 transition-colors">Contact</a>
+                </div>
+
+                <!-- Sticky Download Button (Absolute Right, Hidden initially) -->
+                <button id="sticky-brochure-btn"
+                    class="absolute right-4 bg-green-600 text-white px-5 py-2 rounded-full font-bold text-sm shadow hover:bg-green-700 transition-all duration-500 flex items-center opacity-0 pointer-events-none translate-y-2 animate-float-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Brochure
+                </button>
+            </div>
+        </nav>
+
+        <!-- UPDATED: Dynamic Back Button (Navigates to previous page source) -->
+        <button
+            onclick="if(document.referrer) { window.location.href = document.referrer; } else { window.location.href = '/'; }"
+            id="back-to-city-link"
+            class="hidden md:block fixed top-4 left-4 z-30 bg-white text-gray-800 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors focus:outline-none">
+            Back
+        </button>
+
+        <!-- Overview Section -->
+        <section id="overview" class="container mx-auto px-4 py-8 md:p-16">
+            <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Project Overview</h2>
+
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <div class="w-full lg:w-1/2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div
+                            class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                            <svg class="w-8 h-8 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <h2 class="font-bold text-gray-800 text-sm md:text-base">Location</h2>
+                                <p class="text-xs md:text-sm text-gray-600">Raipur, Chhattisgarh</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                            <svg class="w-8 h-8 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2z"></path>
+                            </svg>
+                            <div>
+                                <h2 class="font-bold text-gray-800 text-sm md:text-base">Configurations</h2>
+                                <p class="text-xs md:text-sm text-gray-600">Upcoming Plots</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-sm md:text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+                        <b>Godrej Plots Raipur (Upcoming)</b></br>
+                        Godrej Properties is set to introduce an upcoming premium plotted development in Raipur,
+                        designed for homebuyers and investors looking for secure, future-ready land ownership. This
+                        thoughtfully planned township will offer well-demarcated residential plots within a gated
+                        layout, combining modern infrastructure with the comfort of open green spaces.
+                        Spread across a large land parcel, the project is expected to feature spacious plot
+                        configurations suitable for villas, independent homes, and long-term investment.
+                    </p>
+
+                    <div id="overview-hidden" class="hidden transition-all duration-500 ease-in-out">
+                        <p class="text-sm md:text-lg text-gray-700 leading-relaxed text-justify">
+                            The layout will follow Godrej Properties’ hallmark planning standards, ensuring wide
+                            internal roads, efficient drainage, underground utilities, landscaped open areas, and
+                            essential civic infrastructure.
+                            </br></br>
+                            Proposed plot sizes are expected to range across multiple configurations, catering to both
+                            end-users and investors seeking flexibility. With legal clarity, organized development, and
+                            the trusted Godrej brand, this project aims to redefine plotted living in Raipur. Located in
+                            one of Raipur’s fast-developing growth corridors, Godrej Plots Raipur is positioned to
+                            benefit from upcoming infrastructure, residential demand, and capital appreciation.
+                        </p>
+                    </div>
+
+                    <button id="overview-toggle-btn"
+                        class="mt-2 flex items-center text-green-600 font-bold hover:text-green-800 transition-colors focus:outline-none group text-sm md:text-base">
+                        <span id="overview-btn-text">View More</span>
+                        <svg id="overview-arrow" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-300 group-hover:translate-y-1"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- RIGHT COLUMN: Image Carousel -->
+                <div class="w-full lg:w-1/2">
+                    <div
+                        class="relative w-full h-64 md:h-[400px] rounded-xl overflow-hidden shadow-xl group bg-gray-100">
+                        <div id="overview-carousel-wrapper"
+                            class="flex transition-transform duration-500 ease-out h-full">
+                            <!-- Slides -->
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/01.webp"
+                                    class="w-full h-full object-cover" alt="Nature Living">
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/02.webp"
+                                    class="w-full h-full object-cover" alt="Clubhouse">
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/03.webp"
+                                    class="w-full h-full object-cover" alt="Orchards">
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/04.webp"
+                                    class="w-full h-full object-cover" alt="Orchards">
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/05.webp"
+                                    class="w-full h-full object-cover" alt="Orchards">
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="/assets/images/sub-landing-page/godrej-plot-raipur/06.webp"
+                                    class="w-full h-full object-cover" alt="Orchards">
+                            </div>
+                        </div>
+
+                        <!-- Prev Button -->
+                        <button id="overview-prev"
+                            class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <!-- Next Button -->
+                        <button id="overview-next"
+                            class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Costing Section -->
+        <section id="costing" class="container mx-auto px-4 py-8 md:p-16 bg-white shadow-lg rounded-2xl">
+            <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Plot Configurations</h2>
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center">
+                <!-- 1000 Sqft -->
+                <div class="bg-green-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 unlock-price-btn"
+                    data-price-type="1000 Sq.ft Plot">
+                    <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">1000 Sq.ft</h3>
+                    <p class="text-sm md:text-xl text-green-600 font-semibold">₹ Unlock</p>
+                    <p class="text-[10px] md:text-xs text-gray-500 mt-1">Request Cost Sheet</p>
+                </div>
+                <!-- 1500 Sqft -->
+                <div class="bg-green-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 unlock-price-btn"
+                    data-price-type="1500 Sq.ft Plot">
+                    <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">1500 Sq.ft</h3>
+                    <p class="text-sm md:text-xl text-green-600 font-semibold">₹ Unlock</p>
+                    <p class="text-[10px] md:text-xs text-gray-500 mt-1">Request Cost Sheet</p>
+                </div>
+                <!-- 1800 Sqft -->
+                <div class="bg-green-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 unlock-price-btn"
+                    data-price-type="1800 Sq.ft Plot">
+                    <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">1800 Sq.ft</h3>
+                    <p class="text-sm md:text-xl text-green-600 font-semibold">₹ Unlock</p>
+                    <p class="text-[10px] md:text-xs text-gray-500 mt-1">Request Cost Sheet</p>
+                </div>
+                <!-- 2000 Sqft -->
+                <div class="bg-green-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 unlock-price-btn"
+                    data-price-type="2000 Sq.ft Plot">
+                    <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">2000 Sq.ft+</h3>
+                    <p class="text-sm md:text-xl text-green-600 font-semibold">₹ Unlock</p>
+                    <p class="text-[10px] md:text-xs text-gray-500 mt-1">Request Cost Sheet</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Master Plan Section -->
+        <section id="floor-map" class="container mx-auto px-4 py-8 md:p-16">
+            <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Site & Floor Map</h2>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+                <div class="relative w-full max-w-2xl mx-auto aspect-video rounded-xl shadow-lg overflow-hidden border-4 border-white bg-gray-100 group cursor-pointer unlock-map-btn"
+                    data-map-type="Master Plan">
+                    <img src="/assets/images/sub-landing-page/godrej-plot-raipur/master-plan.webp"
+                        alt="Master Plan"
+                        class="w-full h-full object-cover blur-sm map-image transition-all duration-700">
+
+                    <div
+                        class="absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all map-overlay">
+                        <div class="p-3 bg-white/30 backdrop-blur-md rounded-full mb-2 border border-white/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <span class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md">View Master
+                            Layout</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities Section -->
+        <section id="amenities" class="container mx-auto px4 py-8 md:p-16 bg-white shadow-lg rounded-2x1">
+            <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-8 text-center">World-Class Amenities</h2>
+
+            <!-- Amenities Carousel -->
+            <div
+                class="relative w-full max-w-4xl mx-auto h-96 md:h-[600px] mb-12 rounded-xl overflow-hidden shadow-xl group">
+                <div id="amenities-carousel-wrapper" class="flex transition-transform duration-500 ease-out h-full">
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/07.webp"
+                            class="w-full h-full object-cover" alt="Clubhouse">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/08.webp"
+                            class="w-full h-full object-cover" alt="Organic Farm">
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/09.webp"
+                            class="w-full h-full object-cover" alt="Swimming Pool">
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/10.webp"
+                            class="w-full h-full object-cover" alt="Meditation Deck">
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/11.webp"
+                            class="w-full h-full object-cover" alt="Kids Play Area">
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/12.webp"
+                            class="w-full h-full object-cover" alt="Garden">
+                    </div>
+                    <!-- Slide 7 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/13.webp"
+                            class="w-full h-full object-cover" alt="Garden">
+                    </div>
+                    <!-- Slide 8 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/14.webp"
+                            class="w-full h-full object-cover" alt="Garden">
+                    </div>
+                </div>
+
+                <button id="amenities-prev"
+                    class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="amenities-next"
+                    class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Nature & Wellness -->
+                <div>
+                    <h3
+                        class="text-lg md:text-2xl font-bold text-global-green mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
+                        <span class="mr-3 text-xl md:text-3xl">🌿</span> Nature & Wellness
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Organic Farming</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Fruit Orchards</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Meditation Deck</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Star Gazing Deck</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Nature Trails</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recreation -->
+                <div>
+                    <h3
+                        class="text-lg md:text-2xl font-bold text-global-green mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
+                        <span class="mr-3 text-xl md:text-3xl">🏊</span> Recreation
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Luxury Clubhouse</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Swimming Pool</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Camping Zone</span>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-xs md:text-base text-gray-700">Kids Play Area</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="container mx-auto px-4 py-8 md:p-16">
+            <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Strategic Location</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div class="order-2 lg:order-1">
+                    <div class="mb-6">
+                        <h3 class="text-base md:text-xl font-bold text-global-green mb-2">Connectivity & Convenience
+                        </h3>
+                        <p class="text-sm md:text-lg text-gray-700 leading-relaxed text-justify">
+                            Godrej Plots Raipur will enjoy excellent connectivity to major landmarks, business zones,
+                            and daily conveniences, ensuring ease of living and strong future value.
+                        </p>
+                    </div>
+
+                    <!-- Location Data Grid (Raipur Specific) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base border-b pb-1 mb-2">Key Connectivity
+                            </h4>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-600">
+                                <li>➤ NH-53 (National Highway) – <strong>0 km</strong></li>
+                                <li>➤ NH-30 (Connects to Raipur) – <strong>0 km</strong></li>
+                                <li>➤ Raipur–Bilaspur Expy – <strong>2 km</strong></li>
+                                <li>➤ Raipur Metro (Phase 1) – <strong>2–5 km</strong></li>
+                                <li>➤ Pandri Bus Stand – <strong>3.5 km</strong></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base border-b pb-1 mb-2">Major Hubs</h4>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-600">
+                                <li>➤ Gol Bazar – <strong>3 km</strong></li>
+                                <li>➤ Shankar Nagar Market – <strong>5 km</strong></li>
+                                <li>➤ Telibandha Area – <strong>6 km</strong></li>
+                                <li>➤ Naya Raipur (Atal Nagar) – <strong>20 km</strong></li>
+                                <li>➤ Swami Vivekananda Airport – <strong>~25 mins</strong></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base border-b pb-1 mb-2">Approximate Time
+                            </h4>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-600">
+                                <li>➤ Raipur Railway Station – <strong>~25–35 mins</strong></li>
+                                <li>➤ Pandri Market – <strong>~20–30 mins</strong></li>
+                                <li>➤ NH-30 / NH-53 – <strong>~10–15 mins</strong></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base border-b pb-1 mb-2">Nearby</h4>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-600">
+                                <li>➤ Schools & Hospitals – <strong>10–20 mins</strong></li>
+                                <li>➤ Commercial Hubs – <strong>10–20 mins</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 w-full">
+                    <div
+                        class="rounded-xl shadow-xl overflow-hidden aspect-square border-4 border-white unlock-location-btn cursor-pointer group relative">
+                        <img src="/assets/images/sub-landing-page/godrej-plot-raipur/map.webp"
+                            alt="Map showing Raipur location"
+                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all hidden group-hover:flex">
+                            <span
+                                class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md bg-black/50 px-4 py-2 rounded">View
+                                Full Map</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Visit Section -->
+        <section id="virtual-visit" class="container mx-auto px-4 py-8 md:p-16 bg-gray-100 shadow-inner rounded-2xl">
+            <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Virtual Tour</h2>
+            <div id="video-container"
+                class="relative w-full max-w-4xl mx-auto bg-gray-900 rounded-lg shadow-md overflow-hidden group cursor-pointer"
+                style="aspect-ratio: 16/9;">
+
+                <!-- Placeholder Video Link (Replace ID with actual Raipur video if available) -->
+                <iframe id="virtual-iframe" width="560" height="315"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?start=0&autoplay=0&mute=1&controls=0"
+                    title="YouTube video player" frameborder="0"
+                    class="absolute top-0 left-0 w-full h-full pointer-events-none transition-all duration-1000"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <img id="video-thumbnail" src="https://placehold.co/1280x720/000000/ffffff?text=Play+Virtual+Tour"
+                    class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500"
+                    alt="Video Thumbnail">
+
+                <button id="tap-to-play-overlay" type="button"
+                    class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-30 transition-all z-20 cursor-pointer focus:outline-none">
+                    <span
+                        class="text-white font-semibold text-lg md:text-xl tracking-widest uppercase border-2 border-white px-6 py-2 rounded hover:bg-white hover:text-black transition-colors pointer-events-none">
+                        Tap to Play
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact"
+            class="bg-gradient-to-br from-green-700 to-green-900 p-8 md:p-16 rounded-2xl mx-auto container shadow-lg">
+            <div class="max-w-lg mx-auto bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-green-600">
+                <div class="p-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center">Enquire Now</h2>
+                    <p class="text-center text-gray-500 mb-6 text-sm">Register your interest and download the brochure.
+                    </p>
+
+                    <form id="contact-form" class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-xs font-bold text-gray-900 uppercase tracking-wide">Full
+                                Name</label>
+                            <input type="text" id="name" name="name"
+                                class="mt-1 block w-full rounded border border-gray-400 bg-white shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 text-xs p-2.5 transition-colors placeholder-gray-500"
+                                placeholder="Enter your full name" required>
+                        </div>
+                        <div>
+                            <label for="email"
+                                class="block text-xs font-bold text-gray-900 uppercase tracking-wide">Email
+                                Address</label>
+                            <input type="email" id="email" name="email"
+                                class="mt-1 block w-full rounded border border-gray-400 bg-white shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 text-xs p-2.5 transition-colors placeholder-gray-500"
+                                placeholder="Enter your email address" required>
+                        </div>
+                        <div>
+                            <label for="phone"
+                                class="block text-xs font-bold text-gray-900 uppercase tracking-wide">Phone
+                                Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="mt-1 block w-full rounded border border-gray-400 bg-white shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 text-xs p-2.5 transition-colors placeholder-gray-500"
+                                placeholder="Enter your phone number" required>
+                            <span id="phone-error" class="text-xs text-red-600 hidden mt-1 font-medium">Please enter a
+                                valid 10-digit phone number.</span>
+                        </div>
+
+                        <div id="captcha-section" class="space-y-2 hidden">
+                            <label for="captcha-answer" id="captcha-question"
+                                class="block text-xs font-bold text-gray-900 uppercase tracking-wide"></label>
+                            <input type="text" id="captcha-answer" name="captcha-answer"
+                                class="mt-1 block w-full rounded border border-gray-400 bg-white shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 text-xs p-2.5 transition-colors"
+                                placeholder="Enter your answer">
+                            <span id="captcha-error" class="text-xs text-red-600 hidden font-medium"></span>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" id="submit-button"
+                                class="w-full bg-green-700 text-white px-8 py-3 rounded font-bold shadow-lg hover:bg-green-800 uppercase tracking-widest text-xs transition-all transform hover:-translate-y-0.5">
+                                Submit Enquiry
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- REPLACED OLD POPUP WITH NEW "UNIFIED GLASSMORPHISM" DESIGN (Green Theme) -->
+    <div id="welcomePopup" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-0 hidden">
+
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="welcome-popup-backdrop"></div>
+
+        <!-- Modal Content (Unified Design: Image Behind Form) -->
+        <div class="relative w-full max-w-md md:max-w-lg bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col"
+            style="animation: fadeIn 0.5s ease-out;">
+
+            <!-- Close Button -->
+            <button id="welcome-popup-close-btn"
+                class="absolute top-3 right-3 z-20 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition backdrop-blur-md border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Full Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="/assets/images/web-images/index-popup.webp" alt="Luxury Property"
+                    class="w-full h-full object-cover">
+                <!-- Dark Overlay for contrast -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 w-full h-full flex flex-col justify-center p-6 md:p-10">
+
+                <!-- Marketing Text (White text on dark bg) -->
+                <div class="text-center mb-6 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 shadow-sm">Buying a Home in 2026?</h2>
+                    <div
+                        class="inline-block bg-yellow-400 text-black px-3 py-1 font-bold rounded text-sm md:text-base mb-2 shadow-lg transform -rotate-1 border border-yellow-500">
+                        "Things to Check Before Buying"
+                    </div>
+                    <p class="text-gray-200 text-xs md:text-sm mt-2 opacity-90">Download our exclusive checklist for
+                        free.</p>
+                </div>
+
+                <!-- Form Card (Glassmorphism) -->
+                <div class="bg-white/95 backdrop-blur-md rounded-lg p-5 md:p-6 shadow-2xl border-2 border-green-600">
+                    <form id="welcome-popup-form" class="space-y-4">
+                        <div>
+                            <input type="text" id="wp-name" name="name" required placeholder="Full Name"
+                                class="w-full px-3 py-2.5 text-xs rounded border border-gray-300 focus:ring-1 focus:ring-green-600 focus:border-green-600 outline-none transition bg-white placeholder-gray-500 text-gray-900 font-medium">
+                        </div>
+
+                        <div>
+                            <div class="flex">
+                                <span
+                                    class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 bg-gray-100 text-gray-600 text-xs font-bold">
+                                    +91
+                                </span>
+                                <input type="tel" id="wp-phone" name="phone" required placeholder="Phone Number"
+                                    pattern="[0-9]{10}"
+                                    class="w-full px-3 py-2.5 text-xs rounded-r border border-gray-300 focus:ring-1 focus:ring-green-600 focus:border-green-600 outline-none transition bg-white placeholder-gray-500 text-gray-900 font-medium">
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="email" id="wp-email" name="email" required placeholder="Email Address"
+                                class="w-full px-3 py-2.5 text-xs rounded border border-gray-300 focus:ring-1 focus:ring-green-600 focus:border-green-600 outline-none transition bg-white placeholder-gray-500 text-gray-900 font-medium">
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 text-xs rounded shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 mt-2 flex items-center justify-center gap-2 uppercase tracking-wide">
+                            <span>Download Free PDF</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </button>
+
+                        <p class="text-[10px] text-center text-gray-600 mt-2">
+                            🔒 Your details are safe with us.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modals (Simplified Structure for Brevity - Keeping functionality identical to previous file) -->
+    <!-- Virtual Modal -->
+    <div id="virtual-modal" class="modal">
+        <div class="modal-content relative bg-white rounded shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="h-1 bg-red-600 w-full absolute top-0 left-0"></div>
+            <button class="modal-close absolute top-4 right-4" id="virtual-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="p-8 text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Continue Watching?</h3>
+                <form id="virtual-modal-form" class="space-y-4 text-left">
+                    <input type="text" id="virtual-name" name="name" required
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Name">
+                    <input type="tel" id="virtual-phone" name="phone" required
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Phone">
+                    <input type="email" id="virtual-email" name="email" required
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Email">
+                    <button type="submit"
+                        class="w-full py-2.5 bg-red-600 text-white font-bold rounded text-xs uppercase tracking-wide">Continue
+                        Watching</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brochure Modal -->
+    <div id="brochure-modal" class="modal">
+        <div class="modal-content relative bg-white rounded shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <button class="modal-close" id="brochure-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold text-green-600 mb-2 text-center">Download Brochure</h3>
+                <form id="brochure-form" class="space-y-5">
+                    <input type="text" id="modal-name" name="name"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Name" required>
+                    <input type="tel" id="modal-phone" name="phone"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Phone" required>
+                    <input type="email" id="modal-email" name="email"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Email" required>
+                    <button type="submit"
+                        class="w-full py-3 bg-green-600 text-white font-bold rounded hover:bg-green-700 text-xs uppercase tracking-wide">Download
+                        Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Modal -->
+    <div id="pricing-modal" class="modal">
+        <div class="modal-content relative bg-white rounded shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <button class="modal-close" id="pricing-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold text-green-600 mb-2 text-center">Get Price Sheet</h3>
+                <form id="pricing-form" class="space-y-5">
+                    <input type="text" id="price-name" name="name"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Name" required>
+                    <input type="tel" id="price-phone" name="phone"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Phone" required>
+                    <input type="email" id="price-email" name="email"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Email" required>
+                    <button type="submit"
+                        class="w-full py-3 bg-green-600 text-white font-bold rounded hover:bg-green-700 text-xs uppercase tracking-wide">Unlock
+                        Price</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Master Plan Modal (Floorplan reuse) -->
+    <div id="floorplan-modal" class="modal">
+        <div class="modal-content relative bg-white rounded shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <button class="modal-close" id="floorplan-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold text-green-600 mb-2 text-center">Unlock Master Plan</h3>
+                <form id="floorplan-form" class="space-y-5">
+                    <input type="text" id="fp-name" name="name"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Name" required>
+                    <input type="tel" id="fp-phone" name="phone"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Phone" required>
+                    <input type="email" id="fp-email" name="email"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Email" required>
+                    <button type="submit"
+                        class="w-full py-3 bg-green-600 text-white font-bold rounded hover:bg-green-700 text-xs uppercase tracking-wide">View
+                        Layout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div id="location-modal" class="modal">
+        <div class="modal-content relative bg-white rounded shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <button class="modal-close" id="location-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold text-green-600 mb-2 text-center">View Full Location Map</h3>
+                <form id="location-form" class="space-y-5">
+                    <input type="text" id="loc-name" name="name"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Name" required>
+                    <input type="tel" id="loc-phone" name="phone"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Phone" required>
+                    <input type="email" id="loc-email" name="email"
+                        class="w-full px-3 py-2.5 border border-gray-300 rounded text-xs text-gray-900 font-medium focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        placeholder="Email" required>
+                    <button type="submit"
+                        class="w-full py-3 bg-green-600 text-white font-bold rounded hover:bg-green-700 text-xs uppercase tracking-wide">View
+                        Map</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Lead Form -->
+    <div id="floating-lead-form"
+        class="hidden md:block fixed bottom-24 right-4 z-40 w-72 bg-white rounded shadow-2xl transform translate-x-[120%] transition-transform duration-500 ease-in-out border-l-4 border-global-green">
+        <div class="p-4 relative">
+            <button id="close-floating-form" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h4 class="text-lg font-bold text-global-green mb-1">Interested?</h4>
+            <p class="text-xs text-gray-600 mb-3">Request a callback.</p>
+            <form id="floating-form-element" class="space-y-2">
+                <input type="text" name="name" placeholder="Name"
+                    class="w-full p-2 text-xs border border-gray-400 rounded-sm text-gray-900 bg-gray-50 focus:bg-white focus:border-green-600 outline-none"
+                    required>
+                <input type="tel" name="phone" placeholder="Phone"
+                    class="w-full p-2 text-xs border border-gray-400 rounded-sm text-gray-900 bg-gray-50 focus:bg-white focus:border-green-600 outline-none"
+                    required>
+                <input type="email" name="email" placeholder="Email"
+                    class="w-full p-2 text-xs border border-gray-400 rounded-sm text-gray-900 bg-gray-50 focus:bg-white focus:border-green-600 outline-none"
+                    required>
+                <button type="submit"
+                    class="w-full py-2 bg-global-green text-white text-xs font-bold rounded hover:bg-green-700 uppercase tracking-wide">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="mobile-lead-panel"
+        class="md:hidden fixed bottom-20 right-3 z-50 w-72 bg-white rounded-lg shadow-2xl transform translate-x-[120%] transition-transform duration-500 ease-in-out border-l-4 border-global-green">
+        <div class="p-4 relative">
+            <button id="mobile-close-button" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h4 class="text-lg font-bold text-global-green mb-1">Interested?</h4>
+            <form id="mobile-floating-form" class="space-y-2">
+                <input type="text" name="name" placeholder="Name" required class="w-full p-2 text-sm border rounded">
+                <input type="tel" name="phone" placeholder="Phone" required class="w-full p-2 text-sm border rounded">
+                <input type="email" name="email" placeholder="Email" required class="w-full p-2 text-sm border rounded">
+                <button type="submit"
+                    class="w-full py-2 bg-global-green text-white text-sm font-bold rounded hover:bg-green-700">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mb-16 md:mb-0">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <p class="text-sm text-gray-400">© 2024 Global Space Realty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts (Logic Identical to Previous File) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // CRM URL
+            const CRM_URL = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+            const PAGE_SOURCE = 'Godrej Plots Raipur';
+
+            // Global function for direct download (triggered after form submit)
+            window.downloadGuidePDF = function () {
+                // Matches the brochure link used in the popup logic
+                const pdfUrl = "/brochure/things-to-know-before-buying-home.pdf";
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.target = "_blank";
+                link.download = "things-to-know-before-buying-home.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+
+            // Helper to submit to CRM
+            const submitToCRM = async (data, sourcePrefix) => {
+                const payload = {
+                    ...data,
+                    source: `${sourcePrefix} - ${PAGE_SOURCE}`
+                };
+                try {
+                    await fetch(CRM_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+                    return true;
+                } catch (e) { console.error(e); return false; }
+            };
+
+            // 11. WELCOME POPUP LOGIC (Lead Magnet)
+            (function () {
+                const welcomePopup = document.getElementById('welcomePopup');
+                const closeBtn = document.getElementById('welcome-popup-close-btn');
+                const backdrop = document.getElementById('welcome-popup-backdrop');
+                const form = document.getElementById('welcome-popup-form');
+
+                // 1. Trigger after 8 seconds (UPDATED TIME)
+                setTimeout(() => {
+                    // UPDATED: Session Logic to appear only once per tab/session
+                    if (!sessionStorage.getItem('welcomePopupShown')) {
+                        if (welcomePopup) welcomePopup.classList.remove('hidden');
+                        sessionStorage.setItem('welcomePopupShown', 'true');
+                    }
+                }, 8000);
+
+                // 2. Close Logic
+                const closePopup = () => welcomePopup.classList.add('hidden');
+                if (closeBtn) closeBtn.addEventListener('click', closePopup);
+                if (backdrop) backdrop.addEventListener('click', closePopup);
+
+                // 3. Form Logic
+                if (form) {
+                    form.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const btn = form.querySelector('button[type="submit"]');
+                        const originalText = btn.innerText;
+                        btn.innerText = 'Verifying...';
+                        btn.disabled = true;
+
+                        const name = document.getElementById('wp-name').value;
+                        const phone = document.getElementById('wp-phone').value;
+                        const email = document.getElementById('wp-email').value;
+
+                        // Updated CRM logic to match previous file structure
+                        const data = { name, phone, email };
+                        await submitToCRM(data, "Lead Magnet - Home Buying Guide 2026");
+
+                        // Trigger Download
+                        const pdfUrl = "/brochure/things-to-know-before-buying-home.pdf";
+                        const link = document.createElement('a');
+                        link.href = pdfUrl;
+                        link.target = "_blank";
+                        link.download = "things-to-know-before-buying-home.pdf";
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        // Success Message (reusing existing message box style)
+                        const msg = document.getElementById('success-message');
+                        if (msg) {
+                            msg.innerText = 'Downloading Guide...';
+                            msg.style.display = 'block';
+                            msg.style.opacity = '1';
+                            setTimeout(() => { msg.style.opacity = '0'; setTimeout(() => { msg.style.display = 'none'; }, 300); }, 3000);
+                        }
+
+                        // Close Popup
+                        setTimeout(() => {
+                            closePopup();
+                            form.reset();
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }, 1500);
+                    });
+                }
+            })(); // Correctly closed the IIFE
+
+            // 1. Mobile Brochure Bottom Link & Hero/Sticky Buttons
+            const mbBtn = document.getElementById('mobile-brochure-btn');
+            const mbModal = document.getElementById('brochure-modal');
+            const mbClose = document.getElementById('brochure-modal-close-btn');
+
+            // New Desktop Buttons triggering Brochure Modal
+            const heroBrochureBtn = document.getElementById('hero-brochure-btn');
+            const stickyBrochureBtn = document.getElementById('sticky-brochure-btn');
+            const mobileTopBtn = document.getElementById('mobile-top-brochure-btn');
+
+            const openBrochureModal = () => mbModal.classList.add('is-active');
+
+            if (mbBtn) mbBtn.addEventListener('click', openBrochureModal);
+            if (heroBrochureBtn) heroBrochureBtn.addEventListener('click', openBrochureModal);
+            if (stickyBrochureBtn) stickyBrochureBtn.addEventListener('click', openBrochureModal);
+            if (mobileTopBtn) mobileTopBtn.addEventListener('click', openBrochureModal);
+
+            if (mbClose) mbClose.addEventListener('click', () => mbModal.classList.remove('is-active'));
+
+            // 2. Floating Forms (Mobile & Desktop)
+            const setupFloatingForm = (formId, panelId, closeId) => {
+                const form = document.getElementById(formId);
+                const panel = document.getElementById(panelId);
+                const close = document.getElementById(closeId);
+
+                if (!form || !panel) return;
+
+                // Auto open logic
+                setTimeout(() => {
+                    if (!window.formSubmitted) panel.classList.remove('translate-x-[120%]');
+                }, 3000);
+
+                if (close) close.addEventListener('click', () => {
+                    panel.classList.add('translate-x-[120%]');
+                    if (!window.formSubmitted) setTimeout(() => panel.classList.remove('translate-x-[120%]'), 15000);
+                });
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const data = { name: form.name.value, phone: form.phone.value, email: form.email.value };
+                    await submitToCRM(data, 'Floating Form');
+                    window.formSubmitted = true;
+                    panel.classList.add('translate-x-[120%]');
+                    document.getElementById('success-message').style.display = 'block';
+                    document.getElementById('success-message').style.opacity = '1';
+                    setTimeout(() => document.getElementById('success-message').style.display = 'none', 3000);
+                });
+            };
+
+            setupFloatingForm('floating-form-element', 'floating-lead-form', 'close-floating-form');
+            setupFloatingForm('mobile-floating-form', 'mobile-lead-panel', 'mobile-close-button');
+
+            // 3. Virtual Visit
+            const vvModal = document.getElementById('virtual-modal');
+            const vvOverlay = document.getElementById('tap-to-play-overlay');
+            const vvForm = document.getElementById('virtual-modal-form');
+            if (vvOverlay) vvOverlay.addEventListener('click', () => vvModal.classList.add('is-active'));
+            document.getElementById('virtual-modal-close-btn').addEventListener('click', () => vvModal.classList.remove('is-active'));
+
+            if (vvForm) vvForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const data = { name: vvForm.name.value, phone: vvForm.phone.value, email: vvForm.email.value };
+                await submitToCRM(data, 'Virtual Visit');
+                vvModal.classList.remove('is-active');
+                vvOverlay.classList.add('hidden');
+                const iframe = document.getElementById('virtual-iframe');
+                iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+            });
+
+            // 4. Pricing & Brochure & MasterPlan Modals
+            const setupModalForm = (modalId, formId, triggerClass, sourceName) => {
+                const modal = document.getElementById(modalId);
+                const form = document.getElementById(formId);
+                const close = document.getElementById(modalId + '-close-btn');
+                const triggers = document.querySelectorAll(triggerClass);
+
+                triggers.forEach(t => t.addEventListener('click', () => modal.classList.add('is-active')));
+                if (close) close.addEventListener('click', () => modal.classList.remove('is-active'));
+
+                if (form) form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const data = { name: form.name.value, phone: form.phone.value, email: form.email.value };
+                    await submitToCRM(data, sourceName);
+                    modal.classList.remove('is-active');
+                    alert('Details submitted. We will contact you shortly.');
+                });
+            }
+
+            setupModalForm('pricing-modal', 'pricing-form', '.unlock-price-btn', 'Price Check');
+            setupModalForm('brochure-modal', 'brochure-form', '#mobile-brochure-btn', 'Brochure Download');
+            setupModalForm('floorplan-modal', 'floorplan-form', '.unlock-map-btn', 'Master Plan View');
+            setupModalForm('location-modal', 'location-form', '.unlock-location-btn', 'Location Map View');
+
+            // --- BROCHURE FORM SPECIFIC HANDLER ---
+            // Triggers PDF download after submission
+            const brochureForm = document.getElementById('brochure-form');
+            if (brochureForm) {
+                brochureForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const data = {
+                        name: brochureForm.querySelector('input[name="name"]').value,
+                        phone: brochureForm.querySelector('input[name="phone"]').value,
+                        email: brochureForm.querySelector('input[name="email"]').value
+                    };
+                    await submitToCRM(data, 'Brochure Download');
+                    mbModal.classList.remove('is-active');
+
+                    // Trigger download in new tab
+                    window.downloadGuidePDF();
+
+                    const msg = document.getElementById('success-message');
+                    msg.innerText = "Downloading Brochure...";
+                    msg.style.display = 'block';
+                    msg.style.opacity = '1';
+                    setTimeout(() => { msg.style.opacity = '0'; setTimeout(() => { msg.style.display = 'none'; }, 300); }, 3000);
+                });
+            }
+
+            // 5. Main Contact Form
+            const mainForm = document.getElementById('contact-form');
+            mainForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                // Simple validation check (Phone)
+                if (mainForm.phone.value.length !== 10) {
+                    document.getElementById('phone-error').classList.remove('hidden');
+                    return;
+                }
+                const data = { name: mainForm.name.value, phone: mainForm.phone.value, email: mainForm.email.value };
+                await submitToCRM(data, 'Main Contact Form');
+                mainForm.reset();
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('success-message').style.opacity = '1';
+                setTimeout(() => document.getElementById('success-message').style.display = 'none', 3000);
+            });
+
+            // 6. Carousels (Simplified auto-slide)
+            const runCarousel = (wrapperId) => {
+                const wrapper = document.getElementById(wrapperId);
+                if (!wrapper) return;
+                let idx = 0;
+                const total = wrapper.children.length;
+                setInterval(() => {
+                    idx = (idx + 1) % total;
+                    wrapper.style.transform = `translateX(-${idx * 100}%)`;
+                }, 3000);
+            }
+            runCarousel('amenities-carousel-wrapper');
+            runCarousel('overview-carousel-wrapper');
+
+            // 7. Overview Toggle Logic
+            const toggleBtn = document.getElementById('overview-toggle-btn');
+            const hiddenContent = document.getElementById('overview-hidden');
+            const btnText = document.getElementById('overview-btn-text');
+            const arrow = document.getElementById('overview-arrow');
+
+            if (toggleBtn && hiddenContent) {
+                toggleBtn.addEventListener('click', () => {
+                    const isHidden = hiddenContent.classList.contains('hidden');
+                    if (isHidden) {
+                        hiddenContent.classList.remove('hidden');
+                        btnText.textContent = 'View Less';
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        hiddenContent.classList.add('hidden');
+                        btnText.textContent = 'View More';
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+
+            // Hero Fade
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            let hIdx = 0;
+            setInterval(() => {
+                heroSlides[hIdx].classList.replace('opacity-100', 'opacity-0');
+                hIdx = (hIdx + 1) % heroSlides.length;
+                heroSlides[hIdx].classList.replace('opacity-0', 'opacity-100');
+            }, 3000);
+
+            // --- SCROLL LOGIC FOR STICKY BUTTON ---
+            // Shows the button in navigation when Hero is scrolled out of view
+            const mobileStickyTop = document.getElementById('mobile-sticky-top');
+            window.addEventListener('scroll', () => {
+                const stickyBtn = document.getElementById('sticky-brochure-btn');
+
+                // Show Mobile Sticky Header if scrolled past hero (approx)
+                if (window.scrollY > 400) {
+                    if (mobileStickyTop) mobileStickyTop.classList.remove('-translate-y-full');
+                } else {
+                    if (mobileStickyTop) mobileStickyTop.classList.add('-translate-y-full');
+                }
+
+                // Show Desktop Sticky Button
+                if (stickyBtn) {
+                    if (window.scrollY > 550) { // Approx height of hero
+                        stickyBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+                    } else {
+                        stickyBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Floating WhatsApp (Desktop) -->
+    <a id="whatsapp-desktop-btn"
+        href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20Godrej%20Plots%20Raipur"
+        class="whatsapp-float hidden md:inline-flex" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp"
+            class="whatsapp-icon" />
+    </a>
+</body>
+
+</html>

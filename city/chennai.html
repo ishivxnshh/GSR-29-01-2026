@@ -1,0 +1,751 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-8MNQVMJ392');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Space - Chennai Properties</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/web-images/favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#2165e4',
+                        'dark-overlay': 'rgba(0, 0, 0, 0.4)',
+                        'light-border': '#e0e0e0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for the hover effect on the menu links */
+        .nav-link:hover {
+            color: #1a4e9b;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Property card hover effect from index.html */
+        .property-card-hover {
+            transition: all 0.3s ease-in-out;
+            transform: scale(1.0);
+        }
+
+        .property-card-hover:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(33, 101, 228, 0.2);
+            border-color: #2165e4;
+        }
+
+        /* Modal Styles (Brochure Popup) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.is-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 400px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: #4b5563;
+            cursor: pointer;
+            transition: color 0.2s, background-color 0.2s;
+            font-weight: bold;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .modal-close:hover {
+            color: #1f2937;
+            background-color: #f3f4f6;
+        }
+
+        /* WhatsApp Toggle Switch (Re-added) */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .request-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .request-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Floating WhatsApp Icon (icon-only, responsive) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation Menu -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-7xl px-4 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <!-- Logo for desktop and mobile views -->
+                <img src="/assets/images/web-images/favicon.png" alt="Global Space Logo" class="w-30 h-10">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-gray-700 font-bold">Home</a>
+                <a href="/about" class="nav-link text-gray-700 font-bold">About</a>
+                <a href="/city/" class="nav-link text-gray-700 font-bold">Cities</a>
+                <a href="/blog/" class="nav-link text-gray-700 font-bold">Blogs</a>
+                <a href="/contact" class="nav-link text-gray-700 font-bold">Contact</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu content (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="/" class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="/about"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">About</a>
+                <a href="/city/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Cities</a>
+                <a href="/blog/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Blogs</a>
+                <a href="/contact"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- City Hero Section -->
+    <section class="relative bg-cover bg-center py-16"
+        style="background-image: url('/assets/images/web-images/cities-hero.jpg');">
+        <div class="absolute inset-0 bg-dark-overlay"></div>
+        <div class="container mx-auto max-w-7xl px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Properties in Chennai</h1>
+            <p class="text-lg md:text-xl text-white max-w-3xl mx-auto">
+                Discover the finest homes, flats, and luxury projects in the Gateway to South India.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filtered Properties Grid Section -->
+    <section class="py-16">
+        <div class="container mx-auto max-w-7xl px-4">
+            <!-- START: Back navigation using document.referrer -->
+            <div class="mb-8">
+                <button onclick="window.location.href = document.referrer || '/cities'; return false;"
+                    class="inline-flex items-center text-main-blue font-semibold hover:text-[#1a4e9b] transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Back
+                </button>
+            </div>
+            <!-- END: Back navigation -->
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12">Available Listings</h2>
+            <!-- City-specific grid -->
+            <div id="city-properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Filtered property cards will be rendered here by JavaScript -->
+            </div>
+            <p id="no-properties-msg" class="text-center text-gray-500 mt-12 hidden">No properties found in Chennai
+                matching our current listings.</p>
+        </div>
+    </section>
+
+    <!-- Contact & Consultation Section -->
+    <section class="bg-gray-100 py-12" id="consultation-section">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div
+                class="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <!-- Left side: Illustration and text -->
+                <div class="md:w-1/2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl md:text-3xl font-bold text-main-blue mb-2 text-center md:text-left">FREE Expert
+                        Consultation</h3>
+                    <p class="text-lg text-gray-700 text-center md:text-left">Speak to our experts and get personalized
+                        guidance today.</p>
+                    <!-- Frame with Hover Effect -->
+                    <div class="mt-4 max-w-sm md:max-w-md mx-auto p-4 rounded-xl bg-main-blue shadow-2xl transform transition-transform duration-300 hover:scale-[1.03] cursor-pointer"
+                        id="consultation-image">
+                        <img src="/assets/images/web-images/contact.png" alt="Consultation illustration"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/2165e4/ffffff?text=Contact+Image';">
+                    </div>
+                </div>
+                <!-- Right side: Contact Form -->
+                <div class="md:w-1/2 w-full">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4 text-center md:text-left">Get Answers to All Your
+                        Questions</h4>
+                    <form id="consult-form" class="space-y-3">
+                        <input type="text" id="consult-name" name="name" placeholder="Full Name"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <input type="tel" id="consult-phone" name="phone" placeholder="Mobile Number"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+
+                        <!-- START: WhatsApp Toggle Switch moved here (between phone and email) -->
+                        <div class="flex items-center space-x-2">
+                            <label for="whatsapp-toggle" class="text-gray-700 text-sm">Get updates on WhatsApp</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="whatsapp-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <!-- END: WhatsApp Toggle Switch moved here -->
+
+                        <input type="email" id="consult-email" name="email" placeholder="Email Address"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+
+                        <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-2">
+                            <button type="submit"
+                                class="request-button w-full md:w-1/2 p-2 font-semibold rounded-lg hover:bg-[#45a049] transition-colors duration-300">
+                                Request Consultation
+                            </button>
+                            <!-- Original Call Us link structure restored -->
+                            <p class="text-gray-600 text-center md:text-left py-1 text-sm">or Call Us: <a
+                                    href="tel:+917400400373" class="font-bold text-main-blue hover:underline">+91
+                                    7400400373
+                                </a></p>
+                        </div>
+
+                    </form>
+                    <div id="consultation-msg"
+                        class="hidden text-center mt-4 p-3 rounded-lg text-white font-semibold transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Detailed Footer -->
+    <footer class="bg-main-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Global Space -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Updated to use cleaner path: "/" for home -->
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <!-- Updated to use clean anchor link for internal page navigation -->
+                        <li><a href="#loan-calculator-section" class="hover:underline" data-alias="home#loan">Loan
+                                Calculator</a></li>
+                        <li><a href="/sitemap" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 ,
+                            Near Station CBD Belapur
+                            Opp to BP Marine Academy
+                            Above Federal Bank
+                            Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <!-- Follow Us (NOW USING IMAGE TAGS FOR EXTERNAL PNGS) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Facebook PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- LinkedIn PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- YouTube PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube" class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Pinterest PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Instagram PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <!-- Twitter PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400"> 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="brochure-modal" class="modal">
+        <div class="modal-content relative">
+            <!-- CLOSE BUTTON (X Mark) -->
+            <button class="modal-close" id="brochure-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-main-blue mb-4 text-center">Download Brochure</h3>
+            <p class="text-gray-600 mb-6 text-center">Please provide your details to receive the brochure.</p>
+            <form id="brochure-form" class="space-y-4">
+                <div>
+                    <label for="modal-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="modal-name" name="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="modal-phone" class="block text-gray-700 font-semibold mb-2">Phone No.</label>
+                    <input type="tel" id="modal-phone" name="phone"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="modal-email" class="block text-gray-700 font-semibold mb-2">Email ID</label>
+                    <input type="email" id="modal-email" name="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300">
+                    Submit & Download
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- Floating WhatsApp button (standardized PNG) -->
+    <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+    <!-- STEP 1: IMPORT THE SINGLE SOURCE OF TRUTH (properties.js) -->
+  <script src="/assets/js/properties.js"></script>
+  <script>
+    // Helper function to generate the status badge HTML with uniform blue styling
+    function getStatusBadgeHtml(status) {
+        if (!status) return '';
+        // Using the defined 'main-blue' for consistency across all statuses
+        const bgColor = 'bg-main-blue';
+        const ringColor = 'ring-main-blue';
+        let badgeClass = "absolute top-4 left-4 px-3 py-1 text-xs uppercase font-bold rounded-full shadow-lg text-white ring-2 z-10 tracking-wider";
+
+        return `<span class="${badgeClass} ${bgColor} ${ringColor}">${status}</span>`;
+    }
+
+
+    // --- OLD DUPLICATED PROPERTIES DATA REMOVED: Data is now loaded via properties.js ---
+    // The global 'properties' variable is now available via properties.js
+    
+    // NOTE: Your remaining page logic (like const TARGET_CITY) starts here.
+ 
+
+        const TARGET_CITY = 'Chennai'; // Define the city for this page
+
+        // Function to render filtered property cards
+        function renderCityProperties() {
+            const container = document.getElementById('city-properties-grid');
+            let filteredProperties = properties.filter(p => p.city === TARGET_CITY); // Use let for sorting
+            container.innerHTML = ''; // Clear existing content
+
+            // *** CRITICAL CHANGE: Sort by ID descending (newest first) ***
+            filteredProperties.sort((a, b) => b.id - a.id);
+            // **********************************************************
+
+            if (filteredProperties.length === 0) {
+                document.getElementById('no-properties-msg').classList.remove('hidden');
+                return;
+            }
+            document.getElementById('no-properties-msg').classList.add('hidden');
+
+            filteredProperties.forEach(property => {
+                const propertyCard = document.createElement('div');
+                const isWhatsappLink = property.detailsUrl === 'whatsapp';
+                let detailsButtonHtml;
+
+                // Call the badge function
+                const statusBadgeHtml = getStatusBadgeHtml(property.status);
+
+
+                if (isWhatsappLink) {
+                    // Generates a BUTTON to be handled by JS listener
+                    detailsButtonHtml = `<button class="details-btn-whatsapp w-1/2 p-3 text-center bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300" data-property-title="${encodeURIComponent(property.title)}">Details</button>`;
+                } else {
+                    // Generates an anchor <a> link
+                    detailsButtonHtml = `<a href="${property.detailsUrl}" class="w-1/2 p-3 text-center bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300">Details</a>`;
+                }
+
+                propertyCard.innerHTML = `
+                    <!-- Modern Card Structure with Hover Effect -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden h-full flex flex-col group property-card-hover border border-transparent">
+                        <!-- Increased image size using aspect-[3/2] and relative positioning for badge -->
+                        <div class="aspect-[3/2] overflow-hidden relative">
+                             <img src="${property.image}" alt="${property.title}" class="w-full h-full aspect-[3/2] object-cover transition-transform duration-300">
+                             ${statusBadgeHtml} <!-- Badge injected here -->
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-main-blue mb-1">${property.title}</h3>
+                                <div class="flex items-center justify-between text-gray-500 mb-4 text-sm">
+                                    <div class="flex items-center">
+                                        <!-- Location Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span class="capitalize">${property.city}</span>
+                                    </div>
+                                    <!-- BHK Count - UPDATED -->
+                                    <div class="flex items-center text-gray-700 font-medium space-x-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-main-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                        </svg>
+                                        <span>${property.bhk}</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">?${property.price} onwards</h4>
+                            </div>
+                            <div class="flex justify-between space-x-2">
+                                ${detailsButtonHtml}
+                                <button class="brochure-btn w-1/2 p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300 flex items-center justify-center text-sm" data-property-id="${property.id}">
+                                    Brochure
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>`;
+                container.appendChild(propertyCard);
+            });
+        }
+
+        let currentBrochurePropertyId = null;
+
+        // Helper function to handle CRM submission (used by both consultation buttons)
+        async function submitConsultation(crmData, redirectToWhatsapp = false) {
+            const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+
+            // Extract the name and target city for messages/WhatsApp
+            const name = crmData.name;
+            const targetCityMatch = crmData.source.match(/\(City Page: ([^)]+)\)/);
+            const targetCity = targetCityMatch ? targetCityMatch[1] : 'Unknown Location';
+
+            try {
+                // 1. Submit to CRM
+                await fetch(crmWebhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(crmData)
+                });
+
+                const consultationMsg = document.getElementById('consultation-msg');
+                consultationMsg.className = 'block bg-green-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                consultationMsg.textContent = 'Message sent! We will contact you shortly.';
+
+                // 2. WhatsApp Redirect (if requested)
+                if (redirectToWhatsapp) {
+                    const whatsappMessage = `Hello, I'm interested in a free expert consultation regarding properties in ${targetCity}. My name is ${name}.`;
+                    // Delay for user to see success message before redirecting
+                    setTimeout(() => {
+                        window.location.href = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                    }, 1000);
+                }
+
+            } catch (error) {
+                console.error('Error submitting to CRM:', error);
+                const consultationMsg = document.getElementById('consultation-msg');
+                consultationMsg.className = 'block bg-red-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                consultationMsg.textContent = 'There was an error sending your message. Please try again.';
+            } finally {
+                const consultForm = document.getElementById('consult-form');
+                consultForm.reset();
+                setTimeout(() => {
+                    const consultationMsg = document.getElementById('consultation-msg');
+                    if (consultationMsg) consultationMsg.className = 'hidden';
+                }, 5000);
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCityProperties();
+
+            // *** MOBILE MENU TOGGLE LOGIC ***
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    // Toggle the 'hidden' Tailwind class to show/hide the menu
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            // ******************************
+
+            // --- MODAL & FORM LOGIC (Brochure) ---
+            const brochureModal = document.getElementById('brochure-modal');
+            const brochureForm = document.getElementById('brochure-form');
+            const brochureModalCloseBtn = document.getElementById('brochure-modal-close-btn');
+
+            // Listener for all click events on the document
+            document.addEventListener('click', (e) => {
+                const brochureBtn = e.target.closest('.brochure-btn');
+                if (brochureBtn) {
+                    currentBrochurePropertyId = brochureBtn.dataset.propertyId;
+                    brochureModal.classList.add('is-active');
+                }
+
+                // *** FIX/FEATURE CONFIRMATION: Details button redirects to WhatsApp ***
+                const detailsBtn = e.target.closest('.details-btn-whatsapp');
+                if (detailsBtn) {
+                    const propertyTitle = decodeURIComponent(detailsBtn.dataset.propertyTitle);
+                    // Constructing the pre-filled message with the property title
+                    const whatsappMessage = `Hello, I would like to know more about the property: ${propertyTitle}.`;
+                    const whatsappUrl = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                    window.location.href = whatsappUrl;
+                }
+                // ********************************************************************
+            });
+
+            if (brochureModalCloseBtn) {
+                brochureModalCloseBtn.addEventListener('click', () => {
+                    brochureModal.classList.remove('is-active');
+                });
+            }
+
+            brochureModal.addEventListener('click', (e) => { if (e.target === brochureModal) brochureModal.classList.remove('is-active'); });
+
+            // BROCHURE FORM SUBMISSION LOGIC
+            brochureForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const property = properties.find(p => p.id == currentBrochurePropertyId);
+
+                const crmData = {
+                    name: document.getElementById('modal-name').value,
+                    phone: document.getElementById('modal-phone').value,
+                    email: document.getElementById('modal-email').value,
+                    source: `Brochure Download (City Page: ${TARGET_CITY})`,
+                    propertyId: currentBrochurePropertyId,
+                    propertyName: property ? property.title : 'Unknown Property'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                let message = '', bgColor = '';
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    message = `Thank you! Brochure for ${crmData.propertyName} is downloading.`;
+                    bgColor = 'bg-green-500';
+                } catch (error) {
+                    console.error('Error submitting to CRM:', error);
+                    message = 'There was an error, but your brochure is downloading.';
+                    bgColor = 'bg-red-500';
+                } finally {
+                    const link = document.createElement('a');
+                    link.href = property.brochureUrl || '#';
+                    link.download = `GlobalSpace_Brochure_${property.title.replace(/\s+/g, '_')}.pdf`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    const messageBox = document.createElement('div');
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-50`;
+                    messageBox.innerText = message;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => messageBox.remove(), 4000);
+
+                    brochureModal.classList.remove('is-active');
+                    brochureForm.reset();
+                }
+            });
+
+            // --- CONSULTATION FORM LOGIC ---
+            const consultForm = document.getElementById('consult-form');
+            const consultationImage = document.getElementById('consultation-image');
+            const consultNameInput = document.getElementById('consult-name');
+            const whatsappToggle = document.getElementById('whatsapp-toggle'); // Get the toggle element
+
+            consultationImage.addEventListener('click', () => {
+                document.getElementById('consultation-section').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => { consultNameInput.focus(); }, 500);
+            });
+
+            // Listener for the single Request Consultation button
+            consultForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const isWhatsappChecked = whatsappToggle.checked; // Check the state of the toggle
+
+                const crmData = {
+                    name: document.getElementById('consult-name').value,
+                    phone: document.getElementById('consult-phone').value,
+                    email: document.getElementById('consult-email').value,
+                    source: `Free Expert Consultation (City Page: ${TARGET_CITY}) - Form Submit`
+                };
+
+                // Submit to CRM and redirect if toggle is ON
+                await submitConsultation(crmData, isWhatsappChecked);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+

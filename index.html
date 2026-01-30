@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8MNQVMJ392');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Space - Home</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/web-images/favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#2165e4',
+                        'dark-overlay': 'rgba(0, 0, 0, 0.4)',
+                        'light-border': '#e0e0e0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for the hover effect on the menu links */
+        .nav-link:hover {
+            color: #1a4e9b;
+            /* A darker shade of blue on hover for contrast */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* Updated background for transparency and blur */
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            /* Increased blur for stronger effect */
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.is-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 400px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal.is-active .modal-content {
+            transform: translateY(0);
+        }
+
+        /* New style for the close button */
+        .modal-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: #4b5563;
+            /* Gray-700 */
+            cursor: pointer;
+            transition: color 0.2s, background-color 0.2s;
+            font-weight: bold;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            /* Rounded circle */
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            /* Ensure close button is on top */
+        }
+
+        .modal-close:hover {
+            color: #1f2937;
+            /* Gray-900 */
+            background-color: #f3f4f6;
+            /* Gray-100 */
+        }
+
+        /* --- Interior Design Modal Thematic Styles --- */
+        #interior-modal .modal-content {
+            background-color: #f7f3ff;
+            /* Very light purple background */
+            border: 3px solid #7B1FA2;
+            /* Deep violet border */
+            overflow: hidden;
+            /* Subtle animated shadow for creativity */
+            box-shadow: 0 0 25px rgba(216, 27, 96, 0.4);
+        }
+
+        #interior-modal h3 {
+            color: #7B1FA2;
+            /* Deep Violet Title */
+            animation: pulse-color 3s infinite alternate;
+            /* Animatic text effect */
+        }
+
+        /* Input focus color to match the theme */
+        #interior-form input:focus {
+            border-color: #D81B60 !important;
+            /* Pink focus ring - Using !important for Tailwind override */
+            box-shadow: 0 0 0 1px #D81B60;
+        }
+
+        /* Submit Button Styles (Creative Gradient/Animation) */
+        #interior-form button[type="submit"] {
+            background: linear-gradient(90deg, #D81B60 0%, #7B1FA2 100%);
+            /* Pink to Violet gradient */
+            transition: all 0.3s ease-in-out;
+        }
+
+        #interior-form button[type="submit"]:hover {
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.6);
+            /* Pink glow shadow */
+            transform: translateY(-2px);
+        }
+
+        /* Define a subtle animation for the title or border glow */
+        @keyframes pulse-color {
+            0% {
+                color: #7B1FA2;
+            }
+
+            50% {
+                color: #D81B60;
+            }
+
+            100% {
+                color: #7B1FA2;
+            }
+        }
+
+        /* --- NEW: Loan Inquiry Modal Thematic Styles --- */
+        #loan-inquiry-modal .modal-content {
+            background-color: #f0f8ff;
+            /* Light blue/white background */
+            border: 3px solid #10b981;
+            /* Tailwind Emerald Green for growth/finance */
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+            /* Green glow */
+        }
+
+        #loan-inquiry-modal h3 {
+            color: #2165e4;
+            /* Main Blue for stability/finance */
+            animation: bounce-in 1s ease-out;
+            /* Subtle animation */
+        }
+
+        /* Input focus color to match the theme */
+        #loan-inquiry-form input:focus {
+            border-color: #10b981 !important;
+            box-shadow: 0 0 0 1px #10b981;
+        }
+
+        /* Submit Button Styles (Financial Green/Blue Gradient) */
+        #loan-inquiry-form button[type="submit"] {
+            background: linear-gradient(90deg, #10b981 0%, #2165e4 100%);
+            /* Green to Blue gradient */
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+
+        #loan-inquiry-form button[type="submit"]:hover {
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.6);
+            /* Green glow shadow */
+            transform: translateY(-2px);
+        }
+
+        /* Simple animation for the title or entrance */
+        @keyframes bounce-in {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* --- END: Loan Inquiry Modal Thematic Styles --- */
+
+        /* --- RESTORED SCROLL STYLES (Undo Unified Infinite Scroll) --- */
+
+        /* Keyframes for the scrolling animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Testimonials Scroll Container */
+        .testimonials-scroll-container {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonials-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 60s linear infinite;
+        }
+
+        .testimonials-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonial-card-bg {
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            margin-right: 2rem;
+        }
+
+        /* Logo Scroll Container */
+        .logo-scroll-container {
+            overflow: hidden;
+            width: 100%;
+            padding: 1rem 0;
+        }
+
+        .logo-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 45s linear infinite;
+        }
+
+        .logo-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-scroll img {
+            margin-right: 4rem;
+            flex-shrink: 0;
+        }
+
+        /* Style for scrollable dropdowns */
+        .custom-dropdown-list {
+            max-height: 200px;
+            /* Approximately 5 items at 40px height per item */
+            overflow-y: auto;
+        }
+
+        /* Floating WhatsApp Button — icon only (no green background) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* WhatsApp Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .request-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .request-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Hide scrollbars for the carousel containers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        /* Banner Carousel styles */
+        .banner-carousel-container {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .banner-carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .banner-carousel-item {
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        /* NEW: Animation for the Welcome Popup */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+    <!-- STEP 2: IMPORT THE SINGLE SOURCE OF TRUTH (properties.js) -->
+    <script src="/assets/js/properties.js"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation Menu -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-7xl px-4 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <!-- Logo for desktop and mobile views -->
+                <img src="/assets/images/web-images/favicon.png" alt="Global Space Logo" class="w-30 h-10">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-gray-700 font-bold">Home</a>
+                <a href="/about" class="nav-link text-gray-700 font-bold">About</a>
+                <a href="/city/" class="nav-link text-gray-700 font-bold">Cities</a>
+                <a href="/blog/" class="nav-link text-gray-700 font-bold">Blogs</a>
+                <a href="/contact" class="nav-link text-gray-700 font-bold">Contact</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu content (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="/" class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="/about"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">About</a>
+                <a href="/city/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Cities</a>
+                <a href="/blog/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Blogs</a>
+                <a href="/contact"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section with attractive design -->
+    <section
+        class="bg-[url('/assets/images/web-images/hero-bg.webp')] relative h-[400px] md:h-[600px] bg-cover bg-center flex items-center justify-center overflow-hidden">
+
+        <!-- Hero content container with semi-transparent background -->
+        <div class="z-10 bg-dark-overlay p-8 md:p-12 rounded-xl text-center max-w-lg mx-4 flex flex-col items-center">
+
+            <!-- NEW: Animated USP Badge (0 Brokerage, etc.) -->
+            <div id="hero-usp-badge"
+                class="mb-5 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-5 py-2 flex items-center space-x-3 shadow-xl transform transition-all duration-700 ease-in-out opacity-0 translate-y-4">
+                <span id="hero-usp-icon" class="text-yellow-400 drop-shadow-md">
+                    <!-- Icon placeholder -->
+                </span>
+                <span id="hero-usp-text"
+                    class="text-white font-bold text-sm md:text-base uppercase tracking-wider drop-shadow-sm">
+                    <!-- Text placeholder -->
+                </span>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">Find Your Dream Home With Us</h1>
+            <p class="text-sm md:text-lg text-white font-light">Connecting you to exclusive properties and tailored real
+                estate solutions.</p>
+        </div>
+    </section>
+    <!-- Search Bar Section with cities and pricing dropdown -->
+    <section class="container mx-auto max-w-7xl -mt-16 md:-mt-24 z-20 relative px-4">
+        <div class="bg-white p-3 md:p-8 rounded-lg shadow-lg">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center justify-between">
+                <h2 class="text-lg md:text-2xl font-bold text-main-blue md:w-1/4 text-center md:text-left">Explore
+                    Properties</h2>
+                <div class="flex flex-row w-full md:w-3/4 gap-2 md:gap-4 items-center">
+                    <!-- Custom City Dropdown -->
+                    <div id="city-dropdown" class="relative flex-1 min-w-0">
+                        <button
+                            class="w-full p-2 md:p-3 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue cursor-pointer text-left flex justify-between items-center"
+                            id="city-btn">
+                            <span id="city-selected-text" class="truncate">All Cities</span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 md:h-5 md:w-5 ml-1 md:ml-2 flex-shrink-0" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="city-list"
+                            class="absolute hidden w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-20 custom-dropdown-list">
+                            <ul class="py-1 text-sm md:text-base">
+                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-100" data-value="all">All Cities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Custom Price Dropdown -->
+                    <div id="price-dropdown" class="relative flex-1 min-w-0">
+                        <button
+                            class="w-full p-2 md:p-3 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue cursor-pointer text-left flex justify-between items-center"
+                            id="price-btn">
+                            <span id="price-selected-text" class="truncate">All Prices</span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 md:h-5 md:w-5 ml-1 md:ml-2 flex-shrink-0" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="price-list"
+                            class="absolute hidden w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-20 custom-dropdown-list">
+                            <ul class="py-1 text-sm md:text-base">
+                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-100" data-value="all">All Prices</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button id="clear-filters-button" title="Reset Filters"
+                        class="p-2 md:p-3 bg-white text-main-blue border border-gray-200 rounded-full hover:bg-gray-50 hover:shadow-lg transition-all duration-300 flex items-center justify-center group shadow-sm flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 md:h-6 md:w-6 group-hover:-rotate-180 transition-transform duration-500"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtered Properties Grid -->
+    <section id="filtered-properties-section" class="container mx-auto max-w-7xl px-4 py-8 hidden">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12 px-4">Search Results</h2>
+        <div id="filtered-properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Filtered properties will be rendered here -->
+        </div>
+    </section>
+
+    <!-- Property Listings Carousel 1 (Newest) -->
+    <section id="carousel-section-1" class="container mx-auto max-w-7xl px-0 py-4 md:py-8 relative">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12 px-4">New Featured Properties</h2>
+        <div id="carousel-1-container" class="relative">
+            <div id="properties-carousel-1"
+                class="flex overflow-x-auto relative scroll-smooth snap-x snap-mandatory hide-scrollbar prevent-scroll-y">
+                <!-- Property cards will be generated here by JavaScript -->
+            </div>
+            <!-- Carousel Navigation Arrows -->
+            <button id="prev-btn-1"
+                class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg z-10 hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-main-blue" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="next-btn-1"
+                class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg z-10 hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-main-blue" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Brands & Channel Partners Section -->
+    <section class="py-8">
+        <div class="container mx-auto max-w-7xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12">Our Valued Partners</h2>
+            <div class="logo-scroll-container">
+                <div class="logo-scroll">
+                    <!-- Brands 1-15 - FIX: Updated path to use absolute root path for reliability on hosted environments -->
+                    <img src="/assets/images/channel-partner/brand1.webp" alt="Brand Logo 1"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand2.webp" alt="Brand Logo 2"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand3.webp" alt="Brand Logo 3"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand4.webp" alt="Brand Logo 4"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand5.webp" alt="Brand Logo 5"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand6.webp" alt="Brand Logo 6"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand7.webp" alt="Brand Logo 7"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand8.webp" alt="Brand Logo 8"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand9.webp" alt="Brand Logo 9"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand10.webp" alt="Brand Logo 10"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand11.webp" alt="Brand Logo 11"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand12.webp" alt="Brand Logo 12"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand13.webp" alt="Brand Logo 13"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand14.webp" alt="Brand Logo 14"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand15.webp" alt="Brand Logo 15"
+                        class="h-24 w-auto opacity-75">
+                    <!-- Duplicate logos for the infinite loop effect - FIX: Updated path to use absolute root path for reliability on hosted environments -->
+                    <img src="/assets/images/channel-partner/brand1.webp" alt="Brand Logo 1"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand2.webp" alt="Brand Logo 2"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand3.webp" alt="Brand Logo 3"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand4.webp" alt="Brand Logo 4"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand5.webp" alt="Brand Logo 5"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand6.webp" alt="Brand Logo 6"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand7.webp" alt="Brand Logo 7"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand8.webp" alt="Brand Logo 8"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand9.webp" alt="Brand Logo 9"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand10.webp" alt="Brand Logo 10"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand11.webp" alt="Brand Logo 11"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand12.webp" alt="Brand Logo 12"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand13.webp" alt="Brand Logo 13"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand14.webp" alt="Brand Logo 14"
+                        class="h-24 w-auto opacity-75">
+                    <img src="/assets/images/channel-partner/brand15.webp" alt="Brand Logo 15"
+                        class="h-24 w-auto opacity-75">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Featured Rotator (Last 3 properties) -->
+    <section id="featured-rotator-section" class="container mx-auto max-w-7xl px-0 py-4 md:py-8">
+        <div class="relative grid grid-cols-12 gap-6 items-start">
+            <!-- Thumbnails (left) - hidden on mobile, visible from md+ -->
+            <div id="featured-thumbs"
+                class="col-span-12 md:col-span-2 hidden md:block md:overflow-visible md:space-y-6 md:py-0">
+                <!-- thumbnails injected by JS -->
+            </div>
+
+            <!-- Main image (center) + Details (right) wrapped in a single blue frame -->
+            <div class="col-span-12 md:col-span-10">
+                <div class="border-4 border-main-blue rounded-xl overflow-hidden grid grid-cols-12 gap-0">
+                    <!-- Main area -->
+                    <div class="col-span-12 md:col-span-7 p-3 md:border-r md:border-gray-200 flex flex-col">
+                        <div id="featured-main" class="relative rounded-md overflow-hidden flex-grow">
+                            <button id="featured-prev-btn"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-main-blue" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button id="featured-next-btn"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-main-blue" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                            <div id="featured-main-inner" class="w-full h-full relative">
+                                <!-- main image injected by JS into this inner container so buttons remain intact -->
+                            </div>
+                        </div>
+                        <!-- Progress bar below image -->
+                        <div id="featured-progress" class="h-1.5 bg-gray-200 rounded-full mt-2 overflow-hidden">
+                            <div class="h-full bg-main-blue transition-all duration-100" style="width:0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Details area -->
+                    <div id="featured-details" class="col-span-12 md:col-span-5 bg-white overflow-y-auto">
+                        <!-- details injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Listings Carousel 2 (Middle Newest) -->
+    <section id="carousel-section-2" class="container mx-auto max-w-7xl px-0 py-4 md:py-8 relative">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12 px-4">Featured Properties</h2>
+        <div id="carousel-2-container" class="relative">
+            <div id="properties-carousel-2"
+                class="flex overflow-x-auto relative scroll-smooth snap-x snap-mandatory hide-scrollbar prevent-scroll-y">
+                <!-- Property cards will be generated here by JavaScript -->
+            </div>
+            <!-- Carousel Navigation Arrows -->
+            <button id="prev-btn-2"
+                class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-main-blue" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="next-btn-2"
+                class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-main-blue" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Property Listings Carousel 3 (Hidden by default) -->
+    <section id="carousel-section-3" class="container mx-auto max-w-7xl px-0 py-4 md:py-8 relative">
+        <div class="text-center mb-6">
+            <a href="/city/" class="inline-flex items-center gap-2 text-main-blue font-semibold hover:underline">
+                View more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Google Web Stories Section -->
+    <section class="py-12 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-main-blue mb-4">Google Web Stories</h2>
+                    <p class="text-gray-700 text-lg mb-6">Discover latest updates, market trends, and investment
+                        opportunities through engaging visual stories.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/web-stories/"
+                            class="inline-flex items-center gap-2 bg-main-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            View All Stories
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="/contact/"
+                            class="inline-flex items-center gap-2 border-2 border-main-blue text-main-blue px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+                            Get Updates
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div id="web-stories-carousel" class="w-full max-w-sm">
+                        <!-- AMP Story Player - Embeds google-web-stories.html -->
+                        <amp-story-player layout="container"
+                            style="width: 100%; max-width: 360px; height: 600px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); overflow: hidden;">
+                            <a href="/web-stories/" title="Global Space Web Stories">Global Space - Real Estate
+                                Stories</a>
+                        </amp-story-player>
+
+                        <script>
+                            // Show fallback if AMP Story Player doesn't load
+                            if (!window.customElements || !customElements.get('amp-story-player')) {
+                                document.getElementById('story-fallback').style.display = 'flex';
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Banner Carousel Section (NOW CLICKABLE) -->
+    <section class="py-8">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="banner-carousel-container relative cursor-pointer" id="clickable-banner-area">
+                <div id="banner-carousel" class="banner-carousel flex">
+                    <!-- Banner 1 -->
+                    <div class="banner-carousel-item">
+                        <img src="/assets/images/collabs/banner1.png" alt="Promotional Banner 1"
+                            class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    <!-- Banner 2 -->
+                    <div class="banner-carousel-item">
+                        <img src="/assets/images/collabs/banner2.png" alt="Promotional Banner 2"
+                            class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    <!-- Banner 3 -->
+                    <div class="banner-carousel-item">
+                        <img src="/assets/images/collabs/banner3.png" alt="Promotional Banner 3"
+                            class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Cities Spotlight Section (UPDATED: Relative Paths Only) -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto max-w-7xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12">Top Cities & Future
+                Opportunities
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1: Mumbai - CONVERTED TO ANCHOR TAG (a href) for working link -->
+                <a href="/city/mumbai"
+                    class="relative block rounded-xl overflow-hidden shadow-xl group transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl">
+                    <img src='/assets/images/States/mumbai.webp' alt="Mumbai City"
+                        class="w-full h-64 object-cover object-center transition-opacity duration-500 group-hover:opacity-80">
+                    <div
+                        class="absolute inset-0 bg-dark-overlay group-hover:bg-dark-overlay/60 transition-colors duration-300 flex items-end">
+                        <h3 class="text-3xl font-extrabold text-white p-6 leading-none">Mumbai</h3>
+                    </div>
+                </a>
+
+                <!-- Card 2: Pune - CONVERTED TO ANCHOR TAG (a href) for working link -->
+                <a href="/city/pune"
+                    class="relative block rounded-xl overflow-hidden shadow-xl group transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl">
+                    <img src="/assets/images/States/pune.webp" alt="Pune City"
+                        class="w-full h-64 object-cover object-center transition-opacity duration-500 group-hover:opacity-80">
+                    <div
+                        class="absolute inset-0 bg-dark-overlay group-hover:bg-dark-overlay/60 transition-colors duration-300 flex items-end">
+                        <h3 class="text-3xl font-extrabold text-white p-6 leading-none">Pune</h3>
+                    </div>
+                </a>
+
+                <!-- Card 3: Bengaluru - CONVERTED TO ANCHOR TAG (a href) for working link -->
+                <a href="/city/bengaluru"
+                    class="relative block rounded-xl overflow-hidden shadow-xl group transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl">
+                    <img src="/assets/images/States/bengaluru.webp" alt="Bengaluru City"
+                        class="w-full h-64 object-cover object-center transition-opacity duration-500 group-hover:opacity-80">
+                    <div
+                        class="absolute inset-0 bg-dark-overlay group-hover:bg-dark-overlay/60 transition-colors duration-300 flex items-end">
+                        <h3 class="text-3xl font-extrabold text-white p-6 leading-none">Bengaluru</h3>
+                    </div>
+                </a>
+
+                <!-- Card 4: Navi Mumbai (converted to a standard city card like others) -->
+                <a href="/city/navi-mumbai"
+                    class="relative block rounded-xl overflow-hidden shadow-xl group transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl">
+                    <img src="/assets/images/States/navimumbai.webp" alt="Navi Mumbai"
+                        class="w-full h-64 object-cover object-center transition-opacity duration-500 group-hover:opacity-80">
+                    <div
+                        class="absolute inset-0 bg-dark-overlay group-hover:bg-dark-overlay/60 transition-colors duration-300 flex items-end">
+                        <h3 class="text-3xl font-extrabold text-white p-6 leading-none">Navi Mumbai</h3>
+                    </div>
+                </a>
+            </div>
+            <!-- Main Explore Link -->
+            <div class="text-center mt-12">
+                <a href="/city/"
+                    class="text-main-blue font-semibold text-lg hover:text-[#1a4e9b] transition-colors duration-300 inline-flex items-center space-x-2">
+                    <span>Explore other cities</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator Section (UPDATED: Links to separate page) -->
+    <section id="loan-calculator-section" class="bg-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <!-- Teaser pointing to separate calculator.html page -->
+            <a href="/calculator/" id="calculator-teaser"
+                class="block max-w-4xl mx-auto bg-main-blue text-white p-6 md:p-10 rounded-xl shadow-2xl flex flex-col md:flex-row items-center justify-between cursor-pointer hover:bg-[#1a4e9b] transition-colors duration-300 group decoration-transparent">
+                <div class="flex items-center space-x-4">
+                    <!-- Calculator Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 md:w-12 md:h-12 text-white"
+                        viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-4v-4h4v4zm2-6H8V7h8v4z" />
+                    </svg>
+
+                    <h2 class="text-xl md:text-3xl font-bold">Calculate Your Home Loan</h2>
+                </div>
+                <div
+                    class="mt-4 md:mt-0 px-6 py-2 bg-white text-main-blue font-semibold rounded-lg shadow-lg group-hover:bg-gray-100 transition-colors duration-300 flex items-center space-x-2">
+                    <span>Calculate Now</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="teaser-icon"
+                        class="h-5 w-5 transition-transform duration-300 transform group-hover:translate-x-1"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-gray-100 py-8">
+        <div class="container mx-auto max-w-7xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-main-blue mb-12">Our Happy Clients</h2>
+            <div class="testimonials-scroll-container">
+                <div class="testimonials-scroll">
+
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client1.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Ajay Gupta</h4>
+                            <p class="text-sm text-gray-200">Buy in Gogrej Hillview</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client2.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Anjali</h4>
+                            <p class="text-sm text-gray-200">Buy in Lodha Palava Shilphata</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client3.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">chetan</h4>
+                            <p class="text-sm text-gray-200">Buy in Provident Palm Vista</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 4 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client4.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Christina</h4>
+                            <p class="text-sm text-gray-200">Buy in Raunak Maximum City</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 5 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client5.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Dilip</h4>
+                            <p class="text-sm text-gray-200">Buy in Godrej Woodside Estate</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 6 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client6.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Dilip Jaiswal</h4>
+                            <p class="text-sm text-gray-200">Buy in Godrej Woodside Estate</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 7 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client7.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Nisha Gupta</h4>
+                            <p class="text-sm text-gray-200">Buy in Godrej Forest Estate</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 8 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client8.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Duliya</h4>
+                            <p class="text-sm text-gray-200">Buy in Lodha Crown</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 9 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client9.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Hemant </h4>
+                            <p class="text-sm text-gray-200">Buy in lodha commercial</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 10 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client10.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Manmphan Garodia</h4>
+                            <p class="text-sm text-gray-200">Buy in Godrej HIllview Estate</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 11 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client11.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">manoj</h4>
+                            <p class="text-sm text-gray-200">Buy in Thane Dream</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 12 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client12.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Naresh Runwal</h4>
+                            <p class="text-sm text-gray-200">Buy in Enchanted</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 13 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client13.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Palak</h4>
+                            <p class="text-sm text-gray-200">Buy in JP Infra Thane</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 14 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client14.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Pankaj Agarwal</h4>
+                            <p class="text-sm text-gray-200">Buy in Raunak Maximum City</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 15 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client15.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Piyush</h4>
+                            <p class="text-sm text-gray-200">Buy in Todays Shabhagya</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 16 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client16.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">pooja patel</h4>
+                            <p class="text-sm text-gray-200">Buy in JP Infra Thane</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 17 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client17.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Ramesh Vihan</h4>
+                            <p class="text-sm text-gray-200">Buy in Vihang Capital Thane</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 18 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client18.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg"></h4>
+                            <p class="text-sm text-gray-200">Buy in Runwal Enchanted</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 19 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client19.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Sachin Yeole </h4>
+                            <p class="text-sm text-gray-200">Buy in Dosti West County</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 20 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client20.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Sameer Sharikh</h4>
+                            <p class="text-sm text-gray-200">Buy in Raunak Fortuna</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 21 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client21.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Shrishial Banakar </h4>
+                            <p class="text-sm text-gray-200">Buy in Godrej Evergreen Square</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 22 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client22.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Sriram </h4>
+                            <p class="text-sm text-gray-200">Buy in Raunak Maximum City</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 23 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client23.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Sudhir Bhai</h4>
+                            <p class="text-sm text-gray-200">Buy in Godrej Forest Estate</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 24 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client24.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Sujata </h4>
+                            <p class="text-sm text-gray-200">Buy in Dosti West County</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 25 -->
+                    <div class="testimonial-card-bg relative rounded-lg overflow-hidden shadow-lg h-64 w-64 md:h-80 md:w-80 snap-start"
+                        style="background-image: url('/assets/images/Testimonial-Card/client25.jpg');">
+                        <div class="absolute inset-0 bg-dark-overlay flex flex-col justify-end p-6">
+                            <h4 class="font-bold text-white text-lg">Suraj Gupta </h4>
+                            <p class="text-sm text-gray-200">Buy in Runwal Garden KDMC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- India Map and Stats Section -->
+    <section id="stats-section" class="py-8">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
+                <!-- Image for the India Map -->
+                <div class="md:w-1/3">
+                    <img src="/assets/images/web-images/india-map.png" alt="Map of India with service locations"
+                        class="w-full h-auto">
+                </div>
+                <!-- Content for Stats -->
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-main-blue mb-6">We are loved by people from all parts
+                        of India</h2>
+                    <div class="grid grid-cols-2 gap-8 text-center md:text-left">
+                        <div>
+                            <p class="text-4xl font-bold text-gray-900" id="stat-1">0</p>
+                            <p class="text-lg text-gray-500">Happy Customers</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-gray-900" id="stat-2">0</p>
+                            <p class="text-lg text-gray-500">Cities</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-gray-900" id="stat-3">0</p>
+                            <p class="text-lg text-gray-500">Projects</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-gray-900" id="stat-4">0</p>
+                            <p class="text-lg text-gray-500">Awards And Recognitions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Consultation Section -->
+    <section class="bg-gray-100 py-12" id="consultation-section">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div
+                class="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <!-- Left side: Illustration and text -->
+                <div class="md:w-1/2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl md:text-3xl font-bold text-main-blue mb-2 text-center md:text-left">FREE Expert
+                        Consultation</h3>
+                    <p class="text-lg text-gray-700 text-center md:text-left">Speak to our experts and get personalized
+                        guidance today.</p>
+                    <!-- UPDATED: Frame with Hover Effect -->
+                    <div class="mt-4 max-w-sm md:max-w-md mx-auto p-4 rounded-xl bg-main-blue shadow-2xl transform transition-transform duration-300 hover:scale-[1.03] cursor-pointer"
+                        id="consultation-image">
+                        <img src="/assets/images/web-images/contact.png" alt="Consultation illustration"
+                            class="w-full h-auto rounded-lg"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/2165e4/ffffff?text=Contact+Image';">
+                    </div>
+                </div>
+                <!-- Right side: Contact Form -->
+                <div class="md:w-1/2 w-full">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4 text-center md:text-left">Get Answers to All Your
+                        Questions</h4>
+                    <form id="consult-form" class="space-y-3">
+                        <input type="text" id="consult-name" name="name" placeholder="Full Name"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <input type="tel" id="consult-phone" name="phone" placeholder="Mobile Number"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <div class="flex items-center space-x-2">
+                            <label for="whatsapp-toggle" class="text-gray-700 text-sm">Get updates on WhatsApp</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="whatsapp-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <input type="email" id="consult-email" name="email" placeholder="Email Address"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-2">
+                            <button type="submit"
+                                class="request-button w-full md:w-1/2 p-2 font-semibold rounded-lg hover:bg-[#45a049] transition-colors duration-300">
+                                Request Consultation
+                            </button>
+                            <p class="text-gray-600 text-center md:text-left py-1 text-sm">or Call Us: <a
+                                    href="tel:+917400400373" class="font-bold text-main-blue hover:underline">+91
+                                    7400400373
+                                </a></p>
+                        </div>
+                    </form>
+                    <div id="consultation-msg"
+                        class="hidden text-center mt-4 p-3 rounded-lg text-white font-semibold transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Detailed Footer -->
+    <footer class="bg-main-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Global Space -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Updated to use cleaner path: "/" for home -->
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <!-- Updated to use clean anchor link for internal page navigation -->
+                        <li><a href="#loan-calculator-section" class="hover:underline" data-alias="home#loan">Loan
+                                Calculator</a></li>
+                        <li><a href="/sitemap/" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 ,
+                            Near Station CBD Belapur
+                            Opp to BP Marine Academy
+                            Above Federal Bank
+                            Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <!-- Follow Us (NOW USING IMAGE TAGS FOR EXTERNAL PNGS) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube" class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400">© 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+
+    <!-- REPLACED OLD POPUP WITH NEW "WELCOME POPUP" DESIGN (Mobile & Desktop Unified) -->
+    <div id="welcomePopup" class="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-0 hidden">
+
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="welcome-popup-backdrop"></div>
+
+        <!-- Modal Content (Unified Design: Image Behind Form) -->
+        <div class="relative w-full max-w-md md:max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            style="animation: fadeIn 0.5s ease-out;">
+
+            <!-- Close Button -->
+            <button id="welcome-popup-close-btn"
+                class="absolute top-3 right-3 z-20 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition backdrop-blur-md border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Full Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="/assets/images/web-images/index-popup.webp" alt="Luxury Property"
+                    class="w-full h-full object-cover">
+                <!-- Dark Overlay for contrast -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 w-full h-full flex flex-col justify-center p-6 md:p-10">
+
+                <!-- Marketing Text (White text on dark bg) -->
+                <div class="text-center mb-6 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 shadow-sm">Buying a Home in 2026?</h2>
+                    <div
+                        class="inline-block bg-yellow-400 text-black px-3 py-1 font-bold rounded-md text-sm md:text-base mb-2 shadow-lg transform -rotate-1 border border-yellow-500">
+                        "Things to Check Before Buying"
+                    </div>
+                    <p class="text-gray-200 text-xs md:text-sm mt-2 opacity-90">Download our exclusive checklist for
+                        free.</p>
+                </div>
+
+                <!-- Form Card (Glassmorphism) -->
+                <div class="bg-white/95 backdrop-blur-md rounded-xl p-5 md:p-6 shadow-2xl border border-white/20">
+                    <form id="welcome-popup-form" class="space-y-4">
+                        <div>
+                            <input type="text" id="wp-name" name="name" required placeholder="Full Name"
+                                class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-main-blue focus:border-main-blue outline-none transition bg-gray-50 focus:bg-white placeholder-gray-400">
+                        </div>
+
+                        <div>
+                            <div class="flex">
+                                <span
+                                    class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-200 bg-gray-100 text-gray-500 text-sm font-medium">
+                                    +91
+                                </span>
+                                <input type="tel" id="wp-phone" name="phone" required placeholder="Phone Number"
+                                    pattern="[0-9]{10}"
+                                    class="w-full px-4 py-3 text-sm rounded-r-lg border border-gray-200 focus:ring-2 focus:ring-main-blue focus:border-main-blue outline-none transition bg-gray-50 focus:bg-white placeholder-gray-400">
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="email" id="wp-email" name="email" required placeholder="Email Address"
+                                class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-main-blue focus:border-main-blue outline-none transition bg-gray-50 focus:bg-white placeholder-gray-400">
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-main-blue hover:bg-blue-700 text-white font-bold py-3.5 text-sm rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 mt-2 flex items-center justify-center gap-2">
+                            <span>Download Free PDF</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </button>
+
+                        <p class="text-[10px] text-center text-gray-500 mt-2">
+                            🔒 Your details are safe with us.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact Form Modal (Brochure) -->
+    <div id="brochure-modal" class="modal">
+        <div class="modal-content relative">
+            <!-- CLOSE BUTTON (X Mark) -->
+            <button class="modal-close" id="brochure-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-main-blue mb-4 text-center">Download Brochure</h3>
+            <p class="text-gray-600 mb-6 text-center">Please provide your details to receive the brochure.</p>
+            <form id="brochure-form" class="space-y-4">
+                <div>
+                    <label for="modal-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="modal-name" name="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="modal-phone" class="block text-gray-700 font-semibold mb-2">Phone No.</label>
+                    <input type="tel" id="modal-phone" name="phone"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="modal-email" class="block text-gray-700 font-semibold mb-2">Email ID</label>
+                    <input type="email" id="modal-email" name="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300">
+                    Submit & Download
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- NEW: Interior Design Form Modal -->
+    <div id="interior-modal" class="modal">
+        <div class="modal-content relative">
+            <!-- CLOSE BUTTON (X Mark) -->
+            <button class="modal-close" id="interior-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-main-blue mb-4 text-center">Interior Design Inquiry</h3>
+            <p class="text-gray-600 mb-6 text-center">Get a free consultation for your home interiors (Livspace).</p>
+            <form id="interior-form" class="space-y-4">
+                <div>
+                    <label for="interior-modal-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="interior-modal-name" name="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="interior-modal-phone" class="block text-gray-700 font-semibold mb-2">Phone No.</label>
+                    <input type="tel" id="interior-modal-phone" name="phone"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="interior-modal-email" class="block text-gray-700 font-semibold mb-2">Email ID</label>
+                    <input type="email" id="interior-modal-email" name="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 text-white font-semibold rounded-lg transition-colors duration-300">
+                    Claim Your Free Design Consultation!
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- NEW: Loan Inquiry Form Modal -->
+    <div id="loan-inquiry-modal" class="modal">
+        <div class="modal-content relative">
+            <!-- CLOSE BUTTON (X Mark) -->
+            <button class="modal-close" id="loan-inquiry-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold mb-4 text-center">Home Loan Inquiry</h3>
+            <p class="text-gray-600 mb-6 text-center">Get personalized home loan advice from our financial experts.</p>
+            <form id="loan-inquiry-form" class="space-y-4">
+                <div>
+                    <label for="loan-modal-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="loan-modal-name" name="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="loan-modal-phone" class="block text-gray-700 font-semibold mb-2">Phone No.</label>
+                    <input type="tel" id="loan-modal-phone" name="phone"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="loan-modal-email" class="block text-gray-700 font-semibold mb-2">Email ID</label>
+                    <input type="email" id="loan-modal-email" name="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 text-white font-semibold rounded-lg transition-colors duration-300">
+                    Submit Loan Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NEW: Featured Rotator Brochure Modal -->
+    <div id="rotator-brochure-modal" class="modal">
+        <div class="modal-content relative">
+            <!-- CLOSE BUTTON (X Mark) -->
+            <button class="modal-close" id="rotator-brochure-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-main-blue mb-4 text-center">Download Brochure</h3>
+            <p class="text-gray-600 mb-6 text-center">Please provide your details to receive the brochure.</p>
+            <form id="rotator-brochure-form" class="space-y-4">
+                <div>
+                    <label for="rotator-brochure-name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="rotator-brochure-name" name="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="rotator-brochure-phone" class="block text-gray-700 font-semibold mb-2">Phone No.</label>
+                    <input type="tel" id="rotator-brochure-phone" name="phone"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <div>
+                    <label for="rotator-brochure-email" class="block text-gray-700 font-semibold mb-2">Email ID</label>
+                    <input type="email" id="rotator-brochure-email" name="email"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300">
+                    Submit & Download
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp button (standardized PNG) -->
+    <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Helper function to generate the status badge HTML with single blue color matching the theme
+        function getStatusBadgeHtml(status) {
+            if (!status) return '';
+            const bgColor = 'bg-main-blue';
+            const ringColor = 'ring-main-blue';
+            let badgeClass = "absolute top-4 left-4 px-3 py-1 text-xs uppercase font-bold rounded-full shadow-lg text-white ring-2 z-10 tracking-wider";
+            return `<span class="${badgeClass} ${bgColor} ${ringColor}">${status}</span>`;
+        }
+
+        const reversedProperties = typeof properties !== 'undefined' ? [...properties].reverse() : [];
+
+        const propertiesContainer = document.getElementById('properties-container');
+        // Removed non-existent filter element selectors
+        const clearFiltersBtn = document.getElementById('clear-filters-button');
+        const carousel1Section = document.getElementById('carousel-section-1');
+        const carousel1Container = document.getElementById('properties-carousel-1');
+        const prevBtn1 = document.getElementById('prev-btn-1');
+        const nextBtn1 = document.getElementById('next-btn-1');
+        const carousel2Section = document.getElementById('carousel-section-2');
+        const carousel2Container = document.getElementById('properties-carousel-2');
+        const prevBtn2 = document.getElementById('prev-btn-2');
+        const nextBtn2 = document.getElementById('next-btn-2');
+        const filteredGridSection = document.getElementById('filtered-properties-section');
+        const filteredGridContainer = document.getElementById('filtered-properties-grid');
+
+        const firstCarouselProperties = reversedProperties.slice(0, 10);
+        const secondCarouselProperties = reversedProperties.slice(10, 20);
+        // Removed unused third carousel properties variable
+
+        function renderCarouselProperties(container, propertiesToRender) {
+            container.innerHTML = '';
+            propertiesToRender.forEach(property => {
+                const propertyCard = document.createElement('div');
+                const statusBadgeHtml = getStatusBadgeHtml(property.status);
+
+                // Updated: Changed w-9/12 to w-8/12 for mobile to make the card/image box smaller
+                propertyCard.className = 'flex-none w-8/12 sm:w-8/12 md:w-1/4 px-0.5 snap-start mx-auto';
+                const isWhatsappLink = property.detailsUrl === 'whatsapp';
+                let detailsButtonHtml;
+                if (isWhatsappLink) {
+                    detailsButtonHtml = `<button class="details-btn-whatsapp w-1/2 p-3 text-center bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300" data-property-title="${encodeURIComponent(property.title)}">Details</button>`;
+                } else {
+                    detailsButtonHtml = `<a href="${property.detailsUrl}" class="w-1/2 p-3 text-center bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300">Details</a>`;
+                }
+                propertyCard.innerHTML = `
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col group transition-all duration-300 border border-transparent">
+                        <div class="aspect-[3/2] overflow-hidden relative">
+                             <img src="${property.image}" alt="${property.title}" class="w-full h-auto aspect-[3/2] object-cover">
+                             ${statusBadgeHtml}
+                        </div>
+                        <div class="p-3 sm:p-4 md:p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold text-main-blue mb-1">${property.title}</h3>
+                                <div class="flex items-center justify-between text-gray-500 mb-3 sm:mb-4 text-xs sm:text-sm">
+                                    <div class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 sm:h-4 w-3 sm:w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span class="capitalize">${property.city}</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-700 font-medium space-x-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 sm:h-4 w-3 sm:w-4 text-main-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                        </svg>
+                                        <span>${property.bhk}</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-base sm:text-lg md:text-xl font-extrabold text-gray-900 mb-2 sm:mb-3">₹${property.price} onwards</h4>
+                            </div>
+                            <div class="flex justify-between space-x-1 sm:space-x-2">
+                                ${detailsButtonHtml}
+                                <button class="brochure-btn w-1/2 p-2 sm:p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300 flex items-center justify-center text-xs sm:text-sm" data-property-id="${property.id}">
+                                    Brochure
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 sm:h-4 w-3 sm:w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>`;
+                container.appendChild(propertyCard);
+
+                const img = propertyCard.querySelector('img');
+                if (img) {
+                    if (img.complete) {
+                        updateCarouselButtons();
+                    } else {
+                        img.addEventListener('load', () => {
+                            updateCarouselButtons();
+                        });
+                        img.addEventListener('error', () => {
+                            setTimeout(updateCarouselButtons, 300);
+                        });
+                    }
+                }
+            });
+            updateCarouselButtons();
+        }
+        function renderFilteredGrid(propertiesToRender) {
+            filteredGridContainer.innerHTML = '';
+            if (propertiesToRender.length === 0) {
+                filteredGridContainer.innerHTML = '<p class="text-center text-gray-500 col-span-full">No properties found matching your criteria.</p>';
+                return;
+            }
+            propertiesToRender.forEach(property => {
+                const propertyCard = document.createElement('div');
+                const statusBadgeHtml = getStatusBadgeHtml(property.status);
+
+                const isWhatsappLink = property.detailsUrl === 'whatsapp';
+                let detailsButtonHtml;
+                if (isWhatsappLink) {
+                    detailsButtonHtml = `<button class="details-btn-whatsapp w-1/2 p-3 text-center bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300" data-property-title="${encodeURIComponent(property.title)}">Details</button>`;
+                } else {
+                    detailsButtonHtml = `<a href="${property.detailsUrl}" class="w-1/2 p-3 text-center bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300">Details</a>`;
+                }
+                propertyCard.innerHTML = `
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden h-full flex flex-col group transition-all duration-300 border border-transparent">
+                        <div class="aspect-[3/2] overflow-hidden relative">
+                            <img src="${property.image}" alt="${property.title}" class="w-full h-auto aspect-[3/2] object-cover">
+                            ${statusBadgeHtml} 
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-main-blue mb-1">${property.title}</h3>
+                                <div class="flex items-center justify-between text-gray-500 mb-4 text-sm">
+                                    <div class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span class="capitalize">${property.city}</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-700 font-medium space-x-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-main-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                        </svg>
+                                        <span>${property.bhk}</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">₹${property.price} onwards</h4>
+                            </div>
+                            <div class="flex justify-between space-x-2">
+                                ${detailsButtonHtml}
+                                <button class="brochure-btn w-1/2 p-3 bg-main-blue text-white font-semibold rounded-lg hover:bg-[#1a4e9b] transition-colors duration-300 flex items-center justify-center text-sm" data-property-id="${property.id}">
+                                    Brochure
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>`;
+                filteredGridContainer.appendChild(propertyCard);
+            });
+        }
+        function updateCarouselButtons() {
+            if (carousel1Container.scrollWidth > carousel1Container.clientWidth) {
+                prevBtn1.classList.remove('hidden');
+                nextBtn1.classList.remove('hidden');
+            } else {
+                prevBtn1.classList.add('hidden');
+                nextBtn1.classList.add('hidden');
+            }
+            if (carousel2Container.scrollWidth > carousel2Container.clientWidth) {
+                prevBtn2.classList.remove('hidden');
+                nextBtn2.classList.remove('hidden');
+            } else {
+                prevBtn2.classList.add('hidden');
+                nextBtn2.classList.add('hidden');
+            }
+        }
+        prevBtn1.addEventListener('click', () => {
+            const scrollAmount = carousel1Container.querySelector('.flex-none').offsetWidth || 0;
+            carousel1Container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        nextBtn1.addEventListener('click', () => {
+            const scrollAmount = carousel1Container.querySelector('.flex-none').offsetWidth || 0;
+            carousel1Container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+        prevBtn2.addEventListener('click', () => {
+            const scrollAmount = carousel2Container.querySelector('.flex-none').offsetWidth || 0;
+            carousel2Container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        nextBtn2.addEventListener('click', () => {
+            const scrollAmount = carousel2Container.querySelector('.flex-none').offsetWidth || 0;
+            carousel2Container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        const setupDragScroll = (container) => {
+            let isDragging = false, startPos = 0, scrollLeft = 0;
+
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startPos = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+                container.style.cursor = 'grabbing';
+            });
+            container.addEventListener('mouseleave', () => { isDragging = false; container.style.cursor = 'grab'; });
+            container.addEventListener('mouseup', () => { isDragging = false; container.style.cursor = 'grab'; });
+            container.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startPos) * 2;
+                container.scrollLeft = scrollLeft - walk;
+            });
+
+            let touchstartX = 0;
+            let touchendX = 0;
+            let isScrollingVertically = false;
+
+            container.addEventListener('touchstart', (e) => {
+                touchstartX = e.changedTouches[0].clientX;
+                isScrollingVertically = false;
+            }, { passive: true });
+
+            container.addEventListener('touchmove', (e) => {
+                const touchDiffY = Math.abs(touchstartX - e.changedTouches[0].clientY);
+                const touchDiffX = Math.abs(touchstartX - e.changedTouches[0].clientX);
+
+                if (touchDiffY > touchDiffX) {
+                    isScrollingVertically = true;
+                }
+
+                if (!isScrollingVertically) {
+                    touchendX = e.changedTouches[0].clientX;
+                    const diffX = touchstartX - touchendX;
+                    container.scrollLeft += diffX;
+                    touchstartX = touchendX;
+                }
+            }, { passive: true });
+
+            container.addEventListener('touchend', (e) => {
+                if (!isScrollingVertically) {
+                    const cardWidth = container.querySelector('.flex-none').offsetWidth;
+                    const snapPoint = Math.round(container.scrollLeft / cardWidth) * cardWidth;
+                    container.scrollTo({ left: snapPoint, behavior: 'smooth' });
+                }
+            });
+        };
+
+        function filterProperties() {
+            const selectedCity = document.getElementById('city-selected-text').dataset.value || 'all';
+            const selectedPrice = document.getElementById('price-selected-text').dataset.value || 'all';
+
+            if (typeof properties === 'undefined' || properties.length === 0) {
+                console.error("Properties data not loaded from properties.js");
+                return;
+            }
+
+            let filtered = properties.filter(property => {
+                const cityMatch = selectedCity === 'all' || property.city.toLowerCase() === selectedCity.toLowerCase();
+                const priceMatch = selectedPrice === 'all' || getPriceRange(property.price) === selectedPrice;
+                return cityMatch && priceMatch;
+            });
+
+            filtered.sort((a, b) => b.id - a.id);
+
+            if (selectedCity === 'all' && selectedPrice === 'all') {
+                carousel1Section.classList.remove('hidden');
+                carousel2Section.classList.remove('hidden');
+                filteredGridSection.classList.add('hidden');
+                renderCarouselProperties(carousel1Container, reversedProperties.slice(0, 10));
+                renderCarouselProperties(carousel2Container, reversedProperties.slice(10, 20));
+            } else {
+                carousel1Section.classList.add('hidden');
+                carousel2Section.classList.add('hidden');
+                filteredGridSection.classList.remove('hidden');
+                renderFilteredGrid(filtered);
+            }
+        }
+        function getPriceRange(priceStr) {
+            const price = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+            const isLakhs = priceStr.toLowerCase().includes('lakh');
+            const isCr = priceStr.toLowerCase().includes('cr');
+            if (isLakhs) return price < 50 ? 'under50' : '50-1cr';
+            if (isCr) {
+                if (price <= 1.5) return '1-1.5cr';
+                if (price <= 2) return '1.5-2cr';
+                if (price <= 2.5) return '2-2.5cr';
+                if (price <= 3) return '2.5-3cr';
+                if (price <= 3.5) return '3-3.5cr';
+                if (price <= 4) return '3.5-4cr';
+                return '4cr+';
+            }
+            return 'all';
+        }
+        function populateFilters() {
+            if (typeof properties === 'undefined' || properties.length === 0) {
+                console.error("Cannot populate filters: Properties data not loaded.");
+                return;
+            }
+
+            const cities = [...new Set(properties.map(p => p.city))];
+            cities.sort((a, b) => a.localeCompare(b));
+
+            const cityList = document.getElementById('city-list').querySelector('ul');
+            cities.forEach(city => {
+                const li = document.createElement('li');
+                li.className = 'px-4 py-2 cursor-pointer hover:bg-gray-100';
+                li.dataset.value = city;
+                li.textContent = city;
+                cityList.appendChild(li);
+            });
+            const priceRanges = [
+                { value: 'under50', text: 'Under 50 Lakh' }, { value: '50-1cr', text: '50 Lakhs to 1 Cr' },
+                { value: '1-1.5cr', text: '1 Cr to 1.5 Cr' }, { value: '1.5-2cr', text: '1.5 Cr to 2 Cr' },
+                { value: '2-2.5cr', text: '2 Cr to 2.5 Cr' }, { value: '2.5-3cr', text: '2.5 Cr to 3 Cr' },
+                { value: '3-3.5cr', text: '3 Cr to 3.5 Cr' }, { value: '3.5-4cr', text: '3.5 Cr to 4 Cr' },
+                { value: '4cr+', text: '4 Cr and above' },
+            ];
+            const priceList = document.getElementById('price-list').querySelector('ul');
+            priceRanges.forEach(range => {
+                const li = document.createElement('li');
+                li.className = 'px-4 py-2 cursor-pointer hover:bg-gray-100';
+                li.dataset.value = range.value;
+                li.textContent = range.text;
+                priceList.appendChild(li);
+            });
+        }
+
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                document.getElementById('city-selected-text').textContent = 'All Cities';
+                document.getElementById('city-selected-text').dataset.value = 'all';
+                document.getElementById('price-selected-text').textContent = 'All Prices';
+                document.getElementById('price-selected-text').dataset.value = 'all';
+                filterProperties();
+            });
+        }
+
+        let currentBrochurePropertyId = null;
+        const cityDropdown = document.getElementById('city-dropdown');
+        const priceDropdown = document.getElementById('price-dropdown');
+        const setupDropdown = (buttonId, listId, selectedTextId) => {
+            const button = document.getElementById(buttonId);
+            const list = document.getElementById(listId);
+            const selectedText = document.getElementById(selectedTextId);
+            button.addEventListener('click', (e) => { e.stopPropagation(); list.classList.toggle('hidden'); });
+            list.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const li = e.target.closest('li');
+                if (li) {
+                    selectedText.textContent = li.textContent;
+                    selectedText.dataset.value = li.dataset.value;
+                    list.classList.add('hidden');
+                    filterProperties();
+                }
+            });
+        };
+        setupDropdown('city-btn', 'city-list', 'city-selected-text');
+        setupDropdown('price-btn', 'price-list', 'price-selected-text');
+        document.addEventListener('click', (e) => {
+            if (!cityDropdown.contains(e.target)) document.getElementById('city-list').classList.add('hidden');
+            if (!priceDropdown.contains(e.target)) document.getElementById('price-list').classList.add('hidden');
+        });
+
+        const stats = [
+            { id: 'stat-1', value: 160 },
+            { id: 'stat-2', value: 13 },
+            { id: 'stat-3', value: 19 },
+            { id: 'stat-4', value: 11 },
+        ];
+
+        function animateNumber(element, finalValue, duration) {
+            let start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                const currentValue = Math.floor(progress * finalValue);
+                element.textContent = `${currentValue}+`;
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    stats.forEach(stat => {
+                        const element = document.getElementById(stat.id);
+                        if (element) {
+                            animateNumber(element, stat.value, 2000); // 2-second animation
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateFilters();
+
+            renderCarouselProperties(carousel1Container, firstCarouselProperties);
+            renderCarouselProperties(carousel2Container, secondCarouselProperties);
+
+            setupDragScroll(carousel1Container);
+            setupDragScroll(carousel2Container);
+
+            // --- Featured Rotator & Other logic continues below ---
+
+            // --- USP Rotator for Hero Section ---
+            const heroUsps = [
+                {
+                    text: "0 Brokerage Fee",
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
+                },
+                {
+                    text: "100% Trusted Partner",
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
+                },
+                {
+                    text: "Free Pickup & Drop for Site",
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>`
+                }
+            ];
+
+            // Better Car Icon
+            const carIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" /></svg>`;
+            heroUsps[2].icon = carIcon;
+
+            let uspIndex = 0;
+            const uspBadge = document.getElementById('hero-usp-badge');
+            const uspIcon = document.getElementById('hero-usp-icon');
+            const uspText = document.getElementById('hero-usp-text');
+
+            function updateUSP() {
+                if (!uspBadge) return;
+                // Fade Out
+                uspBadge.classList.remove('opacity-100', 'translate-y-0');
+                uspBadge.classList.add('opacity-0', 'translate-y-4');
+
+                setTimeout(() => {
+                    const item = heroUsps[uspIndex];
+                    uspIcon.innerHTML = item.icon;
+                    uspText.textContent = item.text;
+
+                    // Fade In
+                    uspBadge.classList.remove('opacity-0', 'translate-y-4');
+                    uspBadge.classList.add('opacity-100', 'translate-y-0');
+
+                    uspIndex = (uspIndex + 1) % heroUsps.length;
+                }, 700);
+            }
+
+            // Start loop
+            if (uspBadge) {
+                // Initial show after short delay
+                setTimeout(updateUSP, 100);
+                // Rotate every 3.5 seconds
+                setInterval(updateUSP, 3500);
+            }
+
+            // --- Featured Rotator for last properties ---
+            (function () {
+                const thumbs = document.getElementById('featured-thumbs');
+                const main = document.getElementById('featured-main');
+                const mainInner = document.getElementById('featured-main-inner');
+                const prevBtn = document.getElementById('featured-prev-btn');
+                const nextBtn = document.getElementById('featured-next-btn');
+                const details = document.getElementById('featured-details');
+                if (!thumbs || !main || !mainInner || !details) return;
+
+                const lastThree = (typeof properties !== 'undefined' && Array.isArray(properties)) ? properties.slice(-3) : [];
+                if (!lastThree.length) return;
+
+                let idx = 0;
+                const duration = 12000;
+                let progressStart = 0;
+                let progressElapsed = 0;
+                let progressRaf = null;
+                const progressBar = document.getElementById('featured-progress');
+                const progressInner = progressBar ? progressBar.querySelector('div') : null;
+
+                const placeholder = 'data:image/svg+xml;utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22600%22%20height=%22400%22%3E%3Crect%20width=%22100%25%22%20height=%22100%25%22%20fill=%22%23e5e7eb%22/%3E%3C/svg%3E';
+
+                function createThumb(p, i) {
+                    const a = document.createElement('a');
+                    a.href = p.detailsUrl || '#';
+                    a.className = 'block w-full rounded-xl overflow-hidden shadow-sm bg-white border border-gray-100 hover:shadow-md transition-all duration-200 mb-4 last:mb-0';
+                    a.style.cursor = 'pointer';
+                    const src = p.image || placeholder;
+                    a.innerHTML = `
+                        <div class="h-24 w-full relative">
+                            <img src="${src}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                        <div class="p-3">
+                            <div class="text-xs font-bold text-gray-800 truncate">${p.title}</div>
+                            <div class="text-[10px] text-gray-500 mt-0.5 truncate">${p.city}</div>
+                        </div>
+                    `;
+                    a.addEventListener('click', (e) => { e.preventDefault(); setIndex(i); resetTimer(); });
+                    return a;
+                }
+
+                function renderMain(p) {
+                    const src = p.image || placeholder;
+                    mainInner.innerHTML = `
+                        <div class="aspect-[3/2] w-full overflow-hidden relative rounded-lg">
+                            <img src="${src}" alt="${p.title}" class="w-full h-full object-cover">
+                            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">${lastThree.map((_, i) => `<span class="w-2 h-2 rounded-full ${i === idx ? 'bg-white' : 'bg-white/50'} block"></span>`).join('')}</div>
+                        </div>
+                    `;
+                }
+
+                function renderDetails(p) {
+                    const builderName = 'Godrej Properties';
+                    details.innerHTML = `
+                        <div class="flex flex-col h-full p-6">
+                            <div class="mb-4 pb-3 border-b border-gray-200">
+                                <div class="text-sm font-semibold text-gray-700">${builderName}</div>
+                                <a href="/city/" class="text-xs text-rose-500 font-medium hover:underline">View All Projects</a>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">${p.title}</h3>
+                            <p class="text-sm text-gray-600 mb-4">at ${p.city} by ${builderName}</p>
+
+                            <div class="flex gap-3 mb-4 text-xs">
+                                <span class="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 rounded text-gray-700">
+                                    ✓ Premium
+                                </span>
+                                <span class="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 rounded text-gray-700">
+                                    ✓ Offers Available
+                                </span>
+                            </div>
+
+                            <div class="flex-grow mb-4 text-sm text-gray-700">
+                                <div class="mb-2 font-semibold">${p.bhk || 'N/A'}</div>
+                                <div class="mb-3 text-gray-600">${p.status || 'Under Construction'}</div>
+                            </div>
+
+                            <div class="mb-4 text-xl font-bold text-gray-900">
+                                INR <span class="text-2xl">${p.price}</span> <span class="text-gray-500 text-sm font-normal">Onwards</span>
+                            </div>
+
+                            <div class="flex gap-2 mt-auto">
+                                <button class="flex-1 px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-full font-medium text-sm text-center hover:bg-gray-50 transition rotator-brochure-btn" data-property-id="${p.id}">
+                                    📄 Brochure
+                                </button>
+                                <button class="flex-1 px-3 py-2 bg-gray-900 text-white rounded-full font-medium text-sm text-center hover:bg-gray-800 transition rotator-details-btn" data-details-url="${p.detailsUrl || '#'}" data-property-title="${p.title}">
+                                    Details
+                                </button>
+                            </div>
+
+                            <div class="flex gap-4 text-xs text-gray-600 mt-3 pt-3 border-t border-gray-200 relative">
+                                <div class="relative group">
+                                    <button class="hover:text-gray-900 flex items-center gap-1 rotator-share-details-btn" data-details-url="${p.detailsUrl || '#'}" data-property-title="${p.title}">
+                                        📤 Share Details
+                                    </button>
+                                    <div class="hidden group-hover:block absolute left-0 top-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10 w-40">
+                                        <button class="w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 flex items-center gap-2 share-whatsapp-option" data-property-title="${p.title}">
+                                            💬 Share on WhatsApp
+                                        </button>
+                                        <button class="w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 flex items-center gap-2 share-copy-option" data-details-url="${p.detailsUrl || '#'}">
+                                            📋 Copy Link
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                function setIndex(i) {
+                    idx = i % lastThree.length;
+                    const p = lastThree[idx];
+                    Array.from(thumbs.children).forEach((ch, ci) => { ch.classList.toggle('ring-2', ci === idx); ch.classList.toggle('ring-main-blue', ci === idx); });
+                    renderMain(p);
+                    renderDetails(p);
+                }
+
+                function tick(now) {
+                    if (!progressStart) progressStart = now - progressElapsed;
+                    progressElapsed = now - progressStart;
+                    const pct = Math.min(progressElapsed / duration, 1);
+                    if (progressInner) progressInner.style.width = (pct * 100) + '%';
+                    if (pct >= 1) {
+                        setIndex((idx + 1) % lastThree.length);
+                        progressStart = performance.now();
+                        progressElapsed = 0;
+                        progressRaf = requestAnimationFrame(tick);
+                    } else {
+                        progressRaf = requestAnimationFrame(tick);
+                    }
+                }
+
+                function startProgress() {
+                    if (progressRaf) cancelAnimationFrame(progressRaf);
+                    progressStart = performance.now() - progressElapsed;
+                    progressRaf = requestAnimationFrame(tick);
+                }
+
+                function stopProgress() {
+                    if (progressRaf) cancelAnimationFrame(progressRaf);
+                    progressRaf = null;
+                }
+
+                function resetTimer() {
+                    stopProgress();
+                    progressElapsed = 0;
+                    if (progressInner) progressInner.style.width = '0%';
+                    startProgress();
+                }
+
+                thumbs.innerHTML = '';
+                lastThree.forEach((p, i) => thumbs.appendChild(createThumb(p, i)));
+
+                if (prevBtn) prevBtn.addEventListener('click', () => { setIndex((idx - 1 + lastThree.length) % lastThree.length); resetTimer(); });
+                if (nextBtn) nextBtn.addEventListener('click', () => { setIndex((idx + 1) % lastThree.length); resetTimer(); });
+
+                setIndex(0);
+                resetTimer();
+
+                details.addEventListener('click', (e) => {
+                    const rotatorBrochureBtn = e.target.closest('.rotator-brochure-btn');
+                    if (rotatorBrochureBtn) {
+                        const propertyId = rotatorBrochureBtn.dataset.propertyId;
+                        window.currentRotatorBrochurePropertyId = propertyId;
+                        document.getElementById('rotator-brochure-modal').classList.add('is-active');
+                    }
+
+                    const rotatorDetailsBtn = e.target.closest('.rotator-details-btn');
+                    if (rotatorDetailsBtn) {
+                        const detailsUrl = rotatorDetailsBtn.dataset.detailsUrl;
+                        const propertyTitle = rotatorDetailsBtn.dataset.propertyTitle;
+
+                        if (detailsUrl === 'whatsapp') {
+                            const whatsappMessage = `Hello, I would like to know more about the property: ${propertyTitle}.`;
+                            const whatsappUrl = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                            window.location.href = whatsappUrl;
+                        } else if (detailsUrl && detailsUrl !== '#') {
+                            window.location.href = detailsUrl;
+                        }
+                    }
+
+                    const shareWhatsappBtn = e.target.closest('.share-whatsapp-option');
+                    if (shareWhatsappBtn) {
+                        const propertyTitle = shareWhatsappBtn.dataset.propertyTitle;
+                        const message = `Check out this property: ${propertyTitle}. Visit Global Space Realty for more details!`;
+                        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappUrl, '_blank');
+                    }
+
+                    const shareCopyBtn = e.target.closest('.share-copy-option');
+                    if (shareCopyBtn) {
+                        const detailsUrl = shareCopyBtn.dataset.detailsUrl;
+                        let urlToCopy = '';
+
+                        if (detailsUrl === 'whatsapp') {
+                            urlToCopy = window.location.origin;
+                        } else if (detailsUrl && detailsUrl !== '#') {
+                            if (detailsUrl.startsWith('http')) {
+                                urlToCopy = detailsUrl;
+                            } else {
+                                urlToCopy = window.location.origin + '/' + detailsUrl;
+                            }
+                        } else {
+                            urlToCopy = window.location.href;
+                        }
+
+                        navigator.clipboard.writeText(urlToCopy).then(() => {
+                            const copied = document.createElement('div');
+                            copied.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white p-3 rounded-lg shadow-lg z-50 text-sm';
+                            copied.innerText = 'Link copied to clipboard!';
+                            document.body.appendChild(copied);
+                            setTimeout(() => copied.remove(), 2000);
+                        }).catch(err => {
+                            console.error('Failed to copy:', err);
+                        });
+                    }
+                });
+            })();
+
+            const rotatorBrochureModal = document.getElementById('rotator-brochure-modal');
+            const rotatorBrochureForm = document.getElementById('rotator-brochure-form');
+            const rotatorBrochureCloseBtn = document.getElementById('rotator-brochure-modal-close-btn');
+
+            if (rotatorBrochureCloseBtn) {
+                rotatorBrochureCloseBtn.addEventListener('click', () => {
+                    rotatorBrochureModal.classList.remove('is-active');
+                });
+            }
+
+            rotatorBrochureModal.addEventListener('click', (e) => {
+                if (e.target === rotatorBrochureModal) {
+                    rotatorBrochureModal.classList.remove('is-active');
+                }
+            });
+
+            rotatorBrochureForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const propertyId = window.currentRotatorBrochurePropertyId;
+                const property = properties.find(p => p.id == propertyId);
+
+                const crmData = {
+                    name: document.getElementById('rotator-brochure-name').value,
+                    phone: document.getElementById('rotator-brochure-phone').value,
+                    email: document.getElementById('rotator-brochure-email').value,
+                    source: 'Featured Rotator - Brochure Download',
+                    propertyId: propertyId,
+                    propertyName: property ? property.title : 'Unknown Property'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                let message = '', bgColor = '';
+
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    message = `Thank you! Brochure for ${crmData.propertyName} is downloading.`;
+                    bgColor = 'bg-green-500';
+                } catch (error) {
+                    console.error('Error submitting to CRM:', error);
+                    message = 'There was an error, but your brochure is downloading.';
+                    bgColor = 'bg-red-500';
+                } finally {
+                    if (property && property.brochureUrl) {
+                        const link = document.createElement('a');
+                        link.href = property.brochureUrl;
+                        link.download = `GlobalSpace_Brochure_${property.title.replace(/\s+/g, '_')}.pdf`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+
+                    const messageBox = document.createElement('div');
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-50`;
+                    messageBox.innerText = message;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => messageBox.remove(), 4000);
+
+                    rotatorBrochureModal.classList.remove('is-active');
+                    rotatorBrochureForm.reset();
+                }
+            });
+
+            const brochureModal = document.getElementById('brochure-modal');
+            const brochureForm = document.getElementById('brochure-form');
+            const brochureModalCloseBtn = document.getElementById('brochure-modal-close-btn');
+
+            const interiorModal = document.getElementById('interior-modal');
+            const interiorForm = document.getElementById('interior-form');
+            const interiorModalCloseBtn = document.getElementById('interior-modal-close-btn');
+            const clickableBannerArea = document.getElementById('clickable-banner-area');
+
+            const loanInquiryBtn = document.getElementById('loan-inquiry-btn');
+            const loanInquiryModal = document.getElementById('loan-inquiry-modal');
+            const loanInquiryCloseBtn = document.getElementById('loan-inquiry-modal-close-btn');
+            const loanInquiryForm = document.getElementById('loan-inquiry-form');
+
+            if (clickableBannerArea) {
+                clickableBannerArea.addEventListener('click', () => {
+                    interiorModal.classList.add('is-active');
+                });
+            }
+
+            if (interiorModalCloseBtn) {
+                interiorModalCloseBtn.addEventListener('click', () => {
+                    interiorModal.classList.remove('is-active');
+                });
+            }
+            interiorModal.addEventListener('click', (e) => {
+                if (e.target === interiorModal) interiorModal.classList.remove('is-active');
+            });
+
+
+            document.addEventListener('click', (e) => {
+                const brochureBtn = e.target.closest('.brochure-btn');
+                if (brochureBtn) {
+                    currentBrochurePropertyId = brochureBtn.dataset.propertyId;
+                    brochureModal.classList.add('is-active');
+                }
+                const detailsBtn = e.target.closest('.details-btn-whatsapp');
+                if (detailsBtn) {
+                    const propertyTitle = decodeURIComponent(detailsBtn.dataset.propertyTitle);
+                    const whatsappUrl = `https://wa.me/917400400373?text=${encodeURIComponent(`Hello, I would like to know more about the property: ${propertyTitle}.`)}`;
+                    window.location.href = whatsappUrl;
+                }
+            });
+
+            if (brochureModalCloseBtn) {
+                brochureModalCloseBtn.addEventListener('click', () => {
+                    brochureModal.classList.remove('is-active');
+                });
+            }
+
+            brochureModal.addEventListener('click', (e) => { if (e.target === brochureModal) brochureModal.classList.remove('is-active'); });
+
+            brochureForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const property = properties.find(p => p.id == currentBrochurePropertyId);
+
+                const crmData = {
+                    name: document.getElementById('modal-name').value,
+                    phone: document.getElementById('modal-phone').value,
+                    email: document.getElementById('modal-email').value,
+                    source: 'Brochure Download',
+                    propertyId: currentBrochurePropertyId,
+                    propertyName: property ? property.title : 'Unknown Property'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                let message = '', bgColor = '';
+
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    message = `Thank you! Brochure for ${crmData.propertyName} is downloading.`;
+                    bgColor = 'bg-green-500';
+                } catch (error) {
+                    console.error('Error submitting to CRM:', error);
+                    message = 'There was an error, but your brochure is downloading.';
+                    bgColor = 'bg-red-500';
+                } finally {
+                    const link = document.createElement('a');
+                    link.href = property.brochureUrl || '#';
+                    link.download = `GlobalSpace_Brochure_${property.title.replace(/\s+/g, '_')}.pdf`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    const messageBox = document.createElement('div');
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-50`;
+                    messageBox.innerText = message;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => messageBox.remove(), 4000);
+
+                    brochureModal.classList.remove('is-active');
+                    brochureForm.reset();
+                }
+            });
+
+            interiorForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const crmData = {
+                    name: document.getElementById('interior-modal-name').value,
+                    phone: document.getElementById('interior-modal-phone').value,
+                    email: document.getElementById('interior-modal-email').value,
+                    source: 'Interior Designing (Livspace) - Banner Click'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                let message = '', bgColor = '';
+
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    message = 'Thank you! An interior design expert will contact you shortly.';
+                    bgColor = 'bg-green-500';
+                } catch (error) {
+                    console.error('Error submitting Interior Form to CRM:', error);
+                    message = 'There was an error, but we received your inquiry.';
+                    bgColor = 'bg-red-500';
+                } finally {
+                    const messageBox = document.createElement('div');
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-50`;
+                    messageBox.innerText = message;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => messageBox.remove(), 4000);
+
+                    interiorModal.classList.remove('is-active');
+                    interiorForm.reset();
+                }
+            });
+
+            loanInquiryForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const crmData = {
+                    name: document.getElementById('loan-modal-name').value,
+                    phone: document.getElementById('loan-modal-phone').value,
+                    email: document.getElementById('loan-modal-email').value,
+                    source: 'Loan Inquiry - Calculator Button'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                let message = '', bgColor = '';
+
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    message = 'Thank you! A loan expert will contact you shortly.';
+                    bgColor = 'bg-green-500';
+                } catch (error) {
+                    console.error('Error submitting Loan Inquiry Form to CRM:', error);
+                    message = 'There was an error, but we received your inquiry.';
+                    bgColor = 'bg-red-500';
+                } finally {
+                    const messageBox = document.createElement('div');
+                    messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-50`;
+                    messageBox.innerText = message;
+                    document.body.appendChild(messageBox);
+                    setTimeout(() => messageBox.remove(), 4000);
+
+                    loanInquiryModal.classList.remove('is-active');
+                    loanInquiryForm.reset();
+                }
+            });
+
+            if (loanInquiryBtn) {
+                loanInquiryBtn.addEventListener('click', () => {
+                    loanInquiryModal.classList.add('is-active');
+                });
+            }
+
+            if (loanInquiryCloseBtn) {
+                loanInquiryCloseBtn.addEventListener('click', () => {
+                    loanInquiryModal.classList.remove('is-active');
+                });
+            }
+            loanInquiryModal.addEventListener('click', (e) => {
+                if (e.target === loanInquiryModal) loanInquiryModal.classList.remove('is-active');
+            });
+
+
+            const consultForm = document.getElementById('consult-form');
+            const consultationMsg = document.getElementById('consultation-msg');
+            const consultationImage = document.getElementById('consultation-image');
+            const consultNameInput = document.getElementById('consult-name');
+
+            consultationImage.addEventListener('click', () => {
+                document.getElementById('consultation-section').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    consultNameInput.focus();
+                }, 500);
+            });
+
+            consultForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('consult-name').value;
+                const phone = document.getElementById('consult-phone').value;
+                const email = document.getElementById('consult-email').value;
+
+                const crmData = {
+                    name,
+                    phone,
+                    email,
+                    source: 'Free Expert Consultation (Contact Form)'
+                };
+
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(crmData)
+                    });
+                    consultationMsg.className = 'block bg-green-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                    consultationMsg.textContent = 'Message sent! We will contact you shortly.';
+
+                    if (document.getElementById('whatsapp-toggle').checked) {
+                        const whatsappMessage = `Hello, I'm interested in a free expert consultation. My name is ${name}, phone is ${phone}, and email is ${email}.`;
+                        window.location.href = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                    }
+                } catch (error) {
+                    console.error('Error submitting to CRM:', error);
+                    consultationMsg.className = 'block bg-red-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                    consultationMsg.textContent = 'There was an error sending your message. Please try again.';
+                } finally {
+                    consultForm.reset();
+                    document.getElementById('consultation-section').scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => { consultationMsg.className = 'hidden'; }, 5000);
+                }
+            });
+
+            const statsSection = document.getElementById('stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+
+        let bannerCurrentIndex = 0;
+        const banners = document.querySelectorAll('.banner-carousel-item');
+        const totalBanners = banners.length;
+
+        function updateBannerCarousel() {
+            const carouselContainer = document.getElementById('banner-carousel');
+            if (carouselContainer) {
+                carouselContainer.style.transform = `translateX(-${bannerCurrentIndex * 100}%)`;
+            }
+        }
+
+        function nextBanner() {
+            bannerCurrentIndex = (bannerCurrentIndex + 1) % totalBanners;
+            updateBannerCarousel();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(nextBanner, 4000);
+
+            const welcomePopup = document.getElementById('welcomePopup');
+            const welcomePopupCloseBtn = document.getElementById('welcome-popup-close-btn');
+            const welcomePopupBackdrop = document.getElementById('welcome-popup-backdrop');
+
+            // Show popup after 8 seconds, only once per session
+            setTimeout(() => {
+                if (welcomePopup && !sessionStorage.getItem('welcomePopupShown')) {
+                    welcomePopup.classList.remove('hidden');
+                    sessionStorage.setItem('welcomePopupShown', 'true');
+                }
+            }, 8000);
+
+            if (welcomePopupCloseBtn) {
+                welcomePopupCloseBtn.addEventListener('click', () => {
+                    welcomePopup.classList.add('hidden');
+                });
+            }
+            if (welcomePopupBackdrop) {
+                welcomePopupBackdrop.addEventListener('click', () => {
+                    welcomePopup.classList.add('hidden');
+                });
+            }
+
+            const welcomePopupForm = document.getElementById('welcome-popup-form');
+            if (welcomePopupForm) {
+                welcomePopupForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const btn = welcomePopupForm.querySelector('button[type="submit"]');
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Verifying...';
+                    btn.disabled = true;
+
+                    const crmData = {
+                        name: document.getElementById('wp-name').value,
+                        phone: document.getElementById('wp-phone').value,
+                        email: document.getElementById('wp-email').value,
+                        source: 'Lead Magnet - Home Buying Guide 2026'
+                    };
+
+                    const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+                    let message = '', bgColor = '';
+
+                    try {
+                        await fetch(crmWebhookUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(crmData)
+                        });
+                        message = 'Thank you! Downloading your 2026 Home Buying Guide...';
+                        bgColor = 'bg-green-500';
+                    } catch (error) {
+                        console.error('Error submitting Welcome Popup Form to CRM:', error);
+                        message = 'There was an error, but we received your inquiry. Downloading Guide...';
+                        bgColor = 'bg-red-500';
+                    } finally {
+                        const pdfUrl = "/brochure/things-to-know-before-buying-home.pdf";
+                        const link = document.createElement('a');
+                        link.href = pdfUrl;
+                        link.target = "_blank";
+                        link.download = "/things-to-know-before-buying-home.pdf";
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        const messageBox = document.createElement('div');
+                        messageBox.className = `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${bgColor} text-white p-4 rounded-lg shadow-lg z-[200]`;
+                        messageBox.innerText = message;
+                        document.body.appendChild(messageBox);
+                        setTimeout(() => messageBox.remove(), 4000);
+
+                        btn.innerText = "Download Started!";
+
+                        setTimeout(() => {
+                            welcomePopup.classList.add('hidden');
+                            welcomePopupForm.reset();
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }, 1500);
+                    }
+                });
+            }
+        });
+
+        // --- FIREWORKS ANIMATION (5 SECONDS) ---
+        (function () {
+            // Check if fireworks have already been shown in this session (Tab)
+            if (sessionStorage.getItem('fireworksShown')) {
+                return;
+            }
+            // Mark as shown for this session so it doesn't run on refresh
+            sessionStorage.setItem('fireworksShown', 'true');
+
+            const canvas = document.createElement('canvas');
+            canvas.id = 'fireworks';
+            Object.assign(canvas.style, {
+                position: 'fixed',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                pointerEvents: 'none',
+                zIndex: '9999',
+                background: 'transparent'
+            });
+            document.body.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particles = [];
+            const fireworks = [];
+            let stopSpawning = false;
+
+            class Firework {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = height;
+                    this.sx = Math.random() * 3 - 1.5;
+                    this.sy = -(Math.random() * 4 + 10);
+                    this.size = 2;
+                    this.hue = Math.floor(Math.random() * 360);
+                    this.shouldExplode = false;
+                }
+                update() {
+                    this.x += this.sx;
+                    this.y += this.sy;
+                    this.sy += 0.2;
+                    if (this.sy >= -2 || this.y <= 100) {
+                        this.shouldExplode = true;
+                    }
+                }
+                draw() {
+                    ctx.fillStyle = `hsl(${this.hue}, 100%, 50%)`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            class Particle {
+                constructor(x, y, hue) {
+                    this.x = x;
+                    this.y = y;
+                    this.sx = Math.random() * 6 - 3;
+                    this.sy = Math.random() * 6 - 3;
+                    this.size = Math.random() * 2 + 1;
+                    this.hue = hue;
+                    this.life = 100;
+                    this.alpha = 1;
+                }
+                update() {
+                    this.x += this.sx;
+                    this.y += this.sy;
+                    this.sy += 0.1;
+                    this.alpha -= 0.01;
+                    this.life--;
+                }
+                draw() {
+                    ctx.globalAlpha = this.alpha;
+                    ctx.fillStyle = `hsl(${this.hue}, 100%, 50%)`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.globalAlpha = 1;
+                }
+            }
+
+            function animate() {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                ctx.fillRect(0, 0, width, height);
+                ctx.globalCompositeOperation = 'lighter';
+
+                if (!stopSpawning && Math.random() < 0.05) {
+                    fireworks.push(new Firework());
+                }
+
+                for (let i = fireworks.length - 1; i >= 0; i--) {
+                    fireworks[i].update();
+                    fireworks[i].draw();
+                    if (fireworks[i].shouldExplode) {
+                        for (let j = 0; j < 30; j++) {
+                            particles.push(new Particle(fireworks[i].x, fireworks[i].y, fireworks[i].hue));
+                        }
+                        fireworks.splice(i, 1);
+                    }
+                }
+
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    particles[i].update();
+                    particles[i].draw();
+                    if (particles[i].life <= 0) {
+                        particles.splice(i, 1);
+                    }
+                }
+
+                if (!stopSpawning || fireworks.length > 0 || particles.length > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    canvas.remove();
+                    window.removeEventListener('resize', resize);
+                }
+            }
+
+            animate();
+
+            setTimeout(() => {
+                stopSpawning = true;
+            }, 5000);
+        })();
+    </script>
+
+    <!-- AMP Story Player for Web Stories (loads from google-web-stories.html) -->
+    <script async src="https://cdn.ampproject.org/amp-story-player-v0.js"></script>
+    <link href="https://cdn.ampproject.org/amp-story-player-v0.css" rel="stylesheet" type="text/css" />
+</body>
+
+</html>

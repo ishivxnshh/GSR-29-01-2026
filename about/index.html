@@ -1,0 +1,716 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-8MNQVMJ392');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Space - About Us</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/web-images/favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#2165e4',
+                        'dark-overlay': 'rgba(0, 0, 0, 0.4)',
+                        'light-border': '#e0e0e0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for the hover effect on the menu links */
+        .nav-link:hover {
+            color: #1a4e9b;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Hover effect for the values cards */
+        .value-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating WhatsApp Icon (icon-only, responsive) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* WhatsApp Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .request-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .request-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation Menu -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-7xl px-4 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <!-- Logo for desktop and mobile views -->
+                <img src="/assets/images/web-images/favicon.png" alt="Global Space Logo" class="w-30 h-10">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-gray-700 font-bold">Home</a>
+                <a href="/about" class="nav-link text-main-blue font-bold">About</a>
+                <a href="/city/" class="nav-link text-gray-700 font-bold">Cities</a>
+                <a href="/blog/" class="nav-link text-gray-700 font-bold">Blogs</a>
+                <a href="/contact" class="nav-link text-gray-700 font-bold">Contact</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu content (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="/" class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="/about"
+                    class="nav-link text-main-blue font-bold px-4 py-2 hover:bg-gray-100 rounded-md">About</a>
+                <a href="/city/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Cities</a>
+                <a href="/blog/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Blogs</a>
+                <a href="/contact"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="relative bg-cover bg-center py-16 md:py-24"
+        style="background-image: url('/assets/images/web-images/about-hero.jpg');">
+        <div class="absolute inset-0 bg-dark-overlay"></div>
+        <div class="container mx-auto max-w-7xl px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Story</h1>
+            <p class="text-lg md:text-xl text-white max-w-3xl mx-auto">
+                Connecting people to their dreams, one property at a time.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Us Content Section -->
+    <section class="py-16">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
+                <div class="md:w-1/3">
+                    <img src="/assets/images/web-images/our-story.webp" alt="A team working together in a modern office"
+                        class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-main-blue mb-4">Who We Are</h2>
+                    <p class="text-gray-700 mb-4">
+                        At Global Space, we believe that finding a home should be an exciting and seamless journey. We
+                        are a team of dedicated professionals committed to providing unparalleled real estate services.
+                        Our mission is to connect clients with their dream properties by offering personalized guidance,
+                        expert market knowledge, and transparent transactions. We are more than just a real estate
+                        company; we are your trusted partners in building a brighter future.
+                    </p>
+                    <p class="text-gray-700">
+                        With years of experience in the industry, we have built a reputation for excellence, integrity,
+                        and customer satisfaction. We serve clients across major cities in India, ensuring that every
+                        person we work with feels confident and well-informed throughout their home-buying or selling
+                        process.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Senior Sales Managers Section (NEW SECTION) -->
+    <section id="managers-section" class="py-16 bg-white">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Meet Our Senior Sales Managers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Manager 1 Card: Mr. Vishal Sharma -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="/assets/images/web-images/dhiraj-dupare.jpg" alt="Senior Sales Manager Photo"
+                        class="w-36 h-36 rounded-full object-cover mx-auto mb-4 border-4 border-main-blue"
+                        onerror="this.onerror=null; this.src='https://placehold.co/150x150/2165e4/ffffff?text=Manager+1+Placeholder';">
+                    <h3 class="text-2xl font-bold text-gray-800">Mr.Dhiraj Dupare </h3>
+                    <p class="text-main-blue font-semibold mb-6">Senior Sales Manager</p>
+                    <div class="space-y-3 text-left inline-block">
+                        <p class="text-gray-700 flex items-center">
+                            <!-- Phone Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600 mr-2 flex-shrink-0"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79a15.462 15.462 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.23.95.32 1.95.51 3.01.51.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C10.74 21 3 13.26 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.06.19 2.06.51 3.01.13.35.04.75-.23 1.02l-2.2 2.2z" />
+                            </svg>
+                            <a href="tel:+919769473626" class="text-gray-700 hover:text-main-blue font-medium">+91 97694 73626</a>
+                        </p>
+                        <p class="text-gray-700 flex items-center">
+                            <!-- Email Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-main-blue mr-2 flex-shrink-0"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            <a href="mailto:dhiraj.dupare@globalspacerealty.com"
+                                class="text-gray-700 hover:text-main-blue font-medium">dhiraj.dupare@globalspacerealty.com</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Manager 2 Card: Ms. Aishwarya-Shukla -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="/assets/images/web-images/aishwarya-shukla.png" alt="Senior Sales Manager Photo"
+                        class="w-36 h-36 rounded-full object-cover mx-auto mb-4 border-4 border-main-blue"
+                        onerror="this.onerror=null; this.src='https://placehold.co/150x150/2165e4/ffffff?text=Manager+2+Placeholder';">
+                    <h3 class="text-2xl font-bold text-gray-800">Ms. Aishwarya Shukla</h3>
+                    <p class="text-main-blue font-semibold mb-6">Senior Sales Manager</p>
+                    <div class="space-y-3 text-left inline-block">
+                        <p class="text-gray-700 flex items-center">
+                            <!-- Phone Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600 mr-2 flex-shrink-0"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79a15.462 15.462 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.23.95.32 1.95.51 3.01.51.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C10.74 21 3 13.26 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.06.19 2.06.51 3.01.13.35.04.75-.23 1.02l-2.2 2.2z" />
+                            </svg>
+                            <a href="tel:+919076734221" class="text-gray-700 hover:text-main-blue font-medium">+91 90767 34221</a>
+                        </p>
+                        <p class="text-gray-700 flex items-center">
+                            <!-- Email Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-main-blue mr-2 flex-shrink-0"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            <a href="mailto:aishwarya.shukla@globalspacerealty.com"
+                                class="text-gray-700 hover:text-main-blue font-medium">aishwarya.shukla@globalspacerealty.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Values Section (UPDATED with expressive icons and quotes) -->
+    <section id="values-section" class="py-16 bg-gray-100">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-main-blue mb-12">Our Values & Vision</h2>
+            <!-- Updated the grid layout to accommodate 6 cards (2 rows of 3) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Value Card 1: Trust (Icon: Handshake for Partnership/Honesty) -->
+                <div class="value-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-main-blue mx-auto mb-4"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 21.5s-4-2-4-7V5l4-2 4 2v9.5c0 5-4 7-4 7" opacity=".3"></path>
+                        <path d="M10 20.25c-2.3-1.3-4-3.5-4-5.75V5.5L12 2l6 3.5v9c0 2.2-1.7 4.45-4 5.75L12 22z"
+                            fill="none" />
+                        <path d="M10 20.25c-2.3-1.3-4-3.5-4-5.75V5.5L12 2l6 3.5v9c0 2.2-1.7 4.45-4 5.75L12 22z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 21v-3"></path>
+                        <path d="M10 10h4"></path>
+                        <path d="M10 14h4"></path>
+                        <path d="M10 20h4"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Trust</h3>
+                    <p class="text-gray-500 mt-2">Our relationships are built on "honesty" and "secure communication".
+                    </p>
+                </div>
+
+                <!-- Value Card 2: Transparency (Icon: Document Stack for Open Records) - FIXED: Increased stroke-width to 3 for a bolder look -->
+                <div class="value-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-main-blue mx-auto mb-4"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M14 2v6h6"></path>
+                        <path d="M10 12h4"></path>
+                        <path d="M10 16h4"></path>
+                        <path d="M10 20h4"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Transparency</h3>
+                    <p class="text-gray-500 mt-2">We ensure every step of your transaction is "clear and fair".</p>
+                </div>
+
+                <!-- Value Card 3: Zero Brokerage (Icon: Bold '0' remains the most expressive) -->
+                <div class="value-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="h-16 w-16 text-main-blue mx-auto mb-4 flex items-center justify-center border-4 border-main-blue rounded-full">
+                        <span class="text-3xl font-bold">0</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Zero Brokerage</h3>
+                    <p class="text-gray-500 mt-2">Find your dream home with "no extra costs" or hidden fees.</p>
+                </div>
+
+                <!-- Value Card 4: Personalized Consultation (Icon: User Profile with Focus/Zoom) -->
+                <div class="value-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-main-blue mx-auto mb-4"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M16 20.5L20 23V17"></path>
+                        <path d="M8 20.5L4 23V17"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Personalized Consultation</h3>
+                    <p class="text-gray-500 mt-2">Tailored advice from experts who "understand your unique needs".</p>
+                </div>
+
+                <!-- Value Card 5: Best Offers & Deals (Icon: Trophy for Best Value) -->
+                <div class="value-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-main-blue mx-auto mb-4"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 17v4"></path>
+                        <path d="M7 3h10v7h-10z"></path>
+                        <path d="M12 17a4 4 0 0 0 4-4v-3h-8v3a4 4 0 0 0 4 4z"></path>
+                        <path d="M8 10h8"></path>
+                        <path d="M8 21h8"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Best Offers & Deals</h3>
+                    <p class="text-gray-500 mt-2">Exclusive access to the most "competitive prices and deals".</p>
+                </div>
+
+                <!-- Value Card 6: Free Pickup and Drop (UPDATED Icon: Clear side-view Car icon) -->
+                <div class="value-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-main-blue mx-auto mb-4"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M10 17H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.5L7 3h10l1.5 4H20a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-3.5">
+                        </path>
+                        <circle cx="7" cy="17" r="2"></circle>
+                        <circle cx="17" cy="17" r="2"></circle>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Free Site Visit Transport</h3>
+                    <p class="text-gray-500 mt-2">"Complimentary pickup and drop" for all scheduled property visits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- By the Numbers Section -->
+    <section id="stats-section" class="py-16">
+        <div class="container mx-auto max-w-7xl px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-main-blue mb-12">Global Space in Numbers</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-white rounded-lg shadow-md value-card">
+                    <p id="stat-1" class="text-4xl font-bold text-main-blue">0</p>
+                    <p class="text-gray-700 mt-2">Happy Customers</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md value-card">
+                    <p id="stat-2" class="text-4xl font-bold text-main-blue">0</p>
+                    <p class="text-gray-700 mt-2">Cities</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md value-card">
+                    <p id="stat-3" class="text-4xl font-bold text-main-blue">0</p>
+                    <p class="text-gray-700 mt-2">Projects</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md value-card">
+                    <p id="stat-4" class="text-4xl font-bold text-main-blue">0</p>
+                    <p class="text-gray-700 mt-2">Awards & Recognition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="bg-gray-100 py-12" id="consultation-section">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div
+                class="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <!-- Left side: Illustration and text -->
+                <div class="md:w-1/2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl md:text-3xl font-bold text-main-blue mb-2 text-center md:text-left">FREE Expert
+                        Consultation</h3>
+                    <p class="text-lg text-gray-700 text-center md:text-left">Speak to our experts and get personalized
+                        guidance today.</p>
+                    <!-- UPDATED: Wrapper div provides the blue frame, rounded corners, and hover effect. The ID is moved here for the click listener. -->
+                    <div class="mt-4 max-w-sm md:max-w-md mx-auto p-4 rounded-xl bg-main-blue shadow-2xl transform transition-transform duration-300 hover:scale-[1.03] cursor-pointer"
+                        id="consultation-image">
+                        <img src="/assets/images/web-images/contact.png" alt="Consultation illustration"
+                            class="w-full h-auto rounded-lg"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/2165e4/ffffff?text=Contact+Image';">
+                    </div>
+                </div>
+                <!-- Right side: Contact Form -->
+                <div class="md:w-1/2 w-full">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4 text-center md:text-left">Get Answers to All Your
+                        Questions</h4>
+                    <form id="consult-form" class="space-y-3">
+                        <input type="text" id="consult-name" name="name" placeholder="Full Name"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <input type="tel" id="consult-phone" name="phone" placeholder="Mobile Number"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <div class="flex items-center space-x-2">
+                            <label for="whatsapp-toggle" class="text-gray-700 text-sm">Get updates on WhatsApp</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="whatsapp-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <input type="email" id="consult-email" name="email" placeholder="Email Address"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-2">
+                            <button type="submit"
+                                class="request-button w-full md:w-1/2 p-2 font-semibold rounded-lg hover:bg-[#45a049] transition-colors duration-300">
+                                Request Consultation
+                            </button>
+                            <p class="text-gray-600 text-center md:text-left py-1 text-sm">or Call Us: <a
+                                    href="tel:+917400400373" class="font-bold text-main-blue hover:underline">+91
+                                    7400400373
+                                </a></p>
+                        </div>
+                    </form>
+                    <div id="consultation-msg"
+                        class="hidden text-center mt-4 p-3 rounded-lg text-white font-semibold transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Detailed Footer -->
+    <footer class="bg-main-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Global Space -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Updated to use cleaner path: "/" for home -->
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <!-- Updated to use clean anchor link for internal page navigation -->
+                        <li><a href="#loan-calculator-section" class="hover:underline" data-alias="home#loan">Loan
+                                Calculator</a></li>
+                        <li><a href="/sitemap/" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 ,
+                            Near Station CBD Belapur
+                            Opp to BP Marine Academy
+                            Above Federal Bank
+                            Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <!-- Follow Us (NOW USING IMAGE TAGS FOR EXTERNAL PNGS) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Facebook PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- LinkedIn PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- YouTube PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube" class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Pinterest PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Instagram PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <!-- Twitter PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400"> 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp button (standardized PNG) -->
+    <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const stats = [{
+            id: 'stat-1',
+            value: 160
+        }, {
+            id: 'stat-2',
+            value: 13
+        }, {
+            id: 'stat-3',
+            value: 19
+        }, {
+            id: 'stat-4',
+            value: 11
+        },];
+
+        function animateNumber(element, finalValue, duration) {
+            let start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                const currentValue = Math.floor(progress * finalValue);
+                element.textContent = `${currentValue}+`;
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    stats.forEach(stat => {
+                        const element = document.getElementById(stat.id);
+                        if (element) {
+                            animateNumber(element, stat.value, 2000);
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const statsSection = document.getElementById('stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+
+        const consultForm = document.getElementById('consult-form');
+        const consultationMsg = document.getElementById('consultation-msg');
+        // The ID 'consultation-image' is now on the wrapper DIV, which is intentional.
+        const consultationImage = document.getElementById('consultation-image');
+        const consultNameInput = document.getElementById('consult-name');
+
+        // New feature: Image click to scroll and focus form
+        consultationImage.addEventListener('click', () => {
+            // Smooth scroll to the consultation section
+            document.getElementById('consultation-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Wait briefly for the scroll to finish, then focus the input
+            setTimeout(() => {
+                consultNameInput.focus();
+            }, 500);
+        });
+
+        consultForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('consult-name').value;
+            const phone = document.getElementById('consult-phone').value;
+            const email = document.getElementById('consult-email').value;
+
+            // CRM Data with explicit source tagging
+            const crmData = {
+                name,
+                phone,
+                email,
+                source: 'Free Expert Consultation (About Us Page)'
+            };
+            const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+
+            try {
+                // Sending data to CRM webhook
+                await fetch(crmWebhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    // The Content-Type header is generally ignored in 'no-cors' mode, 
+                    // but we keep it for reference in case the mode changes.
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(crmData)
+                });
+                consultationMsg.className = 'block bg-green-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                consultationMsg.textContent = 'Message sent! We will contact you shortly.';
+                if (document.getElementById('whatsapp-toggle').checked) {
+                    const whatsappMessage = `Hello, I'm interested in a free expert consultation. My name is ${name}, phone is ${phone}, and email is ${email}.`;
+                    window.location.href = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                }
+            } catch (error) {
+                console.error('Error submitting to CRM:', error);
+                consultationMsg.className = 'block bg-red-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                consultationMsg.textContent = 'There was an error sending your message. Please try again.';
+            } finally {
+                consultForm.reset();
+                setTimeout(() => {
+                    consultationMsg.className = 'hidden';
+                }, 5000);
+            }
+        });
+
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+        if (whatsappFloat) {
+            whatsappFloat.addEventListener('click', (e) => {
+                e.preventDefault();
+                const whatsappUrl = e.currentTarget.href;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+

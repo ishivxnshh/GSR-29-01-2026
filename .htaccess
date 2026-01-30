@@ -1,0 +1,69 @@
+RewriteEngine On
+# For XAMPP testing in subdirectory, use: RewriteBase /gsr/
+# For production (root directory), use: RewriteBase /
+RewriteBase /
+
+# Set index.html as the default directory index (prioritize over XAMPP's index.php)
+DirectoryIndex index.html index.php
+
+# 1. SPECIFIC PAGE REDIRECTS
+# Legacy names mapping to new Folders
+RewriteRule ^cities/?$ /city/ [R=301,L]
+RewriteRule ^blogs/?$ /blog/ [R=301,L]
+
+RewriteRule ^about\.html$ /about/ [R=301,L]
+RewriteRule ^contact\.html$ /contact/ [R=301,L]
+RewriteRule ^calculator\.html$ /calculator/ [R=301,L]
+RewriteRule ^sitemap\.html$ /sitemap/ [R=301,L]
+RewriteRule ^amp\.html$ /amp/ [R=301,L]
+RewriteRule ^google-web-stories\.html$ /web-stories/ [R=301,L]
+RewriteRule ^cities\.html$ /city/ [R=301,L]
+RewriteRule ^blogs\.html$ /blog/ [R=301,L]
+
+# 2. DYNAMIC REDIRECTS (Flat -> Deep)
+# Redirect old flat URLs WITH .html extension
+# Check city folder
+RewriteCond %{REQUEST_URI} ^/([^/]+)\.html$
+RewriteCond %{DOCUMENT_ROOT}/city/%1.html -f
+RewriteRule ^([^/]+)\.html$ /city/$1 [R=301,L]
+
+# Check property folder
+RewriteCond %{REQUEST_URI} ^/([^/]+)\.html$
+RewriteCond %{DOCUMENT_ROOT}/property/%1.html -f
+RewriteRule ^([^/]+)\.html$ /property/$1 [R=301,L]
+
+# Check blog folder
+RewriteCond %{REQUEST_URI} ^/([^/]+)\.html$
+RewriteCond %{DOCUMENT_ROOT}/blog/%1.html -f
+RewriteRule ^([^/]+)\.html$ /blog/$1 [R=301,L]
+
+# Redirect old flat URLs WITHOUT .html extension (clean URLs in root)
+# Check city folder
+RewriteCond %{REQUEST_URI} ^/([^/]+)$
+RewriteCond %{REQUEST_URI} !^/(city|property|blog|assets|about|contact|calculator|sitemap|amp|web-stories)/
+RewriteCond %{DOCUMENT_ROOT}/city/%1.html -f
+RewriteRule ^([^/]+)$ /city/$1 [R=301,L]
+
+# Check property folder
+RewriteCond %{REQUEST_URI} ^/([^/]+)$
+RewriteCond %{REQUEST_URI} !^/(city|property|blog|assets|about|contact|calculator|sitemap|amp|web-stories)/
+RewriteCond %{DOCUMENT_ROOT}/property/%1.html -f
+RewriteRule ^([^/]+)$ /property/$1 [R=301,L]
+
+# Check blog folder
+RewriteCond %{REQUEST_URI} ^/([^/]+)$
+RewriteCond %{REQUEST_URI} !^/(city|property|blog|assets|about|contact|calculator|sitemap|amp|web-stories)/
+RewriteCond %{DOCUMENT_ROOT}/blog/%1.html -f
+RewriteRule ^([^/]+)$ /blog/$1 [R=301,L]
+
+# 3. CANONICAL REDIRECT (Remove .html extension)
+RewriteCond %{REQUEST_URI} !/index\.html$
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(\s|\?)
+RewriteRule ^ /%1 [R=301,L]
+
+# 4. INTERNAL REWRITE
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]

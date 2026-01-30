@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-8MNQVMJ392');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Space - Contact Us</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/web-images/favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#2165e4',
+                        'dark-overlay': 'rgba(0, 0, 0, 0.4)',
+                        'light-border': '#e0e0e0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for the hover effect on the menu links */
+        .nav-link:hover {
+            color: #1a4e9b;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Floating WhatsApp Icon (icon-only, responsive) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* WhatsApp Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .request-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .request-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Map Placeholder Style (Retained for visual structure) */
+        .map-placeholder {
+            height: 400px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation Menu -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-7xl px-4 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <!-- Logo for desktop and mobile views -->
+                <img src="/assets/images/web-images/favicon.png" alt="Global Space Logo" class="w-30 h-10">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-gray-700 font-bold">Home</a>
+                <a href="/about" class="nav-link text-gray-700 font-bold">About</a>
+                <a href="/city/" class="nav-link text-gray-700 font-bold">Cities</a>
+                <a href="/blog/" class="nav-link text-gray-700 font-bold">Blogs</a>
+                <a href="/contact" class="nav-link text-main-blue font-bold">Contact</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu content (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="/" class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="/about"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">About</a>
+                <a href="/city/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Cities</a>
+                <a href="/blog/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Blogs</a>
+                <a href="/contact"
+                    class="nav-link text-main-blue font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="relative bg-cover bg-center py-16"
+        style="background-image: url('/assets/images/web-images/about-hero.jpg');">
+        <div class="absolute inset-0 bg-dark-overlay"></div>
+        <div class="container mx-auto max-w-7xl px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Get in Touch</h1>
+            <p class="text-lg md:text-xl text-white max-w-3xl mx-auto">
+                We're here to help you find your dream home.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Details & Form Section -->
+    <section class="py-16">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left column for Map and Contact Info -->
+                <div class="lg:w-1/2 w-full space-y-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-main-blue">Our Office</h2>
+                    <!-- Google Map Embed -->
+                    <div class="rounded-lg overflow-hidden shadow-lg h-96">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.3617819406627!2d73.03630857505054!3d19.016998682175473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3644d9d566b%3A0xbc805aa52c1ca8ef!2sGlobal%20Space%20Realty%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1758785097087!5m2!1sen!2sin"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <!-- Contact Details -->
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Address</h3>
+                            <p class="text-gray-700">A-543 Balaji Udyog Bhavan Sec - 11 , Near Station CBD Belapur, Opp
+                                to BP Marine Academy, Above Federal Bank, Navi Mumbai 400614</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Phone</h3>
+                            <p class="text-gray-700"><a href="tel:+917400400373" class="hover:underline">+91 74004
+                                    00373</a></p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Email</h3>
+                            <p class="text-gray-700"><a href="mailto:info@globalspacerealty.com"
+                                    class="hover:underline">info@globalspacerealty.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right column for the Contact Form -->
+                <div class="lg:w-1/2 w-full h-full">
+                    <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg flex flex-col justify-center h-full">
+                        <h2 class="text-3xl md:text-4xl font-bold text-main-blue mb-8 text-center">Send us a Message
+                        </h2>
+                        <form id="consult-form" class="space-y-4">
+                            <div>
+                                <label for="consult-name" class="block text-gray-700 font-semibold mb-2">Full
+                                    Name</label>
+                                <input type="text" id="consult-name" name="name" placeholder="Full Name"
+                                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="consult-phone" class="block text-gray-700 font-semibold mb-2">Mobile
+                                    Number</label>
+                                <input type="tel" id="consult-phone" name="phone" placeholder="Mobile Number"
+                                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                                    required>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <label for="whatsapp-toggle" class="text-gray-700 text-sm">Get updates on
+                                    WhatsApp</label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="whatsapp-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <label for="consult-email" class="block text-gray-700 font-semibold mb-2">Email
+                                    Address</label>
+                                <input type="email" id="consult-email" name="email" placeholder="Email Address"
+                                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                                    required>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-2">
+                                <button type="submit"
+                                    class="request-button w-full p-2 font-semibold rounded-lg hover:bg-[#45a049] transition-colors duration-300">
+                                    Request Consultation
+                                </button>
+                                <p class="text-gray-600 text-center md:text-left py-1 text-sm md:w-1/2">or Call Us: <a
+                                        href="tel:+917400400373" class="font-bold text-main-blue hover:underline">+91
+                                        7400400373
+                                    </a></p>
+                            </div>
+                        </form>
+                        <div id="consultation-msg"
+                            class="hidden text-center mt-4 p-3 rounded-lg text-white font-semibold transition-opacity duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Detailed Footer -->
+    <footer class="bg-main-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Global Space -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Updated to use cleaner path: "/" for home -->
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <!-- Updated to use clean anchor link for internal page navigation -->
+                        <li><a href="#loan-calculator-section" class="hover:underline" data-alias="home#loan">Loan
+                                Calculator</a></li>
+                        <li><a href="/sitemap/" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 ,
+                            Near Station CBD Belapur
+                            Opp to BP Marine Academy
+                            Above Federal Bank
+                            Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <!-- Follow Us (NOW USING IMAGE TAGS FOR EXTERNAL PNGS) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Facebook PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- LinkedIn PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- YouTube PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube" class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Pinterest PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Instagram PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <!-- Twitter PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400"> 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp button (standardized PNG) -->
+    <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp" onclick="handleWhatsAppClick(event)">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // This function handles the contact form submission and webhook integration
+        const consultForm = document.getElementById('consult-form');
+        const consultationMsg = document.getElementById('consultation-msg');
+        const whatsappToggle = document.getElementById('whatsapp-toggle');
+
+        consultForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('consult-name').value;
+            const phone = document.getElementById('consult-phone').value;
+            const email = document.getElementById('consult-email').value;
+            const crmData = {
+                name,
+                phone,
+                email,
+                // Tagging the source explicitly
+                source: 'Dedicated Contact Page Submission'
+            };
+            const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+
+            try {
+                // The fetch request is set to 'no-cors' mode
+                await fetch(crmWebhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(crmData)
+                });
+                consultationMsg.className = 'block bg-green-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                consultationMsg.textContent = 'Message sent! We will contact you shortly.';
+                if (whatsappToggle.checked) {
+                    const whatsappMessage = `Hello, I'm interested in a free expert consultation. My name is ${name}, phone is ${phone}, and email is ${email}.`;
+                    window.location.href = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                }
+            } catch (error) {
+                console.error('Error submitting to CRM:', error);
+                consultationMsg.className = 'block bg-red-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                consultationMsg.textContent = 'There was an error sending your message. Please try again.';
+            } finally {
+                consultForm.reset();
+                setTimeout(() => {
+                    consultationMsg.className = 'hidden';
+                }, 5000);
+            }
+        });
+
+        // Floating WhatsApp button logic to handle the redirect issue on mobile
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+        if (whatsappFloat) {
+            whatsappFloat.addEventListener('click', (e) => {
+                e.preventDefault();
+                const whatsappUrl = e.currentTarget.href;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+
+        // Auto-Focus the first form field on page load for immediate conversion
+        document.addEventListener('DOMContentLoaded', () => {
+            const consultNameInput = document.getElementById('consult-name');
+            if (consultNameInput) {
+                consultNameInput.focus();
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+

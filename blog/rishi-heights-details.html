@@ -1,0 +1,1013 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Name | City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Define the custom primary blue color as a Tailwind utility */
+        .bg-global-blue {
+            background-color: #2563eb;
+        }
+
+        .text-global-blue {
+            color: #2563eb;
+        }
+
+        .border-global-blue {
+            border-color: #2563eb;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* For phones, the contact form background will be a solid color */
+        @media (max-width: 639px) {
+            #contact {
+                background-image: none;
+                background-color: #1e3a8a;
+            }
+        }
+
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Modal styles (copied from other pages for consistency) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999; /* BOOSTED Z-INDEX TO ENSURE VISIBILITY */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Darker backdrop for theater mode feel */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.is-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 0; /* Remove padding to allow full-width headers */
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 90%;
+            width: 420px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden; /* Ensure headers don't overflow corners */
+        }
+
+        .modal.is-active .modal-content {
+            transform: translateY(0);
+        }
+
+        /* Updated close button for new modal style */
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: #1f2937;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <!-- Success Message Box -->
+    <div id="success-message" class="message-box">
+        Form submitted successfully!
+    </div>
+
+    <!-- Hero Section -->
+    <main class="flex-grow">
+        <div class="relative w-full h-96 md:h-[600px] overflow-hidden">
+            <!-- Relative Image Path for Hero -->
+            <img src="/assets/images/property-hero.jpg"
+                onerror="this.src='https://placehold.co/1920x1080/4a5568/a0aec0?text=Property+Hero+Image'"
+                alt="A beautiful image of the property" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-8 md:p-16">
+                <div class="text-white">
+                    <h1 class="text-3xl md:text-6xl font-extrabold mb-2 leading-tight">Property Name</h1>
+                    <p class="text-xl md:text-3xl font-light">Tagline or Short Description</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Navigation for Landing Page -->
+        <nav class="sticky top-0 z-20 bg-white shadow-lg py-4 hidden sm:block">
+            <div
+                class="container mx-auto px-4 flex justify-center items-center overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <a href="#overview"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Overview</a>
+                <a href="#costing"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Costing</a>
+                <a href="#floor-map"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Site & Floor
+                    Map</a>
+                <a href="#amenities"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Amenities</a>
+                <a href="#location"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Location</a>
+                <a href="#virtual-visit"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Virtual Visit</a>
+                <a href="#gallery"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Gallery</a>
+                <a href="#contact"
+                    class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Home Button -->
+        <a href="/" id="back-to-city-link"
+            class="fixed top-4 left-4 z-30 bg-white text-gray-800 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors">Back
+            to Home</a>
+
+        <!-- Main Content Area with Sections -->
+        <section id="overview" class="container mx-auto p-8 md:p-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Property Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <!-- Location -->
+                <div class="flex items-center space-x-4">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <div>
+                        <h2 class="font-bold text-gray-800">Location</h2>
+                        <p class="text-gray-600">Property Location, City</p>
+                    </div>
+                </div>
+                <!-- Configurations -->
+                <div class="flex items-center space-x-4">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2z"></path>
+                    </svg>
+                    <div>
+                        <h2 class="font-bold text-gray-800">Configurations</h2>
+                        <p class="text-gray-600">1, 2, 3, 4 BHK Apartments</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                [Insert a detailed paragraph here describing the property. Mention its key features, design philosophy,
+                and location benefits.]
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                [Add another descriptive paragraph about the lifestyle and community offered by the property.]
+            </p>
+        </section>
+
+        <!-- Costing Section -->
+        <section id="costing" class="container mx-auto p-8 md:p-16 bg-white shadow-lg rounded-2xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Costing & Pricing</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">1 BHK</h3>
+                    <p class="text-xl text-blue-600 font-semibold">₹ [Price] Onwards</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">2 BHK</h3>
+                    <p class="text-xl text-blue-600 font-semibold">₹ [Price] Onwards</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">3 BHK</h3>
+                    <p class="text-xl text-blue-600 font-semibold">₹ [Price] Onwards</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Site and Floor Map Section -->
+        <section id="floor-map" class="container mx-auto p-8 md:p-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Site & Floor Map</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Relative Paths for Maps -->
+                <img src="/assets/images/site-plan.jpg"
+                    onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Site+Plan+Placeholder'"
+                    alt="Site Plan" class="w-full h-auto rounded-lg shadow-md">
+                <img src="/assets/images/floor-plan.jpg"
+                    onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Floor+Plan+Placeholder'"
+                    alt="Floor Plan" class="w-full h-auto rounded-lg shadow-md">
+            </div>
+        </section>
+
+        <!-- Amenities Section -->
+        <section id="amenities" class="container mx-auto p-8 md:p-16 bg-white shadow-lg rounded-2xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">World-Class Amenities</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- A single amenity block template -->
+                <div class="flex items-start space-x-4">
+                    <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10a2 2 0 100 4 2 2 0 000-4z"></path>
+                    </svg>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Amenity Title</h3>
+                        <p class="text-gray-600 text-sm">Amenity Description</p>
+                    </div>
+                </div>
+                <!-- You can copy-paste the above block for more amenities -->
+                <div class="flex items-start space-x-4">
+                    <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 8v8M8 8v8M12 12h.01M12 12v4"></path>
+                    </svg>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Clubhouse</h3>
+                        <p class="text-gray-600 text-sm">A fully equipped clubhouse for social gatherings.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Sports Facilities</h3>
+                        <p class="text-gray-600 text-sm">Badminton, tennis, and a dedicated jogging track.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13.5m0-13.5c-3.737 0-6.865-1.926-8.25-5.253C3.42 2.76 2.733 2.112 2 2M12 6.253c3.737 0 6.865-1.926 8.25-5.253C20.58 2.76 21.267 2.112 22 2M12 6.253a5.5 5.5 0 010 11.5M12 18.75c-3.737 0-6.865 1.926-8.25 5.253C3.42 21.24 2.733 21.888 2 22">
+                        </path>
+                    </svg>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Power Backup</h3>
+                        <p class="text-gray-600 text-sm">24/7 power backup for common areas and apartments.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Kids Play Area</h3>
+                        <p class="text-gray-600 text-sm">A safe and fun environment for children to play.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.382a1 1 0 010 1.414l-6.21 6.21a1 1 0 01-1.414 0l-3.293-3.293a1 1 0 011.414-1.414l2.586 2.586 5.5-5.5a1 1 0 011.414 0z">
+                        </path>
+                    </svg>
+                    <div>
+                        <h3 class="font-bold text-gray-800">24/7 Security</h3>
+                        <p class="text-gray-600 text-sm">Gated community with round-the-clock security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="container mx-auto p-8 md:p-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Location & Proximity</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        [Describe the property's location and its connectivity to major city hubs. Mention key landmarks
+                        or benefits.]
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>[Key Proximity Point 1]</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>[Key Proximity Point 2]</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>[Key Proximity Point 3]</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg shadow-md overflow-hidden">
+                    <!-- Relative Path for Location Map -->
+                    <img src="/assets/images/location-map.jpg"
+                        onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Location+Map+Placeholder'"
+                        alt="Location Map" class="w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Visit Section -->
+        <section id="virtual-visit" class="container mx-auto p-8 md:p-16 bg-gray-100 shadow-inner rounded-2xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Take a Virtual Visit</h2>
+            <!-- Updated Container: Max-Width 4xl, removed controls/autoplay -->
+            <div id="video-container" class="relative w-full max-w-4xl mx-auto bg-gray-900 rounded-lg shadow-md overflow-hidden group cursor-pointer" style="aspect-ratio: 16/9;">
+                
+                <!-- The Video Iframe (Initially Hidden or Behind) -->
+                <!-- UPDATED SRC: New video ID LQIBT0AZtrc -->
+                <iframe id="virtual-iframe" width="560" height="315"
+                    src="https://www.youtube.com/embed/LQIBT0AZtrc?start=11&autoplay=0&mute=1&controls=0"
+                    title="YouTube video player" frameborder="0"
+                    class="absolute top-0 left-0 w-full h-full pointer-events-none transition-all duration-1000"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <!-- NEW: High-Res Thumbnail Facade -->
+                <!-- This image sits on top of the iframe until play is clicked -->
+                <img id="video-thumbnail" src="https://img.youtube.com/vi/LQIBT0AZtrc/maxresdefault.jpg" 
+                     class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500" 
+                     alt="Video Thumbnail">
+
+                <!-- Custom "Tap to Play" Overlay (Replaces Play Icon) -->
+                <!-- CHANGED TO BUTTON FOR ACCESSIBILITY AND RELIABLE CLICK EVENTS -->
+                <button id="tap-to-play-overlay" type="button" class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-30 transition-all z-20 cursor-pointer focus:outline-none">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-widest uppercase border-2 border-white px-6 py-2 rounded hover:bg-white hover:text-black transition-colors pointer-events-none">
+                        Tap to Play
+                    </span>
+                </button>
+
+                <!-- Overlay is hidden initially to let the video play -->
+                <!-- LEGACY OVERLAY REMOVED IN FAVOR OF MODAL -->
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="container mx-auto p-8 md:p-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Relative Paths for Gallery -->
+                <img src="/assets/images/gallery/image-1.jpg"
+                    onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Image+1+Placeholder'"
+                    alt="Gallery Image 1" class="w-full h-auto rounded-lg shadow-md">
+                <img src="/assets/images/gallery/image-2.jpg"
+                    onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Image+2+Placeholder'"
+                    alt="Gallery Image 2" class="w-full h-auto rounded-lg shadow-md">
+                <img src="/assets/images/gallery/image-3.jpg"
+                    onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Image+3+Placeholder'"
+                    alt="Gallery Image 3" class="w-full h-auto rounded-lg shadow-md">
+                <img src="/assets/images/gallery/image-4.jpg"
+                    onerror="this.src='https://placehold.co/800x600/E2E8F0/1A202C?text=Image+4+Placeholder'"
+                    alt="Gallery Image 4" class="w-full h-auto rounded-lg shadow-md">
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact"
+            class="bg-gradient-to-br from-blue-700 to-blue-900 p-8 md:p-16 rounded-2xl mx-auto container shadow-lg">
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-3xl font-bold text-white mb-6 text-center">Enquire About This Property</h2>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-white">Full Name</label>
+                        <input type="text" id="name" name="name"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your full name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-white">Email Address</label>
+                        <input type="email" id="email" name="email"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your email address" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-white">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your phone number" required>
+                        <span id="phone-error" class="text-sm text-red-300 hidden">Please enter a valid 10-digit phone
+                            number.</span>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-white">Your Message</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Tell us about your requirements..."></textarea>
+                    </div>
+
+                    <!-- CAPTCHA Section -->
+                    <div id="captcha-section" class="space-y-2 hidden">
+                        <label for="captcha-answer" id="captcha-question"
+                            class="block text-sm font-medium text-white"></label>
+                        <input type="text" id="captcha-answer" name="captcha-answer"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your answer">
+                        <span id="captcha-error" class="text-sm text-red-300 hidden"></span>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <button type="submit" id="whatsapp-button"
+                            class="w-full sm:w-auto bg-white text-blue-600 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
+                            Send via WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Virtual Visit Modal (YouTube Themed) -->
+    <div id="virtual-modal" class="modal">
+        <div class="modal-content relative bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+            <!-- Red Progress Bar Top (YouTube style) -->
+            <div class="h-1 bg-red-600 w-full absolute top-0 left-0"></div>
+            
+            <button class="modal-close absolute top-4 right-4 text-gray-500 hover:text-gray-800 focus:outline-none" id="virtual-modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="pt-8 pb-6 px-6 text-center">
+                <!-- Play Icon Circle -->
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-red-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Continue Watching?</h3>
+                <p class="text-gray-600 text-sm mb-6">Enter your details to unlock the full 4K virtual tour experience immediately.</p>
+
+                <form id="virtual-modal-form" class="space-y-4 text-left">
+                    <div>
+                        <label for="virtual-name" class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Name</label>
+                        <input type="text" id="virtual-name" name="name" required
+                            class="w-full p-3 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="virtual-phone" class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Phone Number</label>
+                        <input type="tel" id="virtual-phone" name="phone" required
+                            class="w-full p-3 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors" placeholder="Mobile Number">
+                    </div>
+                    <div>
+                        <label for="virtual-email" class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Email</label>
+                        <input type="email" id="virtual-email" name="email" required
+                            class="w-full p-3 bg-gray-50 border border-gray-300 rounded focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors" placeholder="email@example.com">
+                    </div>
+                    
+                    <button type="submit"
+                        class="w-full py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded shadow-md transform transition hover:scale-[1.02] flex items-center justify-center gap-2 mt-2 uppercase tracking-wide">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        Continue Watching
+                    </button>
+                    <p class="text-xs text-gray-400 text-center mt-3">No spam. Unsubscribe anytime.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Floating Slide-in Lead Form -->
+    <div id="floating-lead-form" class="fixed bottom-24 right-4 z-40 w-72 bg-white rounded-lg shadow-2xl transform translate-x-[120%] transition-transform duration-500 ease-in-out border-l-4 border-global-blue">
+        <div class="p-4 relative">
+            <button id="close-floating-form" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h4 class="text-lg font-bold text-global-blue mb-1">Interested?</h4>
+            <p class="text-xs text-gray-600 mb-3">Get expert advice instantly.</p>
+            <form id="floating-form-element" class="space-y-2">
+                <input type="text" name="name" placeholder="Name" class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:border-global-blue" required>
+                <input type="tel" name="phone" placeholder="Phone" class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:border-global-blue" required>
+                <!-- NEW EMAIL FIELD FOR FULL CRM DATA -->
+                <input type="email" name="email" placeholder="Email" class="w-full p-2 text-sm border border-gray-300 rounded focus:outline-none focus:border-global-blue" required>
+                <button type="submit" class="w-full py-2 bg-global-blue text-white text-sm font-bold rounded hover:bg-blue-700 transition">Request Call Back</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Detailed Footer -->
+    <footer class="bg-global-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Global Space -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Updated to use cleaner path: "/" for home -->
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <!-- Updated to use clean anchor link for internal page navigation -->
+                        <li><a href="#loan-calculator-section" class="hover:underline" data-alias="home#loan">Loan
+                                Calculator</a></li>
+                        <li><a href="/sitemap/" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 ,
+                            Near Station CBD Belapur
+                            Opp to BP Marine Academy
+                            Above Federal Bank
+                            Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <!-- Follow Us (NOW USING IMAGE TAGS FOR EXTERNAL PNGS) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Facebook PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- LinkedIn PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- YouTube PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube" class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Pinterest PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Instagram PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <!-- Twitter PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400">© 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+    <script>
+        // Use a single DOMContentLoaded listener for robust execution
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Core Functions and Global Form Logic
+            // ... (CAPTCHA and handleFormSubmission functions remain global if needed, 
+            // but for cleaner code we can leave them outside if they are pure utility, 
+            // or inside here if they rely on DOM)
+            
+            // ... [Previous form logic] ...
+
+            // 2. Virtual Visit Modal Logic (Moved INSIDE to ensure DOM readiness)
+            (function () {
+                const modal = document.getElementById('virtual-modal');
+                const closeBtn = document.getElementById('virtual-modal-close-btn');
+                const form = document.getElementById('virtual-modal-form');
+                const iframe = document.getElementById('virtual-iframe');
+                const tapOverlayBtn = document.getElementById('tap-to-play-overlay');
+                const videoContainer = document.getElementById('video-container');
+                const videoThumbnail = document.getElementById('video-thumbnail');
+
+                if (modal && tapOverlayBtn) {
+                    // GATE OPENER
+                    const openGate = (e) => {
+                        if (e) {
+                            e.preventDefault();
+                            e.stopPropagation(); // Stop click from bubbling to container
+                        }
+                        modal.classList.add('is-active');
+                    };
+
+                    tapOverlayBtn.addEventListener('click', openGate);
+                    
+                    // Fallback: If user somehow clicks container but misses button
+                    if (videoContainer) {
+                        videoContainer.addEventListener('click', (e) => {
+                            // Only trigger if button is still visible (gate locked)
+                            if (!tapOverlayBtn.classList.contains('hidden')) {
+                                openGate(e);
+                            }
+                        });
+                    }
+                }
+
+                // Close Logic
+                if (closeBtn && modal) {
+                    closeBtn.addEventListener('click', () => modal.classList.remove('is-active'));
+                }
+                if (modal) {
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) modal.classList.remove('is-active');
+                    });
+                }
+
+                // CRM Submission Logic
+                if (form) {
+                    form.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const name = document.getElementById('virtual-name').value.trim();
+                        const phone = document.getElementById('virtual-phone').value.trim();
+                        const email = document.getElementById('virtual-email').value.trim();
+
+                        if (!name || !phone || !email) return;
+
+                        const payload = { name, phone, email, source: 'Virtual Visit - Rishi Heights' };
+                        const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+
+                        try {
+                            await fetch(crmWebhookUrl, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+
+                            // Success UI
+                            const msg = document.getElementById('success-message');
+                            if (msg) {
+                                msg.style.display = 'block';
+                                msg.style.opacity = '1';
+                                setTimeout(() => { msg.style.opacity = '0'; setTimeout(() => { msg.style.display = 'none'; }, 300); }, 3000);
+                            }
+
+                            // Close Modal
+                            modal.classList.remove('is-active');
+
+                            // UNLOCK VIDEO (The Reward)
+                            if (videoContainer && iframe && tapOverlayBtn) {
+                                tapOverlayBtn.classList.add('hidden');
+                                if (videoThumbnail) videoThumbnail.classList.add('hidden');
+                                iframe.classList.remove('pointer-events-none');
+                                
+                                // Auto-play and Unmute
+                                let src = iframe.src;
+                                src = src.replace('autoplay=0', 'autoplay=1');
+                                src = src.replace('mute=1', 'mute=0');
+                                iframe.src = src;
+                            }
+
+                        } catch (err) {
+                            console.error('CRM submit error', err);
+                            // Fail-safe: Unlock video anyway on error so user isn't stuck
+                            modal.classList.remove('is-active');
+                            if (videoContainer && iframe && tapOverlayBtn) {
+                                tapOverlayBtn.classList.add('hidden');
+                                if (videoThumbnail) videoThumbnail.classList.add('hidden');
+                                iframe.classList.remove('pointer-events-none');
+                            }
+                        }
+                    });
+                }
+            })(); // End Virtual Visit Logic
+
+            // 3. Floating Lead Form Logic (Persistent)
+            (function() {
+                const floatingForm = document.getElementById('floating-lead-form');
+                const closeFloatingBtn = document.getElementById('close-floating-form');
+                const formElement = document.getElementById('floating-form-element');
+                let reappearTimer = null;
+                // NEW: Flag to track if the form has been successfully submitted
+                let isFormSubmitted = false;
+
+                const showForm = () => {
+                    // Only show if not submitted
+                    if (floatingForm && !isFormSubmitted) {
+                        floatingForm.classList.remove('translate-x-[120%]');
+                        floatingForm.classList.add('translate-x-0');
+                    }
+                };
+
+                const hideForm = () => {
+                    if (floatingForm) {
+                        floatingForm.classList.remove('translate-x-0');
+                        floatingForm.classList.add('translate-x-[120%]');
+                    }
+                };
+
+                // Initial appearance after 4 seconds
+                setTimeout(showForm, 4000);
+
+                // Close handler with 10s re-trigger
+                if (closeFloatingBtn) {
+                    closeFloatingBtn.addEventListener('click', () => {
+                        hideForm();
+                        // Clear any existing timer just in case
+                        if (reappearTimer) clearTimeout(reappearTimer);
+                        
+                        // NEW LOGIC: Only set the re-appear timer if the form is NOT submitted
+                        if (!isFormSubmitted) {
+                            // Reappear after 10 seconds (The "Boomerang Loop")
+                            reappearTimer = setTimeout(showForm, 10000);
+                        }
+                    });
+                }
+
+                // Handle Form Submission
+                if (formElement) {
+                    formElement.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const name = formElement.name.value;
+                        const phone = formElement.phone.value;
+                        const email = formElement.email.value;
+                        
+                        // Capture Page Title for Context
+                        const pageTitle = document.title || 'Unknown Property';
+
+                        const payload = { 
+                            name, 
+                            phone, 
+                            email: email, 
+                            // DYNAMIC SOURCE: "Floating Form - [Property Name]"
+                            source: `Floating Form - ${pageTitle}` 
+                        };
+                        const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+
+                        try {
+                            await fetch(crmWebhookUrl, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+                            
+                            // MARK AS SUBMITTED - This stops the loop
+                            isFormSubmitted = true;
+
+                            // Visual feedback inside the small form
+                            formElement.innerHTML = '<p class="text-green-600 font-bold text-center py-4">Thanks! We will call you shortly.</p>';
+                            
+                            // Stop any pending nagging timer
+                            if (reappearTimer) clearTimeout(reappearTimer);
+
+                            // Auto-close after 3 seconds and stay closed
+                            setTimeout(() => {
+                                hideForm();
+                            }, 3000);
+
+                        } catch (err) {
+                            console.error('CRM submit error', err);
+                        }
+                    });
+                }
+            })();
+
+        }); // End DOMContentLoaded
+
+        // Function to handle form submissions and simulate CRM integration
+        function handleFormSubmission(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const name = form.name.value;
+            const phone = form.phone.value;
+            const email = form.email.value;
+            const message = form.message.value;
+
+            const submitButton = document.getElementById('whatsapp-button');
+            const buttonText = submitButton.querySelector('span');
+            const loadingSpinner = submitButton.querySelector('.spinner');
+
+            // Show loading spinner
+            if (buttonText && loadingSpinner) {
+                buttonText.classList.add('hidden');
+                loadingSpinner.classList.remove('hidden');
+            }
+            submitButton.disabled = true;
+
+            const formData = {
+                name: name,
+                phone: phone,
+                email: email,
+                message: message
+            };
+
+            // This is a placeholder phone number. Please replace it with your actual 10-digit phone number.
+            const whatsappPhoneNumber = "9876543210";
+            const propertyName = document.title;
+
+            // Construct the message with all form details
+            const whatsappMessage = `*Inquiry about ${propertyName}*\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n\n*Message:*\n${message}`;
+
+            // Encode the message for the URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // Construct the final URL
+            const whatsappUrl = `https://wa.me/${whatsappPhoneNumber}?text=${encodedMessage}`;
+
+            // Redirect to WhatsApp with pre-filled message
+            window.open(whatsappUrl, '_blank');
+
+            // Hide loading spinner and enable button after a short delay
+            setTimeout(() => {
+                if (buttonText && loadingSpinner) {
+                    buttonText.classList.remove('hidden');
+                    loadingSpinner.classList.add('hidden');
+                }
+                submitButton.disabled = false;
+            }, 1000); // Simulate a short delay for a more realistic UX
+        }
+
+        // CAPTCHA Logic
+        let captchaAnswer;
+
+        function generateCaptcha() {
+            const num1 = Math.floor(Math.random() * 10);
+            const num2 = Math.floor(Math.random() * 10);
+            captchaAnswer = num1 + num2;
+            document.getElementById('captcha-question').textContent = `What is ${num1} + ${num2}?`;
+            document.getElementById('captcha-answer').value = '';
+            document.getElementById('captcha-error').classList.add('hidden');
+        }
+
+        const requiredInputs = [
+            document.getElementById('name'),
+            document.getElementById('email'),
+            document.getElementById('phone')
+        ];
+
+        requiredInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const allFilled = requiredInputs.every(el => el.value.trim() !== '');
+                if (allFilled) {
+                    document.getElementById('captcha-section').classList.remove('hidden');
+                    generateCaptcha();
+                } else {
+                    document.getElementById('captcha-section').classList.add('hidden');
+                }
+            });
+        });
+
+        // WhatsApp Form Submission Logic
+        document.getElementById('contact-form').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phone-error');
+            const phonePattern = /^\d{10}$/; // Regex for exactly 10 digits
+
+            if (!phonePattern.test(phoneInput.value)) {
+                phoneError.classList.remove('hidden');
+                phoneInput.focus();
+                return;
+            } else {
+                phoneError.classList.add('hidden');
+            }
+
+            const captchaInput = document.getElementById('captcha-answer');
+            const captchaError = document.getElementById('captcha-error');
+
+            // Check if the captcha field is visible but empty
+            if (!document.getElementById('captcha-section').classList.contains('hidden') && captchaInput.value.trim() === '') {
+                captchaError.textContent = 'Please answer the security question before submitting.';
+                captchaError.classList.remove('hidden');
+                return;
+            }
+
+            // Check if the captcha answer is incorrect
+            if (parseInt(captchaInput.value, 10) !== captchaAnswer) {
+                captchaError.textContent = 'Incorrect answer. Please try again.';
+                captchaError.classList.remove('hidden');
+                generateCaptcha(); // Regenerate the CAPTCHA for a new attempt
+                return;
+            }
+
+            handleFormSubmission(event);
+        });
+    </script>
+    <!-- Floating WhatsApp button (standardized PNG) -->
+    <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+</body>
+
+</html>
+

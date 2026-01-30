@@ -1,0 +1,619 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-8MNQVMJ392');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Space - Cities</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/web-images/favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-blue': '#2165e4',
+                        'dark-overlay': 'rgba(0, 0, 0, 0.4)',
+                        'light-border': '#e0e0e0',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for the hover effect on the menu links */
+        .nav-link:hover {
+            color: #1a4e9b;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* City card hover effect */
+        .city-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            /* rounded-xl equivalent */
+        }
+
+        .city-card:hover {
+            transform: translateY(-5px);
+            /* Reduced hover lift for modern feel */
+            box-shadow: 0 10px 20px rgba(33, 101, 228, 0.2);
+            /* Blue shadow on hover */
+        }
+
+        .city-card img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .city-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Floating WhatsApp Icon (icon-only, responsive) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent !important;
+            color: inherit;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: none;
+            z-index: 50;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: auto;
+            height: auto;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* WhatsApp Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .request-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .request-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Custom dropdown styles */
+        .custom-dropdown-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation Menu -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto max-w-7xl px-4 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <!-- Logo for desktop and mobile views -->
+                <img src="/assets/images/web-images/favicon.png" alt="Global Space Logo" class="w-30 h-10">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-gray-700 font-bold">Home</a>
+                <a href="/about" class="nav-link text-gray-700 font-bold">About</a>
+                <a href="/city/" class="nav-link text-main-blue font-bold">Cities</a>
+                <a href="/blog/" class="nav-link text-gray-700 font-bold">Blogs</a>
+                <a href="/contact" class="nav-link text-gray-700 font-bold">Contact</a>
+            </nav>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu content (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="/" class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="/about"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">About</a>
+                <a href="/city/"
+                    class="nav-link text-main-blue font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Cities</a>
+                <a href="/blog/"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Blogs</a>
+                <a href="/contact"
+                    class="nav-link text-gray-700 font-bold px-4 py-2 hover:bg-gray-100 rounded-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cities Hero Section -->
+    <section class="relative bg-cover bg-center py-16"
+        style="background-image: url('/assets/images/web-images/cities-hero.jpg');">
+        <div class="absolute inset-0 bg-dark-overlay"></div>
+        <div class="container mx-auto max-w-7xl px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Explore Our Cities</h1>
+            <p class="text-lg md:text-xl text-white max-w-3xl mx-auto">
+                Discover exceptional properties in India's most vibrant cities.
+            </p>
+        </div>
+    </section>
+
+    <!-- City Filter Section (State Filter Reinstated) -->
+    <section class="container mx-auto max-w-7xl -mt-16 md:-mt-24 z-20 relative px-4">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-center justify-between">
+                <h2 class="text-xl md:text-2xl font-bold text-main-blue md:w-1/4 text-center md:text-left">Filter by
+                    State</h2>
+                <div class="flex w-full md:w-3/4 space-y-4 md:space-y-0 md:space-x-4">
+                    <!-- Custom State Dropdown -->
+                    <div id="state-dropdown" class="relative w-full">
+                        <button
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue cursor-pointer text-left flex justify-between items-center"
+                            id="state-btn">
+                            <span id="state-selected-text" data-value="all">All States</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="state-list"
+                            class="absolute hidden w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-20 custom-dropdown-list">
+                            <ul class="py-1">
+                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-100" data-value="all">All States</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button id="clear-filters-button"
+                    class="w-full md:w-auto p-3 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors duration-300">
+                    Clear Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Grid Section -->
+    <section class="py-16">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div id="cities-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- City cards will be generated here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Consultation Section -->
+    <section class="bg-gray-100 py-12" id="consultation-section">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div
+                class="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <!-- Left side: Illustration and text -->
+                <div class="md:w-1/2 flex flex-col justify-center items-center md:items-start mb-6 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl md:text-3xl font-bold text-main-blue mb-2 text-center md:text-left">FREE Expert
+                        Consultation</h3>
+                    <p class="text-lg text-gray-700 text-center md:text-left">Speak to our experts and get personalized
+                        guidance today.</p>
+                    <!-- UPDATED: Frame with Hover Effect -->
+                    <div class="mt-4 max-w-sm md:max-w-md mx-auto p-4 rounded-xl bg-main-blue shadow-2xl transform transition-transform duration-300 hover:scale-[1.03] cursor-pointer"
+                        id="consultation-image">
+                        <img src="/assets/images/web-images/contact.png" alt="Consultation illustration"
+                            class="w-full h-auto rounded-lg"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/2165e4/ffffff?text=Contact+Image';">
+                    </div>
+                </div>
+                <!-- Right side: Contact Form -->
+                <div class="md:w-1/2 w-full">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4 text-center md:text-left">Get Answers to All Your
+                        Questions</h4>
+                    <form id="consult-form" class="space-y-3">
+                        <input type="text" id="consult-name" name="name" placeholder="Full Name"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <input type="tel" id="consult-phone" name="phone" placeholder="Mobile Number"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <div class="flex items-center space-x-2">
+                            <label for="whatsapp-toggle" class="text-gray-700 text-sm">Get updates on WhatsApp</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="whatsapp-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <input type="email" id="consult-email" name="email" placeholder="Email Address"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-main-blue"
+                            required>
+                        <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-2">
+                            <button type="submit"
+                                class="request-button w-full md:w-1/2 p-2 font-semibold rounded-lg hover:bg-[#45a049] transition-colors duration-300">
+                                Request Consultation
+                            </button>
+                            <p class="text-gray-600 text-center md:text-left py-1 text-sm">or Call Us: <a
+                                    href="tel:+917400400373" class="font-bold text-main-blue hover:underline">+91
+                                    7400400373
+                                </a></p>
+                        </div>
+                    </form>
+                    <div id="consultation-msg"
+                        class="hidden text-center mt-4 p-3 rounded-lg text-white font-semibold transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Detailed Footer -->
+    <footer class="bg-main-blue text-white py-12">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Global Space -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Global Space Realty Pvt.Ltd.</h4>
+                    <p class="text-sm text-gray-200">Your trusted partner in finding your next home. We connect you with
+                        the best properties and services across the globe.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Updated to use cleaner path: "/" for home -->
+                        <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="/about" class="hover:underline">About Us</a></li>
+                        <li><a href="/city/" class="hover:underline">Cities</a></li>
+                        <li><a href="/blog/" class="hover:underline">Blogs</a></li>
+                        <li><a href="/contact" class="hover:underline">Contact</a></li>
+                        <!-- Updated to use clean anchor link for internal page navigation -->
+                        <li><a href="#loan-calculator-section" class="hover:underline" data-alias="home#loan">Loan
+                                Calculator</a></li>
+                        <li><a href="/sitemap/" class="hover:underline">Sitemap</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:info@globalspacerealty.com"
+                                class="hover:underline">info@globalspacerealty.com</a></li>
+                        <li><a href="tel:+917400400373" class="hover:underline">+91 74004 00373</a></li>
+                        <li>A-543 Balaji Udyog Bhavan Sec - 11 ,
+                            Near Station CBD Belapur
+                            Opp to BP Marine Academy
+                            Above Federal Bank
+                            Navi Mumbai 400614</li>
+                    </ul>
+                </div>
+                <!-- Follow Us (NOW USING IMAGE TAGS FOR EXTERNAL PNGS) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/globalspacerealty"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Facebook PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/facebook.png' alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.linkedin.com/company/100773832/admin/dashboard/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- LinkedIn PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/linkedin.png' alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.youtube.com/@GlobalSpace21"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- YouTube PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/youtube.png' alt="YouTube" class="w-6 h-6">
+                        </a>
+                        <a href="https://in.pinterest.com/globalspacesocialmedia/?actingBusinessId=1052786987800774888"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Pinterest PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/pinterest.png' alt="Pinterest" class="w-6 h-6">
+                        </a>
+                        <a href="https://www.instagram.com/globalspacerealty/"
+                            class="hover:opacity-80 transition-opacity duration-300" target="_blank">
+                            <!-- Instagram PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/instagram.png' alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="https://x.com/Globalspace09" class="hover:opacity-80 transition-opacity duration-300"
+                            target="_blank">
+                            <!-- Twitter PNG. REPLACE SRC with your actual path. -->
+                            <img src='/assets/images/social-icons/twitter.png' alt="Twitter" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-600 my-4">
+            <p class="text-sm text-center text-gray-400"> 2024 GLOBAL SPACE. All rights reserved.</p>
+            <p class="text-sm text-center mt-2 text-gray-400">Designed by <a href="https://nextmine.co"
+                    class="underline hover:text-white transition-colors duration-300" target="_blank">Next Mine</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp button (standardized PNG) -->
+    <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
+    </a>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Single source of truth for city data - REMOVED .html EXTENSION
+        const cities = [
+            { id: 1, name: 'Mumbai', image: 'https://globalspacerealty.com/images/States/mumbai.webp', url: 'mumbai', state: 'Maharashtra' },
+            { id: 2, name: 'Pune', image: 'https://globalspacerealty.com/images/States/pune.webp', url: 'pune', state: 'Maharashtra' },
+            { id: 3, name: 'Raipur', image: 'https://globalspacerealty.com/images/States/raipur.webp', url: 'raipur', state: 'Chhattisgarh' },
+            { id: 4, name: 'Hyderabad', image: 'https://globalspacerealty.com/images/States/hyderabad.webp', url: 'hyderabad', state: 'Telangana' },
+            { id: 5, name: 'Nagpur', image: 'https://globalspacerealty.com/images/States/nagpur.webp', url: 'nagpur', state: 'Maharashtra' },
+            { id: 6, name: 'Panipat', image: 'https://globalspacerealty.com/images/States/panipat.webp', url: 'panipat', state: 'Haryana' },
+            { id: 7, name: 'Noida', image: 'https://globalspacerealty.com/images/States/noida.webp', url: 'noida', state: 'Uttar Pradesh' },
+            { id: 8, name: 'Gurugram', image: 'https://globalspacerealty.com/images/States/gurugram.webp', url: 'gurugram', state: 'Haryana' },
+            { id: 9, name: 'Bengaluru', image: 'https://globalspacerealty.com/images/States/bengaluru.webp', url: 'bengaluru', state: 'Karnataka' },
+            { id: 10, name: 'Chennai', image: 'https://globalspacerealty.com/images/States/chennai.webp', url: 'chennai', state: 'Tamil Nadu' },
+            { id: 11, name: 'Vadodara', image: 'https://globalspacerealty.com/images/States/vadodara.webp', url: 'vadodara', state: 'Gujarat' },
+            { id: 12, name: 'Navi Mumbai', image: 'https://globalspacerealty.com/images/States/navimumbai.webp', url: 'navi-mumbai', state: 'Maharashtra' },
+            { id: 13, name: 'Kolkata', image: 'https://globalspacerealty.com/images/States/kolkata.webp', url: 'kolkata', state: 'West Bengal' },
+            { id: 14, name: 'Indore', image: 'https://globalspacerealty.com/images/States/indore.webp', url: 'indore', state: 'Madhya Pradesh' },
+            // Add more cities here as needed
+        ];
+
+        // Function to render city cards
+        function renderCities(citiesToRender) {
+            const container = document.getElementById('cities-grid');
+            container.innerHTML = '';
+            if (citiesToRender.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-500 col-span-2 lg:col-span-4">No cities found.</p>';
+                return;
+            }
+            citiesToRender.forEach(city => {
+                const cityCard = document.createElement('a');
+                // The URL is now clean and relies on .htaccess/server rewrites
+                cityCard.href = city.url;
+                cityCard.className = 'city-card rounded-xl overflow-hidden shadow-lg h-64 md:h-80 relative block';
+                cityCard.innerHTML = `
+                    <img src="${city.image}" alt="${city.name}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-dark-overlay flex items-end p-6">
+                        <h3 class="text-3xl font-bold text-white leading-tight">${city.name}</h3>
+                    </div>
+                `;
+                container.appendChild(cityCard);
+            });
+        }
+
+        // Function to populate the state dropdown (Restored)
+        function populateStateFilter() {
+            const states = [...new Set(cities.map(c => c.state))].sort();
+            const stateList = document.getElementById('state-list')?.querySelector('ul');
+
+            if (!stateList) return;
+
+            // Clear previous list except 'All States'
+            stateList.innerHTML = '<li class="px-4 py-2 cursor-pointer hover:bg-gray-100" data-value="all">All States</li>';
+
+            states.forEach(state => {
+                const li = document.createElement('li');
+                li.className = 'px-4 py-2 cursor-pointer hover:bg-gray-100';
+                li.dataset.value = state;
+                li.textContent = state;
+                stateList.appendChild(li);
+            });
+        }
+
+        // Function to filter cities based on the selected state (Restored)
+        function filterCities() {
+            const selectedState = document.getElementById('state-selected-text')?.dataset.value || 'all';
+            let filteredCities;
+
+            if (selectedState === 'all') {
+                filteredCities = cities;
+            } else {
+                filteredCities = cities.filter(city => city.state === selectedState);
+            }
+            renderCities(filteredCities);
+        }
+
+        // Dropdown setup logic (Restored)
+        const stateDropdown = document.getElementById('state-dropdown');
+        const clearFiltersButton = document.getElementById('clear-filters-button');
+
+        const setupDropdown = (buttonId, listId, selectedTextId) => {
+            const button = document.getElementById(buttonId);
+            const list = document.getElementById(listId);
+            const selectedText = document.getElementById(selectedTextId);
+
+            if (!button || !list || !selectedText) return;
+
+            button.addEventListener('click', (e) => { e.stopPropagation(); list.classList.toggle('hidden'); });
+            list.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const li = e.target.closest('li');
+                if (li) {
+                    selectedText.textContent = li.textContent;
+                    selectedText.dataset.value = li.dataset.value;
+                    list.classList.add('hidden');
+                    filterCities();
+                }
+            });
+        };
+
+        // Clear filters button logic (Restored)
+        if (clearFiltersButton) {
+            clearFiltersButton.addEventListener('click', () => {
+                const selectedText = document.getElementById('state-selected-text');
+                if (selectedText) {
+                    selectedText.textContent = 'All States';
+                    selectedText.dataset.value = 'all';
+                    filterCities();
+                }
+            });
+        }
+
+
+        // Consultation image click listener (Scroll to form and focus)
+        const consultationImage = document.getElementById('consultation-image');
+        const consultNameInput = document.getElementById('consult-name');
+
+        consultationImage.addEventListener('click', () => {
+            document.getElementById('consultation-section').scrollIntoView({ behavior: 'smooth' });
+            // Added a slight delay to ensure focus after smooth scroll
+            setTimeout(() => {
+                consultNameInput.focus();
+            }, 500);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup the State Filter functionality
+            populateStateFilter();
+            renderCities(cities);
+            setupDropdown('state-btn', 'state-list', 'state-selected-text');
+            document.addEventListener('click', (e) => {
+                if (stateDropdown && !stateDropdown.contains(e.target)) document.getElementById('state-list')?.classList.add('hidden');
+            });
+
+            const consultForm = document.getElementById('consult-form');
+            const consultationMsg = document.getElementById('consultation-msg');
+            consultForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('consult-name').value;
+                const phone = document.getElementById('consult-phone').value;
+                const email = document.getElementById('consult-email').value;
+                const crmData = {
+                    name,
+                    phone,
+                    email,
+                    source: 'Free Expert Consultation (Cities Page)'
+                };
+                const crmWebhookUrl = 'https://apps.cratiocrm.com/Customize/Webhooks/webhook.php?id=651654';
+
+                try {
+                    await fetch(crmWebhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: JSON.stringify(crmData)
+                    });
+                    consultationMsg.className = 'block bg-green-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                    consultationMsg.textContent = 'Message sent! We will contact you shortly.';
+                    if (document.getElementById('whatsapp-toggle').checked) {
+                        const whatsappMessage = `Hello, I'm interested in a free expert consultation. My name is ${name}, phone is ${phone}, and email is ${email}.`;
+                        window.location.href = `https://wa.me/917400400373?text=${encodeURIComponent(whatsappMessage)}`;
+                    }
+                } catch (error) {
+                    console.error('Error submitting to CRM:', error);
+                    consultationMsg.className = 'block bg-red-500 text-white text-center mt-4 p-3 rounded-lg font-semibold transition-opacity duration-300';
+                    consultationMsg.textContent = 'There was an error sending your message. Please try again.';
+                } finally {
+                    consultForm.reset();
+                    setTimeout(() => {
+                        consultationMsg.className = 'hidden';
+                    }, 5000);
+                }
+            });
+            const whatsappFloat = document.querySelector('.whatsapp-float');
+            if (whatsappFloat) {
+                whatsappFloat.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const whatsappUrl = e.currentTarget.href;
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
