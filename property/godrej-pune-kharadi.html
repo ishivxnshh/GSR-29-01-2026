@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,35 +17,77 @@
             padding-bottom: 70px;
         }
 
-        .bg-global-blue { background-color: #2563eb; }
-        .text-global-blue { color: #2563eb; }
-        .border-global-blue { border-color: #2563eb; }
+        .bg-global-blue {
+            background-color: #2563eb;
+        }
+
+        .text-global-blue {
+            color: #2563eb;
+        }
+
+        .border-global-blue {
+            border-color: #2563eb;
+        }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         @keyframes float-y {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .animate-float { animation: float-y 3s ease-in-out infinite; }
+        .animate-float {
+            animation: float-y 3s ease-in-out infinite;
+        }
 
         @keyframes float-y-sm {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
         }
 
-        .animate-float-sm { animation: float-y-sm 3s ease-in-out infinite; }
+        .animate-float-sm {
+            animation: float-y-sm 3s ease-in-out infinite;
+        }
 
-        @media (min-width: 768px) { body { padding-bottom: 0; } }
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         @media (max-width: 639px) {
-            #contact { background-image: none; background-color: #1e3a8a; }
+            #contact {
+                background-image: none;
+                background-color: #1e3a8a;
+            }
         }
 
         .message-box {
@@ -96,7 +138,9 @@
             overflow: hidden;
         }
 
-        .modal.is-active .modal-content { transform: translateY(0); }
+        .modal.is-active .modal-content {
+            transform: translateY(0);
+        }
 
         .modal-header {
             background: linear-gradient(to right, #2563eb, #1e40af);
@@ -104,7 +148,9 @@
             padding: 20px;
         }
 
-        .modal-body { padding: 20px; }
+        .modal-body {
+            padding: 20px;
+        }
 
         .modal-close {
             background: none;
@@ -115,7 +161,9 @@
             transition: transform 0.2s;
         }
 
-        .modal-close:hover { transform: rotate(90deg); }
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
 
         input[type="text"],
         input[type="email"],
@@ -154,8 +202,13 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .form-button:hover { background-color: #1e40af; }
-        .form-button:active { transform: scale(0.98); }
+        .form-button:hover {
+            background-color: #1e40af;
+        }
+
+        .form-button:active {
+            transform: scale(0.98);
+        }
 
         .checkbox-container {
             display: flex;
@@ -184,14 +237,18 @@
             text-decoration: none;
         }
 
-        .checkbox-container a:hover { text-decoration: underline; }
+        .checkbox-container a:hover {
+            text-decoration: underline;
+        }
 
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
 
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
 
         .whatsapp-float {
             position: fixed;
@@ -274,26 +331,26 @@
     <main class="flex-grow">
         <div class="relative w-full h-96 md:h-[600px] overflow-hidden">
             <div id="hero-carousel" class="absolute inset-0 w-full h-full">
-                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero01.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero01.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/4a5568/a0aec0?text=Godrej+Pune+Kharadi+Exterior'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100"
                     alt="Godrej Pune Kharadi Exterior View">
 
-                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero02.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero02.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/2563eb/ffffff?text=Lifestyle+&+Amenities'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
                     alt="Godrej Pune Kharadi Lifestyle">
 
-                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero03.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero03.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/1e293b/ffffff?text=Spacious+Interiors'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
                     alt="Godrej Pune Kharadi Interiors">
 
-                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero04.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/hero04.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/1e3a8a/ffffff?text=Aerial+View'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
                     alt="Godrej Pune Kharadi Aerial View">
@@ -303,8 +360,10 @@
                 class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 md:p-16 z-10 pointer-events-none">
                 <div class="w-full flex flex-col md:flex-row justify-between items-end gap-4">
                     <div class="text-white">
-                        <h1 class="text-2xl sm:text-3xl md:text-6xl font-extrabold mb-2 leading-tight">Godrej Pune Kharadi</h1>
-                        <p class="text-sm sm:text-xl md:text-3xl font-light opacity-90">Premium Residential Project in Kharadi, Pune</p>
+                        <h1 class="text-2xl sm:text-3xl md:text-6xl font-extrabold mb-2 leading-tight">Godrej Pune
+                            Kharadi</h1>
+                        <p class="text-sm sm:text-xl md:text-3xl font-light opacity-90">Premium Residential Project in
+                            Kharadi, Pune</p>
                     </div>
 
                     <button id="hero-brochure-btn"
@@ -333,14 +392,24 @@
         <nav class="sticky top-0 z-20 bg-white shadow-lg py-4 hidden md:block">
             <div class="container mx-auto px-4 relative flex justify-center items-center">
                 <div class="flex items-center overflow-x-auto whitespace-nowrap scrollbar-hide">
-                    <a href="#overview" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Overview</a>
-                    <a href="#costing" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Highlights</a>
-                    <a href="#floor-map" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Site & Floor Map</a>
-                    <a href="#amenities" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Amenities</a>
-                    <a href="#location" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Location</a>
-                    <a href="#virtual-visit" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Virtual Visit</a>
-                    <a href="#gallery" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Gallery</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Contact</a>
+                    <a href="#overview"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Overview</a>
+                    <a href="#costing"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Highlights</a>
+                    <a href="#floor-map"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Site & Floor
+                        Map</a>
+                    <a href="#amenities"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Amenities</a>
+                    <a href="#location"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Location</a>
+                    <a href="#virtual-visit"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Virtual
+                        Visit</a>
+                    <a href="#gallery"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Gallery</a>
+                    <a href="#contact"
+                        class="text-gray-700 hover:text-blue-600 font-medium px-4 py-2 transition-colors">Contact</a>
                 </div>
 
                 <button id="sticky-brochure-btn"
@@ -355,9 +424,7 @@
             </div>
         </nav>
 
-        <button
-            onclick="if(document.referrer && document.referrer.indexOf(window.location.hostname) !== -1) { window.location.href = document.referrer; } else { window.history.length > 1 ? window.history.back() : window.location.href = '/'; }"
-            id="back-to-city-link"
+        <button onclick="if(history.length > 1) { history.back(); } else { window.location.href = '/city/pune.html'; }" id="back-to-city-link"
             class="hidden md:block fixed top-4 left-4 z-30 bg-white text-gray-800 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors focus:outline-none">
             Back
         </button>
@@ -367,19 +434,27 @@
             <div class="flex flex-col lg:flex-row gap-8 items-start">
                 <div class="w-full lg:w-1/2">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                            <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <div
+                            class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                            <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                             <div>
                                 <h2 class="font-bold text-gray-800 text-sm md:text-base">Land Parcel</h2>
                                 <p class="text-xs md:text-sm text-gray-600">~14 Acres (Kharadi-Wagholi Corridor)</p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                            <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2z"></path>
+                        <div
+                            class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                            <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2z"></path>
                             </svg>
                             <div>
                                 <h2 class="font-bold text-gray-800 text-sm md:text-base">Developable Area</h2>
@@ -389,19 +464,30 @@
                     </div>
 
                     <p class="text-sm md:text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                        <b>Godrej Properties has recently acquired a prime 14-acre land parcel in the Kharadi-Wagholi corridor of Pune to develop a premium housing project with a total developable potential of approximately 3.7 million square feet and an estimated revenue potential of ₹4,200 crore.</b><br/><br/>
-                        This project marks Godrej's strategic entry into one of Pune's most sought-after residential micro-markets and is poised to offer high-quality premium homes designed for today's modern lifestyle. The development will primarily consist of premium group housing, ideally positioned to cater to working professionals, families, and investors seeking strong future growth and value.
+                        <b>Godrej Properties has recently acquired a prime 14-acre land parcel in the Kharadi-Wagholi
+                            corridor of Pune to develop a premium housing project with a total developable potential of
+                            approximately 3.7 million square feet and an estimated revenue potential of ₹4,200
+                            crore.</b><br /><br />
+                        This project marks Godrej's strategic entry into one of Pune's most sought-after residential
+                        micro-markets and is poised to offer high-quality premium homes designed for today's modern
+                        lifestyle. The development will primarily consist of premium group housing, ideally positioned
+                        to cater to working professionals, families, and investors seeking strong future growth and
+                        value.
                     </p>
 
                     <div id="overview-hidden" class="hidden transition-all duration-500 ease-in-out">
-                        <h3 class="text-base md:text-lg font-bold text-gray-800 mb-3">Land Parcel & Project Highlights</h3>
+                        <h3 class="text-base md:text-lg font-bold text-gray-800 mb-3">Land Parcel & Project Highlights
+                        </h3>
                         <p class="text-sm md:text-lg text-gray-700 leading-relaxed mb-3 text-justify">
-                            <b>Project Name:</b> Godrej Properties Upcoming Kharadi – Pune Project<br/>
-                            <b>Land Parcel:</b> ~14 Acres (Prime Kharadi-Wagholi Corridor)<br/>
-                            <b>Developable Area:</b> ~3.7 Million Sq. Ft.<br/>
-                            <b>Estimated Revenue:</b> ~₹4,200 Crore<br/>
-                            <b>Development Type:</b> Premium Residential Group Housing<br/><br/>
-                            <b>Strategic Entry:</b> Godrej Properties' entry into one of Pune's fastest-growing residential hubs. This acquisition is a testament to Godrej Properties' commitment to expanding its presence in key micro-markets across India and creating long-term value for homebuyers and investors.
+                            <b>Project Name:</b> Godrej Properties Upcoming Kharadi – Pune Project<br />
+                            <b>Land Parcel:</b> ~14 Acres (Prime Kharadi-Wagholi Corridor)<br />
+                            <b>Developable Area:</b> ~3.7 Million Sq. Ft.<br />
+                            <b>Estimated Revenue:</b> ~₹4,200 Crore<br />
+                            <b>Development Type:</b> Premium Residential Group Housing<br /><br />
+                            <b>Strategic Entry:</b> Godrej Properties' entry into one of Pune's fastest-growing
+                            residential hubs. This acquisition is a testament to Godrej Properties' commitment to
+                            expanding its presence in key micro-markets across India and creating long-term value for
+                            homebuyers and investors.
                         </p>
                     </div>
 
@@ -417,8 +503,10 @@
                 </div>
 
                 <div class="w-full lg:w-1/2">
-                    <div class="relative w-full h-64 md:h-[400px] rounded-xl overflow-hidden shadow-xl group bg-gray-100">
-                        <div id="overview-carousel-wrapper" class="flex transition-transform duration-500 ease-out h-full">
+                    <div
+                        class="relative w-full h-64 md:h-[400px] rounded-xl overflow-hidden shadow-xl group bg-gray-100">
+                        <div id="overview-carousel-wrapper"
+                            class="flex transition-transform duration-500 ease-out h-full">
                             <div class="w-full flex-shrink-0 relative">
                                 <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/14.webp"
                                     onerror="this.src='https://placehold.co/800x600/2563eb/ffffff?text=Modern+Interiors'"
@@ -453,14 +541,18 @@
 
                         <button id="overview-prev"
                             class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
                         <button id="overview-next"
                             class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>
@@ -473,9 +565,12 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <!-- Trust Badge 1 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl mb-4 border-2 border-blue-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <div
+                        class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl mb-4 border-2 border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600 mx-auto" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <h4 class="font-bold text-gray-800 mb-1">RERA Registered</h4>
@@ -484,9 +579,12 @@
 
                 <!-- Trust Badge 2 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl mb-4 border-2 border-green-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl mb-4 border-2 border-green-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600 mx-auto" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <h4 class="font-bold text-gray-800 mb-1">Best Pricing</h4>
@@ -495,9 +593,12 @@
 
                 <!-- Trust Badge 3 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl mb-4 border-2 border-purple-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-purple-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                    <div
+                        class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl mb-4 border-2 border-purple-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-purple-600 mx-auto" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                     </div>
                     <h4 class="font-bold text-gray-800 mb-1">Premium Quality</h4>
@@ -506,9 +607,12 @@
 
                 <!-- Trust Badge 4 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl mb-4 border-2 border-orange-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-orange-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <div
+                        class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl mb-4 border-2 border-orange-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-orange-600 mx-auto" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <h4 class="font-bold text-gray-800 mb-1">Expert Support</h4>
@@ -518,33 +622,40 @@
         </section>
 
         <!-- Know the Pricing & Book Now Hook -->
-        <section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-12 md:py-16 px-4 rounded-3xl container mx-auto my-8 md:my-12 shadow-2xl">
+        <section
+            class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-12 md:py-16 px-4 rounded-3xl container mx-auto my-8 md:my-12 shadow-2xl">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="mb-4 inline-block bg-white/20 backdrop-blur-md rounded-full px-4 py-2 border border-white/30">
+                <div
+                    class="mb-4 inline-block bg-white/20 backdrop-blur-md rounded-full px-4 py-2 border border-white/30">
                     <p class="text-white font-semibold text-sm md:text-base">🎯 Limited Time Opportunity</p>
                 </div>
-                
+
                 <h2 class="text-2xl md:text-4xl font-bold text-white mb-3 leading-tight">
                     Know the Pricing<br class="md:hidden">& Book Your Unit Now
                 </h2>
-                
+
                 <p class="text-white/90 text-base md:text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-                    Don't miss out on this exceptional investment opportunity. Get exclusive pricing details and secure your preferred unit before availability runs out.
+                    Don't miss out on this exceptional investment opportunity. Get exclusive pricing details and secure
+                    your preferred unit before availability runs out.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button onclick="document.getElementById('pricing-modal').classList.add('is-active')" 
+                    <button onclick="document.getElementById('pricing-modal').classList.add('is-active')"
                         class="bg-white text-blue-600 font-bold py-3 px-8 md:px-10 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         View Pricing
                     </button>
-                    
-                    <button id="pricing-book-btn" 
+
+                    <button id="pricing-book-btn"
                         class="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 px-8 md:px-10 rounded-full transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 w-full sm:w-auto justify-center border-2 border-white/30">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                         Book Now
                     </button>
@@ -553,20 +664,29 @@
                 <!-- Trust Icons -->
                 <div class="mt-8 flex justify-center gap-6 flex-wrap text-white/80 text-xs md:text-sm">
                     <div class="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-300" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
                         </svg>
                         <span>RERA Approved</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-300" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
                         </svg>
                         <span>Verified Prices</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-300" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
                         </svg>
                         <span>Instant Booking</span>
                     </div>
@@ -576,53 +696,81 @@
 
         <!-- Free Site Visit Section -->
         <section class="container mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16">
-            <div class="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border-2 border-emerald-200 shadow-lg">
+            <div
+                class="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border-2 border-emerald-200 shadow-lg">
                 <div class="max-w-4xl mx-auto">
                     <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-start">
                         <!-- Left Side - Icon & Main Message -->
                         <div class="flex-shrink-0 w-full sm:w-auto text-center sm:text-left">
-                            <div class="bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl p-4 sm:p-6 shadow-lg inline-block mb-4 sm:mb-0 mx-auto sm:mx-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 sm:h-16 w-12 sm:w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            <div
+                                class="bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl p-4 sm:p-6 shadow-lg inline-block mb-4 sm:mb-0 mx-auto sm:mx-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 sm:h-16 w-12 sm:w-16 text-white"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                 </svg>
                             </div>
                         </div>
 
                         <!-- Center - Content -->
                         <div class="flex-grow w-full sm:w-auto">
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Free Site Visit</h2>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Free Site
+                                Visit</h2>
                             <p class="text-gray-700 text-base md:text-lg mb-4 sm:mb-6 leading-relaxed">
-                                Experience Godrej Pune Kharadi firsthand! Visit our premium project site and explore the stunning location, world-class amenities, and exceptional construction quality. No commitments required.
+                                Experience Godrej Pune Kharadi firsthand! Visit our premium project site and explore the
+                                stunning location, world-class amenities, and exceptional construction quality. No
+                                commitments required.
                             </p>
 
                             <!-- Benefits List -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                                 <div class="flex items-start gap-3 bg-white/60 p-3 sm:p-4 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
                                     </svg>
-                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Free Pick & Drop Service</span>
+                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Free Pick
+                                        & Drop Service</span>
                                 </div>
 
                                 <div class="flex items-start gap-3 bg-white/60 p-3 sm:p-4 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
                                     </svg>
-                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Expert Guided Tour</span>
+                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Expert
+                                        Guided Tour</span>
                                 </div>
 
                                 <div class="flex items-start gap-3 bg-white/60 p-3 sm:p-4 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
                                     </svg>
-                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Full Project Walkthrough</span>
+                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Full
+                                        Project Walkthrough</span>
                                 </div>
 
                                 <div class="flex items-start gap-3 bg-white/60 p-3 sm:p-4 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 flex-shrink-0 mt-0.5"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
                                     </svg>
-                                    <span class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Refreshments Included</span>
+                                    <span
+                                        class="text-xs sm:text-sm md:text-base text-gray-800 font-semibold">Refreshments
+                                        Included</span>
                                 </div>
                             </div>
                         </div>
@@ -631,12 +779,15 @@
                         <div class="flex-shrink-0 w-full sm:w-auto">
                             <button onclick="document.getElementById('pricing-modal').classList.add('is-active')"
                                 class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full hover:shadow-xl sm:hover:shadow-xl transition-all sm:transform sm:hover:scale-105 active:scale-95 shadow-lg inline-flex items-center justify-center gap-2 text-sm sm:text-base">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 sm:h-6 w-5 sm:w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                 </svg>
                                 Book Your Visit
                             </button>
-                            <p class="text-xs sm:text-sm text-gray-600 text-center mt-2 px-2">Available: Weekdays & Weekends</p>
+                            <p class="text-xs sm:text-sm text-gray-600 text-center mt-2 px-2">Available: Weekdays &
+                                Weekends</p>
                         </div>
                     </div>
                 </div>
@@ -646,17 +797,20 @@
         <section id="costing" class="container mx-auto px-4 py-8 md:p-16 bg-white shadow-lg rounded-2xl">
             <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Project Highlights</h2>
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 text-center">
-                <div class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div
+                    class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">14 Acres</h3>
                     <p class="text-sm md:text-xl text-blue-600 font-semibold">Land Parcel</p>
                     <p class="text-[10px] md:text-xs text-gray-500 mt-1">Prime Location</p>
                 </div>
-                <div class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div
+                    class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">3.7M</h3>
                     <p class="text-sm md:text-xl text-blue-600 font-semibold">Sq. Ft. Developable</p>
                     <p class="text-[10px] md:text-xs text-gray-500 mt-1">Total Area</p>
                 </div>
-                <div class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div
+                    class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-sm cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <h3 class="text-base md:text-2xl font-bold text-gray-800 mb-1">₹4,200 Cr</h3>
                     <p class="text-sm md:text-xl text-blue-600 font-semibold">Revenue Potential</p>
                     <p class="text-[10px] md:text-xs text-gray-500 mt-1">Estimated Value</p>
@@ -666,33 +820,44 @@
 
         <!-- Pricing Cards Preview Section (Gated) -->
         <section class="container mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16">
-            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-4 text-center">Costing & Pricing</h2>
-            <p class="text-center text-gray-600 mb-8 sm:mb-12 text-sm sm:text-base md:text-lg px-2">Fill the form above to unlock detailed pricing information</p>
-            
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-4 text-center">Costing &
+                Pricing</h2>
+            <p class="text-center text-gray-600 mb-8 sm:mb-12 text-sm sm:text-base md:text-lg px-2">Fill the form above
+                to unlock detailed pricing information</p>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 <!-- 2 BHK Card -->
-                <div class="relative group cursor-pointer unlock-price-btn active:scale-95 transition-transform" onclick="document.getElementById('pricing-modal').classList.add('is-active')" style="touch-action: manipulation;">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-2xl sm:group-hover:shadow-2xl transition-all sm:transform sm:group-hover:scale-105 duration-300 text-white min-h-80 sm:min-h-96 flex flex-col justify-between">
+                <div class="relative group cursor-pointer unlock-price-btn active:scale-95 transition-transform"
+                    onclick="document.getElementById('pricing-modal').classList.add('is-active')"
+                    style="touch-action: manipulation;">
+                    <div
+                        class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-2xl sm:group-hover:shadow-2xl transition-all sm:transform sm:group-hover:scale-105 duration-300 text-white min-h-80 sm:min-h-96 flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center justify-center mb-4 sm:mb-6 w-14 sm:w-16 h-14 sm:h-16 bg-white/20 backdrop-blur-sm rounded-full mx-auto border-2 border-white/30">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 sm:h-8 w-7 sm:w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                            <div
+                                class="flex items-center justify-center mb-4 sm:mb-6 w-14 sm:w-16 h-14 sm:h-16 bg-white/20 backdrop-blur-sm rounded-full mx-auto border-2 border-white/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 sm:h-8 w-7 sm:w-8 text-white"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
                                 </svg>
                             </div>
                             <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-1 sm:mb-2">2 BHK</h3>
-                            <p class="text-white/90 text-center text-xs sm:text-sm md:text-base mb-3 sm:mb-4">Spacious Living</p>
+                            <p class="text-white/90 text-center text-xs sm:text-sm md:text-base mb-3 sm:mb-4">Spacious
+                                Living</p>
                             <div class="text-center mb-4 sm:mb-6">
                                 <p class="text-xs sm:text-sm text-white/80 mb-1">Starting Price</p>
                                 <p class="text-3xl sm:text-4xl md:text-5xl font-bold">₹1.25 Cr</p>
                             </div>
                         </div>
-                        
+
                         <!-- Lock Overlay -->
-                        <div class="absolute inset-0 rounded-3xl bg-black/30 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div
+                            class="absolute inset-0 rounded-3xl bg-black/30 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="text-center">
-                                <div class="bg-white/20 backdrop-blur-md rounded-full p-3 mx-auto mb-3 border border-white/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                <div
+                                    class="bg-white/20 backdrop-blur-md rounded-full p-3 mx-auto mb-3 border border-white/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mx-auto"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                                     </svg>
                                 </div>
                                 <p class="text-white font-bold text-lg">Fill Form to Unlock</p>
@@ -703,11 +868,15 @@
                 </div>
 
                 <!-- 3 BHK Card -->
-                <div class="relative group cursor-pointer unlock-price-btn" onclick="document.getElementById('pricing-modal').classList.add('is-active')">
-                    <div class="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all transform group-hover:scale-105 duration-300 text-white ring-2 ring-indigo-300">
-                        <div class="flex items-center justify-center mb-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mx-auto border-2 border-white/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                <div class="relative group cursor-pointer unlock-price-btn"
+                    onclick="document.getElementById('pricing-modal').classList.add('is-active')">
+                    <div
+                        class="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all transform group-hover:scale-105 duration-300 text-white ring-2 ring-indigo-300">
+                        <div
+                            class="flex items-center justify-center mb-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mx-auto border-2 border-white/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
                             </svg>
                         </div>
                         <h3 class="text-2xl md:text-3xl font-bold text-center mb-2">3 BHK</h3>
@@ -716,13 +885,16 @@
                             <p class="text-sm text-white/80 mb-1">Starting Price</p>
                             <p class="text-4xl md:text-5xl font-bold">₹1.59 Cr</p>
                         </div>
-                        
+
                         <!-- Lock Overlay -->
-                        <div class="absolute inset-0 rounded-3xl bg-black/30 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div
+                            class="absolute inset-0 rounded-3xl bg-black/30 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="text-center">
-                                <div class="bg-white/20 backdrop-blur-md rounded-full p-3 mx-auto mb-3 border border-white/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                <div
+                                    class="bg-white/20 backdrop-blur-md rounded-full p-3 mx-auto mb-3 border border-white/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mx-auto"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                                     </svg>
                                 </div>
                                 <p class="text-white font-bold text-lg">Fill Form to Unlock</p>
@@ -733,11 +905,15 @@
                 </div>
 
                 <!-- 4 BHK Card -->
-                <div class="relative group cursor-pointer unlock-price-btn" onclick="document.getElementById('pricing-modal').classList.add('is-active')">
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all transform group-hover:scale-105 duration-300 text-white">
-                        <div class="flex items-center justify-center mb-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mx-auto border-2 border-white/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                <div class="relative group cursor-pointer unlock-price-btn"
+                    onclick="document.getElementById('pricing-modal').classList.add('is-active')">
+                    <div
+                        class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all transform group-hover:scale-105 duration-300 text-white">
+                        <div
+                            class="flex items-center justify-center mb-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mx-auto border-2 border-white/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
                             </svg>
                         </div>
                         <h3 class="text-2xl md:text-3xl font-bold text-center mb-2">4 BHK</h3>
@@ -746,13 +922,16 @@
                             <p class="text-sm text-white/80 mb-1">Starting Price</p>
                             <p class="text-4xl md:text-5xl font-bold">₹3.09 Cr</p>
                         </div>
-                        
+
                         <!-- Lock Overlay -->
-                        <div class="absolute inset-0 rounded-3xl bg-black/30 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div
+                            class="absolute inset-0 rounded-3xl bg-black/30 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="text-center">
-                                <div class="bg-white/20 backdrop-blur-md rounded-full p-3 mx-auto mb-3 border border-white/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                <div
+                                    class="bg-white/20 backdrop-blur-md rounded-full p-3 mx-auto mb-3 border border-white/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white mx-auto"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                                     </svg>
                                 </div>
                                 <p class="text-white font-bold text-lg">Fill Form to Unlock</p>
@@ -765,10 +944,12 @@
 
             <div class="text-center mt-8 sm:mt-12">
                 <p class="text-gray-600 text-xs sm:text-base md:text-lg mb-4 px-2">👆 Tap any card to unlock details</p>
-                <button onclick="document.getElementById('pricing-modal').classList.add('is-active')" 
+                <button onclick="document.getElementById('pricing-modal').classList.add('is-active')"
                     class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 md:px-12 rounded-full hover:shadow-lg sm:hover:shadow-lg transition-all sm:transform sm:hover:scale-105 active:scale-95 inline-flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Unlock Pricing Now
                 </button>
@@ -776,20 +957,26 @@
         </section>
 
         <!-- Social Proof & Testimonials Section -->
-        <section class="container mx-auto px-4 py-12 md:py-16 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-3xl">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-12 text-center">Why Investors Choose Godrej Pune Kharadi</h2>
-            
+        <section
+            class="container mx-auto px-4 py-12 md:py-16 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-3xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-12 text-center">Why Investors Choose Godrej Pune
+                Kharadi</h2>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 hover:shadow-xl transition-all">
+                <div
+                    class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 hover:shadow-xl transition-all">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4 italic leading-relaxed">"Excellent location with premium amenities. The investment potential is amazing and Godrej's reputation gives me confidence."</p>
+                    <p class="text-gray-700 mb-4 italic leading-relaxed">"Excellent location with premium amenities. The
+                        investment potential is amazing and Godrej's reputation gives me confidence."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mr-3 flex items-center justify-center text-white font-bold text-lg">RK</div>
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mr-3 flex items-center justify-center text-white font-bold text-lg">
+                            RK</div>
                         <div>
                             <p class="font-semibold text-gray-800 text-sm">Rajesh Kumar</p>
                             <p class="text-xs text-gray-600">Property Investor</p>
@@ -798,15 +985,19 @@
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-indigo-600 hover:shadow-xl transition-all">
+                <div
+                    class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-indigo-600 hover:shadow-xl transition-all">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4 italic leading-relaxed">"Perfect for my family. Safe community, excellent connectivity, and the pricing is very competitive compared to similar projects."</p>
+                    <p class="text-gray-700 mb-4 italic leading-relaxed">"Perfect for my family. Safe community,
+                        excellent connectivity, and the pricing is very competitive compared to similar projects."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full mr-3 flex items-center justify-center text-white font-bold text-lg">PM</div>
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full mr-3 flex items-center justify-center text-white font-bold text-lg">
+                            PM</div>
                         <div>
                             <p class="font-semibold text-gray-800 text-sm">Priya Mehta</p>
                             <p class="text-xs text-gray-600">Homebuyer</p>
@@ -815,15 +1006,19 @@
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-purple-600 hover:shadow-xl transition-all">
+                <div
+                    class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-purple-600 hover:shadow-xl transition-all">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4 italic leading-relaxed">"Outstanding support from the sales team. They answered all my questions and made the entire process transparent and hassle-free."</p>
+                    <p class="text-gray-700 mb-4 italic leading-relaxed">"Outstanding support from the sales team. They
+                        answered all my questions and made the entire process transparent and hassle-free."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mr-3 flex items-center justify-center text-white font-bold text-lg">AJ</div>
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mr-3 flex items-center justify-center text-white font-bold text-lg">
+                            AJ</div>
                         <div>
                             <p class="font-semibold text-gray-800 text-sm">Amit Joshi</p>
                             <p class="text-xs text-gray-600">NRI Investor</p>
@@ -833,12 +1028,17 @@
             </div>
 
             <!-- CTA Banner -->
-            <div class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-white text-center">
+            <div
+                class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-white text-center">
                 <h3 class="text-2xl md:text-3xl font-bold mb-3">Join 500+ Satisfied Investors</h3>
-                <p class="text-lg mb-6 opacity-95">Secure your investment today and become part of an exclusive community</p>
-                <button id="hero-brochure-btn" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                <p class="text-lg mb-6 opacity-95">Secure your investment today and become part of an exclusive
+                    community</p>
+                <button id="hero-brochure-btn"
+                    class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                     Get Free Guide Now
                 </button>
@@ -848,33 +1048,45 @@
         <section id="floor-map" class="container mx-auto px-4 py-8 md:p-16">
             <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Site & Floor Map</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="relative w-full max-w-md mx-auto aspect-square rounded-xl shadow-lg overflow-hidden border-4 border-white bg-gray-100 group cursor-pointer unlock-map-btn" data-map-type="Site Plan">
+                <div class="relative w-full max-w-md mx-auto aspect-square rounded-xl shadow-lg overflow-hidden border-4 border-white bg-gray-100 group cursor-pointer unlock-map-btn"
+                    data-map-type="Site Plan">
                     <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/site-plan.webp"
                         onerror="this.src='https://placehold.co/800x800/E2E8F0/1A202C?text=Site+Plan'" alt="Site Plan"
                         class="w-full h-full object-cover blur-sm map-image transition-all duration-700">
-                    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all map-overlay">
+                    <div
+                        class="absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all map-overlay">
                         <div class="p-3 bg-white/30 backdrop-blur-md rounded-full mb-2 border border-white/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </div>
-                        <span class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md">View Site Plan</span>
+                        <span class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md">View Site
+                            Plan</span>
                     </div>
                 </div>
 
-                <div class="relative w-full max-w-md mx-auto aspect-square rounded-xl shadow-lg overflow-hidden border-4 border-white bg-gray-100 group cursor-pointer unlock-map-btn" data-map-type="Floor Plan">
+                <div class="relative w-full max-w-md mx-auto aspect-square rounded-xl shadow-lg overflow-hidden border-4 border-white bg-gray-100 group cursor-pointer unlock-map-btn"
+                    data-map-type="Floor Plan">
                     <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/floor-plan.webp"
                         onerror="this.src='https://placehold.co/800x800/E2E8F0/1A202C?text=Floor+Plan'" alt="Floor Plan"
                         class="w-full h-full object-cover blur-sm map-image transition-all duration-700">
-                    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all map-overlay">
+                    <div
+                        class="absolute inset-0 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all map-overlay">
                         <div class="p-3 bg-white/30 backdrop-blur-md rounded-full mb-2 border border-white/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </div>
-                        <span class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md">View Floor Plan</span>
+                        <span class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md">View Floor
+                            Plan</span>
                     </div>
                 </div>
             </div>
@@ -882,7 +1094,8 @@
 
         <section id="amenities" class="container mx-auto px-4 py-8 md:p-16 bg-white shadow-lg rounded-2xl">
             <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-8 text-center">World-Class Amenities</h2>
-            <div class="relative w-full max-w-4xl mx-auto h-96 md:h-[600px] mb-12 rounded-xl overflow-hidden shadow-xl group">
+            <div
+                class="relative w-full max-w-4xl mx-auto h-96 md:h-[600px] mb-12 rounded-xl overflow-hidden shadow-xl group">
                 <div id="amenities-carousel-wrapper" class="flex transition-transform duration-500 ease-out h-full">
                     <div class="w-full flex-shrink-0 relative">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/1.webp"
@@ -908,13 +1121,15 @@
 
                 <button id="amenities-prev"
                     class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <button id="amenities-next"
                     class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
@@ -922,37 +1137,53 @@
 
             <div class="space-y-12">
                 <div>
-                    <h3 class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
+                    <h3
+                        class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
                         <span class="mr-3 text-xl md:text-3xl">🏊‍♂</span> Lifestyle & Recreation
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Swimming Pool</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Indoor Games</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Exclusive Clubhouse</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Multipurpose Hall</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Yoga Zone</span>
                         </div>
@@ -960,25 +1191,35 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
+                    <h3
+                        class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
                         <span class="mr-3 text-xl md:text-3xl">🏋</span> Fitness & Wellness
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Equipped Gym</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Jogging Track</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Fitness Plaza</span>
                         </div>
@@ -986,25 +1227,37 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
+                    <h3
+                        class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
                         <span class="mr-3 text-xl md:text-3xl">🌿</span> Nature & Open Spaces
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0110.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0110.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Landscaped Garden</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M20 12a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2v-6a2 2 0 012-2m16 0V8a2 2 0 00-2-2h-8a2 2 0 00-2 2v4" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20 12H4M20 12a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2v-6a2 2 0 012-2m16 0V8a2 2 0 00-2-2h-8a2 2 0 00-2 2v4" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Sitting Pockets</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Kids Play Zone</span>
                         </div>
@@ -1012,38 +1265,55 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
+                    <h3
+                        class="text-lg md:text-2xl font-bold text-global-blue mb-4 md:mb-6 flex items-center border-b pb-2 border-gray-200">
                         <span class="mr-3 text-xl md:text-3xl">🏢</span> Convenience & Safety
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">24/7 Security</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Entrance Lobby</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">High-speed Lifts</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Power Backup</span>
                         </div>
-                        <div class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                        <div
+                            class="flex items-center space-x-2 md:space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-blue-500 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                             </svg>
                             <span class="font-medium text-xs md:text-base text-gray-700">Ample Parking</span>
                         </div>
@@ -1059,7 +1329,9 @@
                     <div class="mb-6">
                         <h3 class="text-base md:text-xl font-bold text-global-blue mb-2">Godrej Pune Kharadi</h3>
                         <p class="text-sm md:text-lg text-gray-700 leading-relaxed text-justify">
-                            Strategically located in the prime <span class="font-semibold text-gray-900">Kharadi-Wagholi Corridor</span>, this premium project enjoys seamless connectivity to Pune's major employment hubs and lifestyle destinations.
+                            Strategically located in the prime <span class="font-semibold text-gray-900">Kharadi-Wagholi
+                                Corridor</span>, this premium project enjoys seamless connectivity to Pune's major
+                            employment hubs and lifestyle destinations.
                         </p>
                     </div>
 
@@ -1115,13 +1387,17 @@
                 </div>
 
                 <div class="order-1 lg:order-2 w-full">
-                    <div class="rounded-xl shadow-xl overflow-hidden aspect-square border-4 border-white unlock-location-btn cursor-pointer group relative">
+                    <div
+                        class="rounded-xl shadow-xl overflow-hidden aspect-square border-4 border-white unlock-location-btn cursor-pointer group relative">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/map.webp"
                             onerror="this.src='https://placehold.co/800x800/e2e8f0/1e3a8a?text=Location+Map+Kharadi+Pune'"
                             alt="Map showing Kharadi Pune location"
                             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all hidden group-hover:flex">
-                            <span class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md bg-black/50 px-4 py-2 rounded">View Full Map</span>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all hidden group-hover:flex">
+                            <span
+                                class="text-white font-bold text-lg uppercase tracking-wide drop-shadow-md bg-black/50 px-4 py-2 rounded">View
+                                Full Map</span>
                         </div>
                     </div>
                 </div>
@@ -1130,7 +1406,9 @@
 
         <section id="virtual-visit" class="container mx-auto px-4 py-8 md:p-16 bg-gray-100 shadow-inner rounded-2xl">
             <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Take a Virtual Visit</h2>
-            <div id="video-container" class="relative w-full max-w-4xl mx-auto bg-gray-900 rounded-lg shadow-md overflow-hidden group cursor-pointer" style="aspect-ratio: 16/9;">
+            <div id="video-container"
+                class="relative w-full max-w-4xl mx-auto bg-gray-900 rounded-lg shadow-md overflow-hidden group cursor-pointer"
+                style="aspect-ratio: 16/9;">
                 <iframe id="virtual-iframe" width="560" height="315"
                     src="https://www.youtube.com/embed/LQIBT0AZtrc?start=11&autoplay=0&mute=1&controls=0"
                     title="YouTube video player" frameborder="0"
@@ -1144,7 +1422,8 @@
 
                 <button id="tap-to-play-overlay" type="button"
                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-30 transition-all z-20 cursor-pointer focus:outline-none">
-                    <span class="text-white font-semibold text-lg md:text-xl tracking-widest uppercase border-2 border-white px-6 py-2 rounded hover:bg-white hover:text-black transition-colors pointer-events-none">
+                    <span
+                        class="text-white font-semibold text-lg md:text-xl tracking-widest uppercase border-2 border-white px-6 py-2 rounded hover:bg-white hover:text-black transition-colors pointer-events-none">
                         Tap to Play
                     </span>
                 </button>
@@ -1153,49 +1432,60 @@
 
         <section id="gallery" class="container mx-auto px-4 py-8 md:p-16">
             <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Gallery</h2>
-            <div id="gallery-wrapper" class="relative w-full max-w-5xl mx-auto h-64 md:h-[500px] rounded-xl shadow-2xl overflow-hidden bg-gray-900 group">
+            <div id="gallery-wrapper"
+                class="relative w-full max-w-5xl mx-auto h-64 md:h-[500px] rounded-xl shadow-2xl overflow-hidden bg-gray-900 group">
                 <div id="gallery-container" class="relative w-full h-full">
-                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-100">
+                    <div
+                        class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-100">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/gallery01.webp"
                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Project+View+1'"
                             class="w-full h-full object-cover" alt="Project View 1">
                     </div>
 
-                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <div
+                        class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/gallery02.webp"
                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Project+View+2'"
                             class="w-full h-full object-cover" alt="Project View 2">
                     </div>
 
-                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <div
+                        class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/gallery03.webp"
                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Project+View+3'"
                             class="w-full h-full object-cover" alt="Project View 3">
                     </div>
-                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <div
+                        class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/gallery04.webp"
                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Project+View+4'"
                             class="w-full h-full object-cover" alt="Project View 4">
                     </div>
-                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <div
+                        class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/gallery05.webp"
                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Project+View+5'"
                             class="w-full h-full object-cover" alt="Project View 5">
                     </div>
-                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <div
+                        class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
                         <img src="/assets/images/sub-landing-page/godrej-pune-kharadi/gallery06.webp"
                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Project+View+6'"
                             class="w-full h-full object-cover" alt="Project View 6">
                     </div>
                 </div>
 
-                <button id="gallery-prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="gallery-prev"
+                    class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
-                <button id="gallery-next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="gallery-next"
+                    class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none z-20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
@@ -1205,24 +1495,35 @@
         <!-- FAQ Section - Trust Builder & Lead Capture -->
         <section class="container mx-auto px-4 py-12 md:py-16">
             <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">Frequently Asked Questions</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Get answers to common questions about Godrej Pune Kharadi</p>
-            
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Get answers to common questions about Godrej
+                Pune Kharadi</p>
+
             <div class="max-w-3xl mx-auto space-y-4">
                 <!-- FAQ 1 -->
-                <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-blue-600 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-blue-50 transition" onclick="toggleFAQ(this)">
+                <div
+                    class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-blue-600 overflow-hidden">
+                    <button
+                        class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-blue-50 transition"
+                        onclick="toggleFAQ(this)">
                         <h3 class="font-bold text-gray-800 text-left">What is the location of Godrej Pune Kharadi?</h3>
                         <span class="text-2xl text-blue-600 transform transition-transform">+</span>
                     </button>
                     <div class="faq-content hidden px-6 md:px-8 pb-6 md:pb-8 bg-blue-50">
-                        <p class="text-gray-700 leading-relaxed">Godrej Pune Kharadi is strategically located in the Kharadi-Wagholi Corridor, offering excellent connectivity to Pune's major employment hubs, shopping centers, and educational institutions. The project benefits from proximity to the airport, railway station, and upcoming metro extension.</p>
+                        <p class="text-gray-700 leading-relaxed">Godrej Pune Kharadi is strategically located in the
+                            Kharadi-Wagholi Corridor, offering excellent connectivity to Pune's major employment hubs,
+                            shopping centers, and educational institutions. The project benefits from proximity to the
+                            airport, railway station, and upcoming metro extension.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 2 -->
-                <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-indigo-600 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-indigo-50 transition" onclick="toggleFAQ(this)">
-                        <h3 class="font-bold text-gray-800 text-left">What are the different unit configurations available?</h3>
+                <div
+                    class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-indigo-600 overflow-hidden">
+                    <button
+                        class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-indigo-50 transition"
+                        onclick="toggleFAQ(this)">
+                        <h3 class="font-bold text-gray-800 text-left">What are the different unit configurations
+                            available?</h3>
                         <span class="text-2xl text-indigo-600 transform transition-transform">+</span>
                     </button>
                     <div class="faq-content hidden px-6 md:px-8 pb-6 md:pb-8 bg-indigo-50">
@@ -1236,13 +1537,17 @@
                 </div>
 
                 <!-- FAQ 3 -->
-                <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-purple-600 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-purple-50 transition" onclick="toggleFAQ(this)">
+                <div
+                    class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-purple-600 overflow-hidden">
+                    <button
+                        class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-purple-50 transition"
+                        onclick="toggleFAQ(this)">
                         <h3 class="font-bold text-gray-800 text-left">What amenities are available in the project?</h3>
                         <span class="text-2xl text-purple-600 transform transition-transform">+</span>
                     </button>
                     <div class="faq-content hidden px-6 md:px-8 pb-6 md:pb-8 bg-purple-50">
-                        <p class="text-gray-700 leading-relaxed mb-3">Godrej Pune Kharadi features world-class amenities including:</p>
+                        <p class="text-gray-700 leading-relaxed mb-3">Godrej Pune Kharadi features world-class amenities
+                            including:</p>
                         <ul class="list-disc list-inside text-gray-700 space-y-1">
                             <li>Swimming pool with deck</li>
                             <li>Fully equipped gymnasium</li>
@@ -1256,24 +1561,34 @@
                 </div>
 
                 <!-- FAQ 4 -->
-                <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-amber-600 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-amber-50 transition" onclick="toggleFAQ(this)">
+                <div
+                    class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-amber-600 overflow-hidden">
+                    <button
+                        class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-amber-50 transition"
+                        onclick="toggleFAQ(this)">
                         <h3 class="font-bold text-gray-800 text-left">What are the payment plans?</h3>
                         <span class="text-2xl text-amber-600 transform transition-transform">+</span>
                     </button>
                     <div class="faq-content hidden px-6 md:px-8 pb-6 md:pb-8 bg-amber-50">
-                        <p class="text-gray-700 leading-relaxed">We offer flexible payment plans with options for different investor profiles. Click on any pricing card to unlock detailed payment schedule information tailored to your needs.</p>
+                        <p class="text-gray-700 leading-relaxed">We offer flexible payment plans with options for
+                            different investor profiles. Click on any pricing card to unlock detailed payment schedule
+                            information tailored to your needs.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 5 -->
-                <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-green-600 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-green-50 transition" onclick="toggleFAQ(this)">
+                <div
+                    class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all border-l-4 border-green-600 overflow-hidden">
+                    <button
+                        class="faq-toggle w-full p-6 md:p-8 flex justify-between items-center cursor-pointer hover:bg-green-50 transition"
+                        onclick="toggleFAQ(this)">
                         <h3 class="font-bold text-gray-800 text-left">Is the project RERA registered?</h3>
                         <span class="text-2xl text-green-600 transform transition-transform">+</span>
                     </button>
                     <div class="faq-content hidden px-6 md:px-8 pb-6 md:pb-8 bg-green-50">
-                        <p class="text-gray-700 leading-relaxed">Yes! Godrej Pune Kharadi is fully RERA registered and compliant with all regulatory requirements. Your investment is completely protected and transparent.</p>
+                        <p class="text-gray-700 leading-relaxed">Yes! Godrej Pune Kharadi is fully RERA registered and
+                            compliant with all regulatory requirements. Your investment is completely protected and
+                            transparent.</p>
                     </div>
                 </div>
             </div>
@@ -1281,34 +1596,45 @@
             <!-- CTA after FAQ -->
             <div class="mt-12 text-center">
                 <p class="text-gray-700 mb-6 text-lg">Still have questions?</p>
-                <button id="mobile-brochure-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <button id="mobile-brochure-btn"
+                    class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     Talk to Our Expert
                 </button>
             </div>
         </section>
 
-        <section id="contact" class="bg-gradient-to-br from-blue-700 to-blue-900 p-8 md:p-16 rounded-2xl mx-auto container shadow-lg">
+        <section id="contact"
+            class="bg-gradient-to-br from-blue-700 to-blue-900 p-8 md:p-16 rounded-2xl mx-auto container shadow-lg">
             <div class="max-w-xl mx-auto">
                 <h2 class="text-xl md:text-3xl font-bold text-white mb-6 text-center">Enquire About This Project</h2>
                 <form id="contact-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-white">Full Name</label>
-                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3" placeholder="Enter your full name" required>
+                        <input type="text" id="name" name="name"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your full name" required>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-white">Email Address</label>
-                        <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3" placeholder="Enter your email address" required>
+                        <input type="email" id="email" name="email"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your email address" required>
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-medium text-white">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3" placeholder="Enter your phone number" required>
+                        <input type="tel" id="phone" name="phone"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-white focus:ring-white sm:text-sm p-3"
+                            placeholder="Enter your phone number" required>
                     </div>
 
                     <div class="flex justify-center">
-                        <button type="submit" id="submit-button" class="w-full sm:w-auto bg-white text-blue-600 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
+                        <button type="submit" id="submit-button"
+                            class="w-full sm:w-auto bg-white text-blue-600 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition-colors">
                             Submit Enquiry
                         </button>
                     </div>
@@ -1353,7 +1679,8 @@
                         class="inline-block bg-yellow-400 text-black px-3 py-1 font-bold rounded-md text-sm md:text-base mb-2 shadow-lg transform -rotate-1 border border-yellow-500">
                         "Things to Check Before Buying"
                     </div>
-                    <p class="text-gray-200 text-xs md:text-sm mt-2 opacity-90">Download our exclusive checklist for free.</p>
+                    <p class="text-gray-200 text-xs md:text-sm mt-2 opacity-90">Download our exclusive checklist for
+                        free.</p>
                 </div>
 
                 <!-- Form Card (Glassmorphism) -->
@@ -1392,8 +1719,9 @@
                         </button>
 
                         <div class="flex items-center justify-center gap-2 mt-3 text-xs text-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-orange-500" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                             </svg>
                             Your details are safe with us.
                         </div>
@@ -1424,53 +1752,70 @@
     <div id="pricing-modal" class="modal">
         <div class="modal-content relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
             <button class="modal-close absolute top-4 right-4 z-50" id="pricing-modal-close-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700 transition"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            
+
             <!-- Header with gradient and icon -->
             <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-8 pt-10 pb-8 text-white">
                 <div class="flex items-center justify-center mb-4">
                     <div class="bg-white/20 p-4 rounded-full backdrop-blur-md border border-white/30">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                 </div>
                 <h3 class="text-3xl font-bold text-center mb-1">Get Pricing Details</h3>
                 <p class="text-center text-blue-100 text-sm">Unlock exclusive project pricing</p>
             </div>
-            
+
             <!-- Form section -->
             <div class="px-8 py-8">
                 <form id="pricing-form" class="space-y-4">
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Full Name</label>
-                        <input type="text" id="price-name" name="name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Your full name" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Full
+                            Name</label>
+                        <input type="text" id="price-name" name="name"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                            placeholder="Your full name" required>
                     </div>
 
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Phone Number</label>
-                        <input type="tel" id="price-phone" name="phone" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Your phone number" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Phone
+                            Number</label>
+                        <input type="tel" id="price-phone" name="phone"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                            placeholder="Your phone number" required>
                     </div>
 
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email Address</label>
-                        <input type="email" id="price-email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" placeholder="Your email address" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email
+                            Address</label>
+                        <input type="email" id="price-email" name="email"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                            placeholder="Your email address" required>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-6 flex items-center justify-center gap-2">
+                    <button type="submit"
+                        class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-6 flex items-center justify-center gap-2">
                         <span>View Prices</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                     </button>
                 </form>
-                
+
                 <div class="flex items-center gap-2 mt-6 text-xs text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 7 15.5 7 14 7.67 14 8.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 7 15.5 7 14 7.67 14 8.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
                     </svg>
                     <span>Your details are safe with us</span>
                 </div>
@@ -1481,53 +1826,70 @@
     <div id="floorplan-modal" class="modal">
         <div class="modal-content relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
             <button class="modal-close absolute top-4 right-4 z-50" id="floorplan-modal-close-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700 transition"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            
+
             <!-- Header with gradient and icon -->
             <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 px-8 pt-10 pb-8 text-white">
                 <div class="flex items-center justify-center mb-4">
                     <div class="bg-white/20 p-4 rounded-full backdrop-blur-md border border-white/30">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
                         </svg>
                     </div>
                 </div>
                 <h3 class="text-3xl font-bold text-center mb-1">Unlock Floor Plans</h3>
                 <p class="text-center text-indigo-100 text-sm">Get detailed layout information</p>
             </div>
-            
+
             <!-- Form section -->
             <div class="px-8 py-8">
                 <form id="floorplan-form" class="space-y-4">
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Full Name</label>
-                        <input type="text" id="fp-name" name="name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Your full name" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Full
+                            Name</label>
+                        <input type="text" id="fp-name" name="name"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                            placeholder="Your full name" required>
                     </div>
 
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Phone Number</label>
-                        <input type="tel" id="fp-phone" name="phone" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Your phone number" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Phone
+                            Number</label>
+                        <input type="tel" id="fp-phone" name="phone"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                            placeholder="Your phone number" required>
                     </div>
 
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email Address</label>
-                        <input type="email" id="fp-email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="Your email address" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email
+                            Address</label>
+                        <input type="email" id="fp-email" name="email"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                            placeholder="Your email address" required>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-6 flex items-center justify-center gap-2">
+                    <button type="submit"
+                        class="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-bold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-6 flex items-center justify-center gap-2">
                         <span>Unlock Plans</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </button>
                 </form>
-                
+
                 <div class="flex items-center gap-2 mt-6 text-xs text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 7 15.5 7 14 7.67 14 8.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 7 15.5 7 14 7.67 14 8.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
                     </svg>
                     <span>Your details are safe with us</span>
                 </div>
@@ -1538,54 +1900,72 @@
     <div id="location-modal" class="modal">
         <div class="modal-content relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
             <button class="modal-close absolute top-4 right-4 z-50" id="location-modal-close-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700 transition"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            
+
             <!-- Header with gradient and icon -->
             <div class="bg-gradient-to-r from-amber-600 to-amber-700 px-8 pt-10 pb-8 text-white">
                 <div class="flex items-center justify-center mb-4">
                     <div class="bg-white/20 p-4 rounded-full backdrop-blur-md border border-white/30">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
                 </div>
                 <h3 class="text-3xl font-bold text-center mb-1">View Location Map</h3>
                 <p class="text-center text-amber-100 text-sm">Discover the perfect location</p>
             </div>
-            
+
             <!-- Form section -->
             <div class="px-8 py-8">
                 <form id="location-form" class="space-y-4">
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Full Name</label>
-                        <input type="text" id="loc-name" name="name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" placeholder="Your full name" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Full
+                            Name</label>
+                        <input type="text" id="loc-name" name="name"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition"
+                            placeholder="Your full name" required>
                     </div>
 
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Phone Number</label>
-                        <input type="tel" id="loc-phone" name="phone" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" placeholder="Your phone number" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Phone
+                            Number</label>
+                        <input type="tel" id="loc-phone" name="phone"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition"
+                            placeholder="Your phone number" required>
                     </div>
 
                     <div class="relative">
-                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email Address</label>
-                        <input type="email" id="loc-email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" placeholder="Your email address" required>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email
+                            Address</label>
+                        <input type="email" id="loc-email" name="email"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition"
+                            placeholder="Your email address" required>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-bold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-6 flex items-center justify-center gap-2">
+                    <button type="submit"
+                        class="w-full py-3.5 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-bold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 mt-6 flex items-center justify-center gap-2">
                         <span>View Map</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                     </button>
                 </form>
-                
+
                 <div class="flex items-center gap-2 mt-6 text-xs text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 7 15.5 7 14 7.67 14 8.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 7 15.5 7 14 7.67 14 8.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
                     </svg>
                     <span>Your details are safe with us</span>
                 </div>
@@ -1598,7 +1978,7 @@
         function toggleFAQ(button) {
             const content = button.nextElementSibling;
             const icon = button.querySelector('span');
-            
+
             // Close all other FAQs
             document.querySelectorAll('.faq-content').forEach(el => {
                 if (el !== content) {
@@ -1606,14 +1986,14 @@
                     el.previousElementSibling.querySelector('span').textContent = '+';
                 }
             });
-            
+
             // Toggle current FAQ
             content.classList.toggle('hidden');
             icon.textContent = content.classList.contains('hidden') ? '+' : '−';
         }
 
         // Book Now Button Handler
-        document.getElementById('pricing-book-btn')?.addEventListener('click', function() {
+        document.getElementById('pricing-book-btn')?.addEventListener('click', function () {
             document.getElementById('pricing-modal').classList.add('is-active');
         });
 
@@ -1746,7 +2126,7 @@
                 const next = document.getElementById(nextId);
                 const wrapper = document.getElementById(wrapperId);
                 if (!wrapper) return;
-                
+
                 let position = 0;
                 const slideWidth = 100;
                 const totalSlides = wrapper.children.length;
@@ -1912,8 +2292,7 @@
         href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20Godrej%20Pune%20Kharadi%20Project"
         class="whatsapp-float hidden md:inline-flex" target="_blank" rel="noopener noreferrer"
         aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
-        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp"
-            class="whatsapp-icon" />
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
     </a>
 </body>
 

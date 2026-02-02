@@ -4,10 +4,10 @@
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-8MNQVMJ392');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8MNQVMJ392');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -232,8 +232,8 @@
     </section>
 
     <!-- City Filter Section (State Filter Reinstated) -->
-    <section class="container mx-auto max-w-7xl -mt-16 md:-mt-24 z-20 relative px-4">
-        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+    <section class="container mx-auto max-w-7xl mt-8 z-20 relative px-4"><!-- Fixed Layout -->
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100">
             <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-center justify-between">
                 <h2 class="text-xl md:text-2xl font-bold text-main-blue md:w-1/4 text-center md:text-left">Filter by
                     State</h2>
@@ -335,7 +335,7 @@
         </div>
     </section>
 
-        <!-- Detailed Footer -->
+    <!-- Detailed Footer -->
     <footer class="bg-main-blue text-white py-12">
         <div class="container mx-auto max-w-7xl px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -421,7 +421,8 @@
 
     <!-- Floating WhatsApp button (standardized PNG) -->
     <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp">
         <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
     </a>
     <script>
@@ -434,20 +435,20 @@
 
         // Single source of truth for city data - REMOVED .html EXTENSION
         const cities = [
-            { id: 1, name: 'Mumbai', image: 'https://globalspacerealty.com/images/States/mumbai.webp', url: 'mumbai', state: 'Maharashtra' },
-            { id: 2, name: 'Pune', image: 'https://globalspacerealty.com/images/States/pune.webp', url: 'pune', state: 'Maharashtra' },
-            { id: 3, name: 'Raipur', image: 'https://globalspacerealty.com/images/States/raipur.webp', url: 'raipur', state: 'Chhattisgarh' },
-            { id: 4, name: 'Hyderabad', image: 'https://globalspacerealty.com/images/States/hyderabad.webp', url: 'hyderabad', state: 'Telangana' },
-            { id: 5, name: 'Nagpur', image: 'https://globalspacerealty.com/images/States/nagpur.webp', url: 'nagpur', state: 'Maharashtra' },
-            { id: 6, name: 'Panipat', image: 'https://globalspacerealty.com/images/States/panipat.webp', url: 'panipat', state: 'Haryana' },
-            { id: 7, name: 'Noida', image: 'https://globalspacerealty.com/images/States/noida.webp', url: 'noida', state: 'Uttar Pradesh' },
-            { id: 8, name: 'Gurugram', image: 'https://globalspacerealty.com/images/States/gurugram.webp', url: 'gurugram', state: 'Haryana' },
-            { id: 9, name: 'Bengaluru', image: 'https://globalspacerealty.com/images/States/bengaluru.webp', url: 'bengaluru', state: 'Karnataka' },
-            { id: 10, name: 'Chennai', image: 'https://globalspacerealty.com/images/States/chennai.webp', url: 'chennai', state: 'Tamil Nadu' },
-            { id: 11, name: 'Vadodara', image: 'https://globalspacerealty.com/images/States/vadodara.webp', url: 'vadodara', state: 'Gujarat' },
-            { id: 12, name: 'Navi Mumbai', image: 'https://globalspacerealty.com/images/States/navimumbai.webp', url: 'navi-mumbai', state: 'Maharashtra' },
-            { id: 13, name: 'Kolkata', image: 'https://globalspacerealty.com/images/States/kolkata.webp', url: 'kolkata', state: 'West Bengal' },
-            { id: 14, name: 'Indore', image: 'https://globalspacerealty.com/images/States/indore.webp', url: 'indore', state: 'Madhya Pradesh' },
+            { id: 1, name: 'Mumbai', image: '/assets/images/States/mumbai.webp', url: 'mumbai', state: 'Maharashtra' },
+            { id: 2, name: 'Pune', image: '/assets/images/States/pune.webp', url: 'pune', state: 'Maharashtra' },
+            { id: 3, name: 'Raipur', image: '/assets/images/States/raipur.webp', url: 'raipur', state: 'Chhattisgarh' },
+            { id: 4, name: 'Hyderabad', image: '/assets/images/States/hyderabad.webp', url: 'hyderabad', state: 'Telangana' },
+            { id: 5, name: 'Nagpur', image: '/assets/images/States/nagpur.webp', url: 'nagpur', state: 'Maharashtra' },
+            { id: 6, name: 'Panipat', image: '/assets/images/States/panipat.webp', url: 'panipat', state: 'Haryana' },
+            { id: 7, name: 'Noida', image: '/assets/images/States/noida.webp', url: 'noida', state: 'Uttar Pradesh' },
+            { id: 8, name: 'Gurugram', image: '/assets/images/States/gurugram.webp', url: 'gurugram', state: 'Haryana' },
+            { id: 9, name: 'Bengaluru', image: '/assets/images/States/bengaluru.webp', url: 'bengaluru', state: 'Karnataka' },
+            { id: 10, name: 'Chennai', image: '/assets/images/States/chennai.webp', url: 'chennai', state: 'Tamil Nadu' },
+            { id: 11, name: 'Vadodara', image: '/assets/images/States/vadodara.webp', url: 'vadodara', state: 'Gujarat' },
+            { id: 12, name: 'Navi Mumbai', image: '/assets/images/States/navimumbai.webp', url: 'navi-mumbai', state: 'Maharashtra' },
+            { id: 13, name: 'Kolkata', image: '/assets/images/States/kolkata.webp', url: 'kolkata', state: 'West Bengal' },
+            { id: 14, name: 'Indore', image: '/assets/images/States/indore.webp', url: 'indore', state: 'Madhya Pradesh' },
             // Add more cities here as needed
         ];
 
@@ -615,5 +616,3 @@
 </body>
 
 </html>
-
-

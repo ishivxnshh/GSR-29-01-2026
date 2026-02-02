@@ -272,7 +272,7 @@
         <div class="container mx-auto max-w-7xl px-4">
             <!-- Back navigation using document.referrer -->
             <div class="mb-8">
-                <button onclick="window.location.href = document.referrer || '/cities'; return false;"
+                <button onclick="window.location.href = '/city/'; return false;"
                     class="inline-flex items-center text-main-blue font-semibold hover:text-[#1a4e9b] transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -486,7 +486,7 @@
         <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
     </a>
     <!-- STEP 1: IMPORT THE SINGLE SOURCE OF TRUTH (properties.js) -->
-    <script src="/assets/js/properties.js"></script>
+    <script src="/assets/js/properties.js?v=5"></script>
     <script>
         // Helper function to generate the status badge HTML with uniform blue styling
         function getStatusBadgeHtml(status) {
@@ -580,7 +580,7 @@
                                         <span>${property.bhk}</span>
                                     </div>
                                 </div>
-                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">?${property.price} onwards</h4>
+                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">${property.price} onwards</h4>
                             </div>
                             <div class="flex justify-between space-x-2">
                                 ${detailsButtonHtml}

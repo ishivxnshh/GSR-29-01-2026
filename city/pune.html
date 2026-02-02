@@ -4,10 +4,10 @@
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MNQVMJ392"></script>
     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-8MNQVMJ392');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8MNQVMJ392');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -272,7 +272,7 @@
         <div class="container mx-auto max-w-7xl px-4">
             <!-- START: Back navigation using document.referrer -->
             <div class="mb-8">
-                <button onclick="window.location.href = document.referrer || '/cities'; return false;"
+                <button onclick="window.location.href = '/city/'; return false;"
                     class="inline-flex items-center text-main-blue font-semibold hover:text-[#1a4e9b] transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -358,7 +358,7 @@
         </div>
     </section>
 
-        <!-- Detailed Footer -->
+    <!-- Detailed Footer -->
     <footer class="bg-main-blue text-white py-12">
         <div class="container mx-auto max-w-7xl px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -482,29 +482,30 @@
     </div>
     <!-- Floating WhatsApp button -->
     <a href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp">
         <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
     </a>
     <!-- STEP 1: IMPORT THE SINGLE SOURCE OF TRUTH (properties.js) -->
-  <script src="/assets/js/properties.js"></script>
-  <script>
-    // Helper function to generate the status badge HTML with uniform blue styling
-    function getStatusBadgeHtml(status) {
-        if (!status) return '';
-        // Using the defined 'main-blue' for consistency across all statuses
-        const bgColor = 'bg-main-blue';
-        const ringColor = 'ring-main-blue';
-        let badgeClass = "absolute top-4 left-4 px-3 py-1 text-xs uppercase font-bold rounded-full shadow-lg text-white ring-2 z-10 tracking-wider";
+    <script src="/assets/js/properties.js?v=5"></script>
+    <script>
+        // Helper function to generate the status badge HTML with uniform blue styling
+        function getStatusBadgeHtml(status) {
+            if (!status) return '';
+            // Using the defined 'main-blue' for consistency across all statuses
+            const bgColor = 'bg-main-blue';
+            const ringColor = 'ring-main-blue';
+            let badgeClass = "absolute top-4 left-4 px-3 py-1 text-xs uppercase font-bold rounded-full shadow-lg text-white ring-2 z-10 tracking-wider";
 
-        return `<span class="${badgeClass} ${bgColor} ${ringColor}">${status}</span>`;
-    }
+            return `<span class="${badgeClass} ${bgColor} ${ringColor}">${status}</span>`;
+        }
 
 
-    // --- OLD DUPLICATED PROPERTIES DATA REMOVED: Data is now loaded via properties.js ---
-    // The global 'properties' variable is now available via properties.js
-    
-    // NOTE: Your remaining page logic (like const TARGET_CITY) starts here.
- 
+        // --- OLD DUPLICATED PROPERTIES DATA REMOVED: Data is now loaded via properties.js ---
+        // The global 'properties' variable is now available via properties.js
+
+        // NOTE: Your remaining page logic (like const TARGET_CITY) starts here.
+
 
         const TARGET_CITY = 'Pune'; // Define the city for this page
 
@@ -580,7 +581,7 @@
                                         <span>${property.bhk}</span>
                                     </div>
                                 </div>
-                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">?${property.price} onwards</h4>
+                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">${property.price} onwards</h4>
                             </div>
                             <div class="flex justify-between space-x-2">
                                 ${detailsButtonHtml}
@@ -771,7 +772,3 @@
 </body>
 
 </html>
-
-
-
-
