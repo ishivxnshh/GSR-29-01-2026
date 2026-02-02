@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -270,29 +270,29 @@
             <!-- Hero Slideshow Container -->
             <div id="hero-carousel" class="absolute inset-0 w-full h-full">
                 <!-- Slide 1 -->
-                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero01.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero01.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/4a5568/a0aec0?text=Godrej+Kharghar+Exterior'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100"
                     alt="Godrej Kharghar Exterior View">
 
                 <!-- Slide 2 -->
-                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero02.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero02.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/2563eb/ffffff?text=Lifestyle+&+Amenities'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
                     alt="Godrej Kharghar Lifestyle">
 
                 <!-- Slide 3 -->
-                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero03.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero03.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/1e293b/ffffff?text=Spacious+Interiors'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
                     alt="Godrej Kharghar Interiors">
 
                 <!-- Slide 4 -->
-                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero04.webp"
-                    width="1920" height="1080" fetchpriority="high"
+                <img src="/assets/images/sub-landing-page/godrej-kharghar/hero04.webp" width="1920" height="1080"
+                    fetchpriority="high"
                     onerror="this.src='https://placehold.co/1920x1080/1e3a8a/ffffff?text=Aerial+View'"
                     class="hero-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0"
                     alt="Godrej Kharghar Aerial View">
@@ -377,7 +377,7 @@
 
         <!-- Dynamic Back Button (Navigates to previous page source) -->
         <button
-            onclick="if(document.referrer && document.referrer.indexOf(window.location.hostname) !== -1) { window.location.href = document.referrer; } else { window.history.length > 1 ? window.history.back() : window.location.href = '/'; }"
+            onclick="if(history.length > 1) { history.back(); } else { window.location.href = '/city/navi-mumbai.html'; }"
             id="back-to-city-link"
             class="hidden md:block fixed top-4 left-4 z-30 bg-white text-gray-800 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors focus:outline-none">
             Back
@@ -1614,8 +1614,7 @@
         href="https://wa.me/917400400373?text=Hello%20Global%20Space,%20I%20would%20like%20to%20know%20more%20about%20Godrej%20Kharghar%20at%20Kharghar,%20Navi%20Mumbai"
         class="whatsapp-float hidden md:inline-flex" target="_blank" rel="noopener noreferrer"
         aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
-        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp"
-            class="whatsapp-icon" />
+        <img src="/assets/images/web-images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
     </a>
 </body>
 

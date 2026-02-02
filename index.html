@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -433,7 +433,7 @@
         }
     </style>
     <!-- STEP 2: IMPORT THE SINGLE SOURCE OF TRUTH (properties.js) -->
-    <script src="/assets/js/properties.js"></script>
+    <script src="/assets/js/properties.js?v=5"></script>
 </head>
 
 <body class="bg-white text-gray-800">
@@ -1659,7 +1659,7 @@
                                         <span>${property.bhk}</span>
                                     </div>
                                 </div>
-                                <h4 class="text-base sm:text-lg md:text-xl font-extrabold text-gray-900 mb-2 sm:mb-3">₹${property.price} onwards</h4>
+                                <h4 class="text-base sm:text-lg md:text-xl font-extrabold text-gray-900 mb-2 sm:mb-3">${property.price} onwards</h4>
                             </div>
                             <div class="flex justify-between space-x-1 sm:space-x-2">
                                 ${detailsButtonHtml}
@@ -1731,7 +1731,7 @@
                                         <span>${property.bhk}</span>
                                     </div>
                                 </div>
-                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">₹${property.price} onwards</h4>
+                                <h4 class="text-xl font-extrabold text-gray-900 mb-3">${property.price} onwards</h4>
                             </div>
                             <div class="flex justify-between space-x-2">
                                 ${detailsButtonHtml}
